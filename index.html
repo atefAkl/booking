@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TRIPVUM</title>
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body dir="rtl">
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" data-bs-toggle="tooltip" title="موقع حجز رحلات الطيران الداخلى" >
+            <img class="d-block" src="./images/icon.png" height="40" alt="">
+            <img class="d-block" src="./images/tripvum.png" height="12" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#home">
+                  <i class="fa fa-home"></i> &nbsp; الرئيسية</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-clipboard-check"></i> &nbsp; الحجز</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-suitcase-rolling"></i> &nbsp; رحلات</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-hotel"></i>  &nbsp;  إقامة</a>
+              </li><li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-plane"></i>  &nbsp;  طيران</a>
+              </li><li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-star-half-alt"></i> &nbsp; تقييمات</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-id-card"></i> &nbsp; اتصل بنا</a>
+              </li>
+            </ul>
+            <!-- Button trigger modal -->
+            <div class="user">
+              <div class="user-buttons">
+                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginFormModal">
+                  الدخول
+                </button>
+                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">
+                  التسجيل
+                </button>
+              </div>
+              <div id="user-menu" class="user-menu hidden">
+                <button class="btn text-light "> &nbsp; <i class="fa fa-user"></i>&nbsp; مرحبا  <span class="username"></span></button>
+                <ul class="hidden">
+                  <li>
+                    <a href="">حساب شخصى</a>
+                  </li>
+                  <li>
+                      <a href="">المفضلة</a>
+                  </li>
+                  <li>
+                    <a href="">رحلات</a>
+                  </li>
+                  <li>
+                    <a href="">حجوزات</a>
+                  </li>
+                  <li>
+                    <a id="logout">خروج</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+     <section class="home" id="home">
+        <div class="content">
+            <h3 id="slide-heading">سفراً سهلا مع TRIPVUM</h3>
+            <p id="slide-caption">
+              <span>استمتع بتجربة سفر سلسة وخالية من المتاعب مع TRIPVUM.</span> 
+              <span>TRIPVUM: رحلتك تبدأ معنا، وسهولة السفر تتحقق. سافر براحة وأمان مع</span>
+              <span> TRIPVUM، خبراء رحلاتك الموثوقين.</span>
+              <span> TRIPVUM: بوابة عبورك إلى مغامرات عالمية لا تُنسى</span>
+            </p>
+            <button class="btn btn-outline-light"><a href="#">المزيد ....</a></button>
+        </div>
+
+
+        <div class="controls">
+            <span class="video-btn active" data-src="./images/video1.mp4"></span>
+            <span class="video-btn" data-src="./images/video2.mp4"></span>
+            <span class="video-btn" data-src="./images/video3.mp4"></span>
+            <span class="video-btn" data-src="./images/video4.mp4"></span>
+        </div>
+        <div class="video-container">
+            <video src="./images/video1.mp4 " id="video-slider" loop autoplay muted></video>
+        </div>
+        <!------------------------------------------------------------------------------------>
+
+        <script type="text/javascript">
+            var slides = document.querySelectorAll('.controls .video-btn');
+            var currentSlide = 0;
+            var timerInterval;
+            const headings = [
+              ' سفراً سهلا مع TRIPVUM',
+              ' عروض tripvum',
+              'دعوة tripvum للتميز',
+              'نخدمك tripvum باحترافية '
+            ]
+            const captions = [
+              '<span>استمتع بتجربة سفر سلسة وخالية من المتاعب مع TRIPVUM.</span> <span>TRIPVUM: رحلتك تبدأ معنا، وسهولة السفر تتحقق. سافر براحة وأمان مع</span><span> TRIPVUM، خبراء رحلاتك الموثوقين.</span><span> TRIPVUM: بوابة عبورك إلى مغامرات عالمية لا تُنسى</span>',
+              '<span>وفر المال واستمتع بعروض TRIPVUM</span><span> المذهلة على تذاكر الطيران والفنادق. عروض TRIPVUM:</span> رحلات الأحلام بأسعار لا تقاوم، لا تفوت الفرصة! اكتشف العالم بأسعار استثنائية مع عروض TRIPVUM </span><span>المميزة. TRIPVUM: وجهتك لرحلات مميزة بأسعار استثنائية، استمتع بتجربة لا مثيل لها</span>',
+              '<span>TRIPVUM: ندعوك لتجربة سفر استثنائية تتسم بالتميز والجودة.</span> <span> مع TRIPVUM، ارتقِ بتوقعاتك للسفر إلى مستوى جديد من التميز</span> <span>. TRIPVUM: التزامنا بالتميز يضمن لك رحلة لا تُنسى.</span> <span> اختر TRIPVUM، واختبر معنى السفر المميز بأعلى معايير الجودة.</span>',
+              '<span>TRIPVUM: فريق من خبراء السفر يقدمون لك خدمة احترافية تضمن لك رحلة مثالية.</span> <span>استمتع بخدمة شخصية مميزة من TRIPVUM، </span> <span>نلبي جميع احتياجاتك بدقة واحترافية.</span> <span> TRIPVUM: راحتك ورضاؤك هما هدفنا، نقدم لك خدمة متميزة تضمن لك تجربة سفر استثنائية.</span>',
+
+            ]
+            function showSlide(index) {
+                slides.forEach(function (slide, i) {
+                    if (i === index) {
+                        document.getElementById('slide-heading').innerHTML = headings[i]
+                        document.getElementById('slide-caption').innerHTML = captions[i]
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                var videoSlider = document.getElementById('video-slider');
+                videoSlider.src = slides[index].getAttribute('data-src');
+            }
+
+            function nextSlide() {
+                currentSlide++;
+                if (currentSlide >= slides.length) {
+                    currentSlide = 0;
+                }
+                showSlide(currentSlide);
+            }
+
+            function resetTimer() {
+                clearInterval(timerInterval);
+                timerInterval = setInterval(nextSlide, 5000);
+            }
+
+            // Add event listeners to each slide control
+            slides.forEach(function (slide, index) {
+                slide.addEventListener('click', function () {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                    resetTimer();
+                });
+            });
+
+            // Initialize the timer
+            timerInterval = setInterval(nextSlide, 5000);
+        </script>
+
+        <!------------------------------------------------------------------------------------>
+    </section>
+
+    <!-- Booking form -->
+
+    <section id="booking-section" class="w-100">
+      <div class="booking px-5 py-3">
+         <nav>
+            <div class="nav nav-tabs" id="nav-tab"  role="tablist" style="border: 0">
+                <button class="nav-link active" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
+                
+                <button class="nav-link" id="nav-testing-tab" data-bs-toggle="tab" data-bs-target="#nav-testing" type="button" role="tab" aria-controls="nav-testing" aria-selected="false">الرحلات</button>
+                <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
+                <button class="nav-link" id="nav-cars-tab" data-bs-toggle="tab" data-bs-target="#nav-cars" type="button" role="tab" aria-controls="nav-cars" aria-selected="false">سيارات</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
+            <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
+              <form class="px-4 py-3" action="./pages/booking.html" method="GET">
+                
+                <div class="input-group">
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الرحلة: ">  
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الحجز من: ">  
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الوجهة: ">  
+                </div>
+                <div class="input-group">
+                  <!-- <label for="go" class="input-group-text">تاريخ الرحلة</label> -->
+                  <input class="form-control" name="go" type="date" id="go" >  
+                  <!-- <label for="from" class="input-group-text">الحجز من:</label> -->
+                  <select class="form-control" name="departure" type="date" id="departure"></select>  
+                  <!-- <label for="destination" class="input-group-text">الوجهة:</label> -->
+                  <select class="form-control" name="destination" type="date" id="destination"></select>
+                    <button type="submit" class="input-group-text">البحث</button>
+                </div>
+              </form>
+            </div>
+            <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
+              trips</div>
+            <div class="tab-pane fade" id="nav-testing" role="tabpanel" aria-labelledby="nav-testing-tab" tabindex="0">
+              testing</div>
+            <div class="tab-pane fade" id="nav-cars" role="tabpanel" aria-labelledby="nav-cars-tab" tabindex="0">
+              cars</div>
+          </div>
+        
+    </section>
+
+
+    <!-- Trips -->
+
+     <section class="trips" id="trip" style="height: 500px">
+        <div class="container mt-5 pt-5 text-center">
+          <div class="section-title">
+
+            <span>الـ</span>          
+            <span>ـر</span>
+            <span>حـ</span>
+            <span>ـلا</span>
+            <span>ت</span>
+          </div>
+        </div>
+
+      <div class="container" id="trip-contents">
+        <!-- Trip contents will be dynamically added here -->
+      </div>
+    </section>
+
+    <!-- Modals -->
+
+    <!-- Login Form -->
+    <div class="modal fade" id="loginFormModal" tabindex="-1" aria-labelledby="loginFormLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+         
+          <div class="modal-header p-1 px-3">
+            <h3 class="modal-title" id="loginFormLabel">تسجيل الدخول</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-2">
+              <label for="email" class="input-group-text">اسم المستخدم: </label>
+              <input class="form-control" type="email" id="email">
+            </div>
+            <div class="input-group mb-2">
+              <label for="password" class="input-group-text">كلمة المرور: </label>
+              <input class="form-control" type="password" id="password">
+            </div>
+                    
+            <div class="input-group mb-2" dir="rtl">
+              <label class="input-group-text" for="">
+                <input type="checkbox" id="btn-check" autocomplete="off">
+              </label>
+            <label class="input-group-text" for="btn-check">تذكرنى</label>
+
+            </div>
+            
+            <div class="input-group row m-auto">
+              <button type="button" class="btn btn-m btn-outline-secondary col-6" data-bs-dismiss="modal">الغاء</button>
+              <button type="button" id="submitLogin" class="btn btn-m btn-outline-primary col-6">تسجيل الدخول</button>
+            </div>
+
+          </div>
+          <div class="modal-footer py-1 px-3">
+            <p>نسيت كلمة المرور؟ <a href="./reset.password.html">احصل على كلمة مرور جديدة</a></p>
+            <p>ليس لديك حساب؟ يمكنك  
+              <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">
+                  التسجيل
+                </button> فى الموقع.
+            </p>
+            <p></p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Register Form -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+         
+          <div class="modal-header p-1 px-3">
+            <h3 class="modal-title" id="registerModalLabel">تسجيل حساب جديد</h3>
+            <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times text-light"></i></button>
+          </div>
+          <div class="modal-body">
+            <div id="register-form">
+                <div class="input-group mb-2">
+                    <label for="username" class="input-group-text">اسم المستخدم:</label>
+                    <input type="text" id="reg_username" placeholder="محمد أحمد" class="form-control">
+                </div>
+                <div class="input-group mb-2">
+                    <label for="email" class="input-group-text">البريد الالكتروني:</label>
+                    <input type="email" id="reg_email" placeholder="abcd@website.ext" class="form-control">
+                </div>
+                <div class="input-group mb-2">
+                    <label for="password" class="input-group-text">كلمة المرور:</label>
+                    <input type="password" id="reg_password" placeholder="كلمة المرور" class="form-control">
+                    <input type="password" id="reg_cPassword" placeholder="تأكيد كلمة المرور" class="form-control">
+                </div>
+                <div class="input-group row m-auto">
+                  <button type="button" class="btn btn-m btn-outline-secondary col-6" data-bs-dismiss="modal">الغاء</button>
+                  <button type="submit" id="submit-register" class="btn btn-m btn-outline-primary col-6"><span class="ss">التسجيل</span></button>
+                </div>
+            </div>
+
+          </div>
+          <div class="modal-footer py-1 px-3">
+            <p>لديك حساب مسجل بالفعل؟ &nbsp; 
+              <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginFormModal">
+                تسجيل الدخول
+              </button></p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+<button type="button" class="btn btn-primary hidden" id="liveToastBtn">Show live toast</button>
+
+    <!-- alerts -->
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
+      <div id="liveToast"  style="z-index: 99999;" class="toast registerError" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <span class="rounded me-2 bg-primary"></span>
+          <strong class="me-auto">موقع TRIPVUM</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+
+        <div class="toast-body">
+          <div id="errMessage">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, obcaecati quos. Consequatur.
+          </div>
+          <!-- <div class="mt-2 pt-2 border-top">
+            <button type="button" class="btn btn-primary btn-sm">Take action</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script
+			  src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/register.js"></script>
+    <script src="./js/data.js"></script>
+
+    <script>
+      airports.forEach ((ap)=>{
+        $('#departure').append(`<option value="${ap.id}">${ap.name}</option>`)
+        $('#destination').append(`<option value="${ap.id}">${ap.name}</option>`)
+
+      })
+    </script>
+
+
+  </body>
+</html>

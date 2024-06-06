@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+:root {
+  --basic-darkblue: rgb(5, 5, 66);
+  --basic-lite-darkblue: rgba(5, 5, 66, 0.4);
+  --light: #fff;
+  --grey: #aaa;
+  --light-grey: #3333;
+  --dark-grey: #333e;
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cairo;
+    direction: rtl;
+    text-align: right;
+}
+
+a, a:visited, a:active, a:link {
+  color: inherit;
+  text-decoration: none;
+}
+body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+header {
+  max-height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  background-color: var(--basic-darkblue);
+}
+  
+header nav ul li a.nav-link {
+  color: var(--light);
+  
+}
+
+#user-menu {
+  position: relative;
+  border: 1px solid var(--light);
+}
+#user-menu ul {
+
+  position: absolute;
+  top: calc(100% + 0.7rem);
+  background-color: var(--light);
+  left: 0;
+  min-width: 140px;
+  list-style-type: none;
+  box-shadow: 0 0 6px 2px var(--light-grey);
+  padding: .375rem 0;
+}
+#user-menu ul:before {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 0.5rem solid transparent;
+  border-bottom: 0.5rem solid var(--light);
+  display: block;
+  left: 0;
+  top: -1rem;
+}
+#user-menu ul li {
+  padding: .25rem .77rem;
+  transition: all .3s ease-in-out
+}
+#user-menu ul li:hover {
+  background-color: var(--basic-lite-darkblue);
+  color: var(--light);
+  padding-right: 1rem;;
+}
+
+/* Bootstrap manipulation */
+
+.toast-header {
+  display: flex;
+}
+.toast-header span {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.17rem;
+}
+.toast-header strong {
+  text-align: right;
+  flex: auto;
+  padding-right: 1rem;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: var(--grey);
+  border: 2px solid transparent;
+
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  color: var(--light);
+  border-bottom: 2px solid
+}
+
+
+.fa-spinner {
+    animation: sp 1s linear  infinite ;
+    display: none;
+    font-size: 20px;
+}
+.modal-header,
+.modal-footer {
+  display: flex;
+  background-color: var(--basic-darkblue);
+}
+.modal-header h3 {
+  flex: auto;
+  color: var(--light);
+  font: bolder 1.3rem/1.5 Cairo;
+
+}
+.modal-header .btn-close {
+  width: 40px;
+  height: 40px;
+  text-align: left;
+}
+.modal-header .btn-close:after {
+  color: var(--light);
+  
+}
+
+.modal-footer {
+  display: block;
+}
+.modal-footer p, 
+.modal-footer p a {
+  color: var(--light);
+}
+
+.input-group input {
+  height: 36px;
+}
+
+.input-group label:only-child,
+.input-group button:only-child,
+.input-group input:only-child,
+.input-group select:only-child,
+.input-group span:only-child {
+  border-radius: 0.5rem;
+}
+
+.input-group label,
+.input-group button,
+.input-group input,
+.input-group select,
+.input-group span {
+  height: 36px;
+  border-radius: 0;
+  color: var(--basic-darkblue);
+  font: bold 0.8rem/26px Cairo;
+}
+.input-group label:first-child,
+.input-group button:first-child,
+.input-group input:first-child,
+.input-group select:first-child,
+.input-group span:first-child {
+  border-top-right-radius: 0.5rem !important; 
+  border-bottom-right-radius: 0.5rem !important; 
+}
+
+.input-group label:last-child,
+.input-group button:last-child,
+.input-group input:last-child,
+.input-group select:last-child,
+.input-group span:last-child {
+  border-top-left-radius: 0.5rem !important; 
+  border-bottom-left-radius: 0.5rem !important; 
+}
+
+/* Slider Styles */
+
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  position: relative;
+  z-index: 0;
+}
+
+.home .content {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+.home .content h3 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--light);
+  text-transform: uppercase;
+  text-shadow: 0 0.3rem 0.5rem var(--light-grey);
+}
+.home .content p {
+  width: 70%;
+  margin: auto;
+  font-size: 1.1rem;
+  color: var(--light);
+  padding: 0.5rem 0;
+}
+.home .content p span {
+  text-align: center;
+  display: block;
+}
+.home .video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.home .controls {
+  padding: 0.375rem 1rem;
+  border-radius: 1rem;
+  background: var(--basic-lite-darkblue);
+  position: absolute;
+  bottom: 3rem;
+}
+
+.home .controls .video-btn {
+  height: 1rem;
+  width: 1rem;
+  display: inline-block;
+  border-radius: 0.5rem;
+  background: var(--dark-grey);
+  cursor: pointer;
+  margin: 0 0.5rem;
+  border: 1px solid var(--light-grey)
+}
+.home .controls .video-btn.active {
+  background: var(--light);
+  border: 1px solid var(--light);
+}
+
+/* booking-section */
+
+#booking-section {
+  position: relative;
+
+}
+
+#booking-section .booking {
+  position: absolute;
+  top: -2rem;
+  width: 80%;
+  left: 10%;
+
+  box-shadow: 0 0 5px 2px var(--basic-lite-darkblue);
+  background-color: var(--basic-darkblue);
+  z-index: 99;
+}
+
+#booking-section .booking nav button {
+  color: var(--grey);
+  padding: 0.5rem 1rem;
+}
+#booking-section .booking nav button.active {
+  color: var(--basic-darkblue);
+}
+#booking-section .booking .tab-content {
+  border: 1px solid var(--light);
+  border-radius:0.25rem;
+  border-top-right-radius: 0;
+}
+
+/* Trips */
+
+.trips .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.trips .container .box {
+  flex: 1 1 30rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.trips .container .box img {
+  height: 25rem;
+  width: 100%;
+  object-fit: cover;
+}
+.trips .container .box .content {
+  padding: 2rem;
+}
+.trips .container .box .content h3 {
+  font-size: 2rem;
+  color: #333;
+}
+.trips .container .box .content h3 i {
+  color: var(--blue);
+}
+.trips .container .box .content p {
+  font-size: 1.7rem;
+  color: #666;
+  padding: 1rem 0;
+}
+.trips .container .box .content .stars i {
+  font-size: 1.7rem;
+  color: var(--blue);
+}
+.trips .container .box .content .price {
+  font-size: 2rem;
+  color: #333;
+  padding-top: 1rem;
+}
+.trips .container .box .content .price span {
+  font-size: 1.5rem;
+  color: #666;
+  text-decoration: line-through;
+}
+
+
+@keyframes sp {
+    0% {
+         rotate : 0deg;
+         /* color: #aaa; */
+    }50% {
+         rotate:180deg;
+         /* color: #eee;/ */
+    }100% {
+        rotate:360deg;
+        /* color: #aaa; */
+    }
+}
+
+/* testing */
+

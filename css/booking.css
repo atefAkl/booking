@@ -1,0 +1,244 @@
+
+input.form-control, select.form-select option {
+    font: Normal 16px/1.2em Cairo !important;
+    color: #000 !important;
+}
+
+.tox.tox-tinymce,
+.tox.tox-tinymce .tox-editor-container {
+    width: 100%;
+    border-radius: 1em;
+    box-shadow: 0 0 2px 0.5px rgba(16, 14, 14, 0.5);
+}
+
+.input-group span.input-group-text,
+.input-group label.input-group-text,
+.input-group button.input-group-text {
+    background-color: var(--bg-dark-blue);
+    color: var(--text-light);
+    border: 1px solid rgba(16, 14, 14, 0.5);
+    cursor: pointer;
+    font-weight: bold;
+}
+.input-group label.input-group-text:only-child,
+.input-group button.input-group-text:only-child,form-controlview-links
+.input-group input.form-control:only-child,
+.input-group select.form-control:only-child {
+    border-radius: 1em !important;
+    border: 1px solid rgba(16, 14, 14, 0.5);
+}
+.input-group label.input-group-text:first-child,
+.input-group input.form-control:first-child,
+.input-group select.form-control:first-child {
+    border-radius: 0;
+    border-top-right-radius: 1em !important;
+    border-bottom-right-radius: 1em !important;
+    border: 1px solid rgba(16, 14, 14, 0.5);
+}
+.input-group span.input-group-text:last-child,
+.input-group label.input-group-text:last-child,
+.input-group button.input-group-text:last-child,
+.input-group input.form-control:last-child,
+.input-group select.form-control:last-child,
+.input-group label.form-control:last-child {
+    border-radius: 0;
+    border-top-left-radius: 1em !important;
+    border-bottom-left-radius: 1em !important;
+    border: 1px solid rgba(16, 14, 14, 0.5);
+}
+.input-group label.input-group-text:not(:last-child):not(:first-child),
+.input-group input.form-control:not(:last-child):not(:first-child),
+.input-group select.form-control:not(:last-child):not(:first-child) {
+    border-radius: 0;
+    border: 1px solid rgba(16, 14, 14, 0.5);
+}
+
+.flights-list .container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.flights-list .container #filters {
+    border: 1px solid #ccc;
+}
+.flights-list .container #filters .filters-header {
+    background-color:  #ccc;
+    padding: 0.3rem 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#search-result fieldset {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 2rem;
+}
+#search-result fieldset:not(:first-child) {
+    
+    margin-top: 2rem;
+}
+#search-result fieldset legend {
+    
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    height: 40px;
+    overflow: hidden;
+    width: auto;
+    display: inline-flex;
+    right: 50px;
+    top: -20px;
+}
+#search-result fieldset legend span.airline {
+    min-width: 150px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    font-size: 0.9rem
+}
+#search-result fieldset legend img {
+    height: 100%;
+}
+#search-result fieldset legend button {
+    height: 100%;
+    line-height: 40px;
+    padding: 0 1rem 
+}
+#search-result fieldset table th {
+    text-align: center;
+}
+#search-result fieldset table th.time {
+    border-bottom: 2px solid #ccc;
+    position: relative;
+}
+#search-result fieldset table th.time:before,
+#search-result fieldset table th.time:after {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 20px solid transparent;
+    border-right: solid 20px #777;
+    background-color: transparent;
+    top: 1px;
+}
+#search-result fieldset table th.time:before {
+    right: 0;
+
+}
+#search-result fieldset table th.time:after {
+    left: -20px
+}
+
+/* flights sections styles */
+
+.result-wrapper {
+  margin: 1rem;
+  box-shadow: 0 0 2px 1px #ccc;
+  min-height: 150px;
+}
+.airline-provider {
+  border-left: 1px solid #ccc
+}
+.airline-provider p {
+  text-align: center;
+}
+.flight-details {
+  position: relative;
+  height: 100%;
+}
+.flight-details .line {
+  height: 2px;
+  right: 3rem;
+  left: 3rem;
+  top: calc(50% - 1px);
+  background-color: #ccc;
+  position: absolute;
+}
+.timing {
+  display: flex;
+  left: 2rem;
+  right: 2rem;
+  position: absolute;
+  top: calc(75px - 0.4rem);
+  justify-content: space-between;
+}
+
+.timing .start,
+.timing .end {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+
+.timing .end:before,
+.timing .end:after,
+.timing .stops:before,
+.timing .stops:after,
+.timing .start:before,
+.timing .start:after {
+  position: absolute;
+  display: block;
+  min-width: 80px;
+  height: 1.5rem;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.timing .start:before{
+  content: attr(data-time);
+  right: -30px;
+  bottom: 1rem;
+}
+.timing .stops {
+  border: 0;
+  min-width: 200px;
+  height: 1rem;
+  display: flex;
+  gap: 1rem
+}
+.timing .stops:before{
+  content: attr(data-period);
+  width: 100%;
+  right: 0;
+  right: 0;
+  bottom: 1.5rem;
+}
+.timing .stops .stop {
+  position: relative;
+  border: 1px solid #345;
+  height: 1rem;
+  min-width: 100px;
+  border-radius: 0.5rem;
+  background-color: #fff
+}
+.timing .stops .stop:after {
+  content:attr(data-stop);
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 1.2rem;
+  text-align: center;
+
+}
+.timing .end:before{
+  content: attr(data-time);
+  left: -30px;
+  bottom: 1rem;
+}
+
+.timing .start:after {
+  content: attr(data-airport);
+  right: -30px;
+  top: 1rem;
+}
+.timing .end:after {
+  content: attr(data-airport);
+  left: -30px;
+  top: 1rem;
+}
