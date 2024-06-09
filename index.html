@@ -171,15 +171,13 @@
     </section>
 
     <!-- Booking form -->
-
     <section id="booking-section" class="w-100">
-      <div class="booking px-5 py-3">
+      <div class="booking  rounded-2 px-5 py-3">
          <nav>
             <div class="nav nav-tabs" id="nav-tab"  role="tablist" style="border: 0">
                 <button class="nav-link active" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
-                
-                <button class="nav-link" id="nav-testing-tab" data-bs-toggle="tab" data-bs-target="#nav-testing" type="button" role="tab" aria-controls="nav-testing" aria-selected="false">الرحلات</button>
                 <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
+                <button class="nav-link" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
                 <button class="nav-link" id="nav-cars-tab" data-bs-toggle="tab" data-bs-target="#nav-cars" type="button" role="tab" aria-controls="nav-cars" aria-selected="false">سيارات</button>
             </div>
         </nav>
@@ -199,14 +197,16 @@
                   <select class="form-control" name="departure" type="date" id="departure"></select>  
                   <!-- <label for="destination" class="input-group-text">الوجهة:</label> -->
                   <select class="form-control" name="destination" type="date" id="destination"></select>
-                    <button type="submit" class="input-group-text">البحث</button>
+                  <button class="input-group-text" type="button" id="swap"><i class="fa-solid fa-right-left"></i></button>  
+                  <button type="submit" class="input-group-text">البحث</button>
                 </div>
               </form>
+
             </div>
+            <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
+              hotels</div>
             <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
               trips</div>
-            <div class="tab-pane fade" id="nav-testing" role="tabpanel" aria-labelledby="nav-testing-tab" tabindex="0">
-              testing</div>
             <div class="tab-pane fade" id="nav-cars" role="tabpanel" aria-labelledby="nav-cars-tab" tabindex="0">
               cars</div>
           </div>
@@ -214,23 +214,21 @@
     </section>
 
 
-    <!-- Trips -->
-
-     <section class="trips" id="trip" style="height: 500px">
-        <div class="container mt-5 pt-5 text-center">
-          <div class="section-title">
-
-            <span>الـ</span>          
-            <span>ـر</span>
-            <span>حـ</span>
-            <span>ـلا</span>
-            <span>ت</span>
+        <!-- Trips -->
+     <section class="trips" id="trip" style="height: auto">
+        <div class="container mt-3 text-center">
+          <div class="section-title text-center">
+            <span class="letter">الـ</span>          
+            <span class="letter">ـر</span>
+            <span class="letter">حـ</span>
+            <span class="letter">ـلا</span>
+            <span class="letter">ت</span>
           </div>
         </div>
 
-      <div class="container" id="trip-contents">
-        <!-- Trip contents will be dynamically added here -->
-      </div>
+        <div class="container">
+          <div id="trips-contents"></div>
+        </div>
     </section>
 
     <!-- Modals -->

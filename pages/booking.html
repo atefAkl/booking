@@ -1,4 +1,4 @@
-hello<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -122,7 +122,7 @@ hello<!doctype html>
                   <select class="form-control" name="departure" type="date" id="departure"></select>  
                   <!-- <label for="destination" class="input-group-text">الوجهة:</label> -->
                   <select class="form-control" name="destination" type="date" id="destination"></select>
-                    <button type="submit" class="input-group-text">البحث</button>
+                    <button type="submit" id="search_flights" class="input-group-text">البحث</button>
                 </div>
               </form>
 
@@ -136,66 +136,17 @@ hello<!doctype html>
           </div>
         
     </section>
-    <!-- Trips -->
 
-     <section class="trips" id="trip" style="height: 500px">
-        <div class="container mt-5 pt-5 text-center">
-          <div class="section-title">
 
-            <span>الـ</span>          
-            <span>ـر</span>
-            <span>حـ</span>
-            <span>ـلا</span>
-            <span>ت</span>
-          </div>
-        </div>
-    </section>
     <section class="flights-list" dir="rtl">
         <div class="container">
-            <div id="search-result" class="w-75">
-                <fieldset class="flight">
-                    <legend>
-                        <img src="/images/airlines/aircairo.png" alt="">
-                        <span class="airline">  طيران القاهرة</span>
-                        <button>حجز </button>
-                    </legend>
-                    <table  class="w-100">
-                        <tr>
-                            <th  class="price" rowspan="2">
-                                Price:
-                            </th>
-                            <th class="from">10:00:00</th>
-                            <th class="time">1 Hours and 10 Mins</th>
-                            <th class="to">11:10:00</th>
-                        </tr>
-                        <tr>
-                            <th class="fron">CAI مطار القاهرة</th>
-                            <th class="stops">Direct</th>
-                            <th class="to">AUE مطار العاصمة </th>
-                        </tr>
-                    </table>
+            <div id="filters" style="min-height: 100vh; background: #fff;" class="w-75">
+                <div class="filters-header">
+                  نتائج البحث
+                  </div>
+                  <div id="search-result" class="px-3">
 
-                </fieldset>
-                <fieldset class="flight">
-                    <legend>
-                        <img src="../images/airlines/aircairo.png" alt="">
-                        <span class="airline">  طيران القاهرة</span>
-                        <button>حجز </button>
-                    </legend>
-                    <table>
-                        <tr>
-                            <td>10:00:00</td>
-                            <td>1 Hours and 10 Mins</td>
-                            <td>CAI مطار القاهرة</td>
-                        </tr>
-                        <tr>
-                            <td>11:10:00</td>
-                            <td>Direct</td>
-                            <td>AUE مطار العاصمة </td>
-                        </tr>
-                    </table>
-
-                </fieldset>
+                  </div>
             </div>
             <div id="filters" style="height: 100vh; background: #fff;" class="w-25">
                 <div class="filters-header">
@@ -319,6 +270,32 @@ hello<!doctype html>
         </div>
       </div>
     </div>
+
+
+
+    <div class="result-info-section" id="info-section">
+      <div class="container">
+        <div class="card mt-5 w-75 m-auto">
+          <div class="card-header">
+            <h5>معلومات الرحلة</h5>
+            
+            <span id="close-result-info" class="close" data-bs-dismiss="#info-section"><i class="fa fa-times"></i></span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            
+          </div>
+          <div class="card-footer">
+            <div class="input-group" dir="rtl">
+              <label class="input-group-text"><a href="">اكمال الحجز</a></label>
+              <label class="input-group-text"><a href="#">الذهاب الى موقع مزود الخدمة</a></label>
+              <label class="input-group-text"><a href="#">البحث عن رحلة أخرى</a></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -335,22 +312,11 @@ hello<!doctype html>
 
       })
 
-      $(document).ready(function () {
-        //renderFlights('#flightsSearchResult')
-      })
-
-      const result = () => {
-        return 
-        `<div class="row result-item">
-            <div class="">
-          </div>`;
-      }
 
       const departure = airports.find((ap)=>ap.id == urlParams.get('departure'))
       const destination = airports.find((ap)=>ap.id == urlParams.get('destination'))
       const departure_date = urlParams.get('go')
       const found_fights = []
-      console.log(airlines)
 
       airlines.forEach((al, i)=>{
         found_fights.push({
@@ -360,49 +326,111 @@ hello<!doctype html>
           departure_date: departure_date
         })
       })
-      console.log(flights)
-      const rendered_results = airlines.map ((al, i)=>{
-        i++
-        const flight = flights[i]
-        const stops = ''
-        flight.stops.forEach((stop)=>{stops.concat('<span class="stop" data-stop="'+stop+'"></span>')})
+const indexes = []
+      for (let i = 0; i<100; i++){
+        let index = Math.floor(Math.random()*100)
+        indexes.push(index)
+      }
+      const now = new Date()
+      
+      function getDayName(date){
+        return date.getDay()
+      }
+
+      // فلترة البيانات
+      //flights.sort((a, b) => a.price - b.price);
+
+
+      // توليد قيم عشوائية لعدد مواقع البحث التى تم جلب البيانات منها
+      
+
+      // توليد محطات التوقف للرحلات غير المباشرة
+      const steps = (stops) =>{
+        let rs = ''
+        if (stops.length > 0) {
+        stops.forEach(stop=>{
+          rs += `<span class="stop" data-stop="${stop}"></span>`
+        })
+      } else {
+        rs=`<span class="direct">رحلة مباشرة</span>`
+      }
+        return rs;
+      }
+
+      // ترتيب المصفوفة بشكل عشوائى
+      function shuffleArray(array) {
+        // Create a copy of the array to avoid modifying the original
+        const shuffledArray = [...array];
+        // Use the Fisher-Yates shuffle algorithm
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1)); // Random index between 0 and i (inclusive)
+          [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Swap elements
+        }
+        return shuffledArray;
+      }
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      ////////////////////////////////////////
+
+
+      const rendered_results = (flights) => {
+        const res = flights.map ((flight, i)=>{
+          const index = randomNumber(0, airlines.length)
+          const alp = airlines[index]
+        const weekDay = new Date(departure_date)
+        const grade =   'ECO'
+        const flightPrice = pricing[getDayName(weekDay)][grade]*alp.ratio
+        
+        const stops = flight.stops.map((stop)=>{ return '<span class="stop" data-stop="'+stop+'"></span>'})
+        
         return `
-        <div class="result">
-          <div class="row result-wrapper">
-            <div class="col col-3 ">
-              <div class="airline-provider p-3 ">
-                <p class="text-center">
-                  <img class="d-block m-auto" src="${al.logo}" alt="" height="65" /></p>
-                <p class="provider-name">${al.name}</p>
-              </div>
-            </div>
-            <div class="col col-6 ">
-              <div class="flight-details p-3 ">
-                <div class="line"></div>
-                <div class="timing">
-                  <span class="start" data-time="${flight['departureTime']}" data-airport="${departure.IATA}" title="${departure.name}"></span>
-                  <span class="stops text-center" data-period="🕓 ${flight.duration[0]} س، ${flight.duration[1]} د">
-                    ${stops}
-                  </span>
-                  <span class="end" data-time="${flight['arrivalTime']}" data-airport="${destination.IATA}" title="${destination.name}"></span>
+          <div class="result">
+            <a class="result-info">
+              <div class="row result-wrapper">
+                <div class="col col-3" style="border-left: 1px solid #ccc">
+                  <div class="airline-provider p-3 ">
+                    <p class="text-center">
+                      <img class="d-block m-auto" src="${alp.logo}" alt="" height="50" /></p>
+                    <p class="provider-name">${alp.name}</p>
+                  </div>
+                </div>
+                <div class="col col-6 ">
+                  <div class="flight-details p-3 ">
+                    <div class="line"></div>
+                    <div class="timing">
+                      <span class="start" data-time="${flight['departureTime']}" data-airport="${departure.IATA}" title="${departure.name}"></span>
+                      <span class="stops text-center" data-period="🕓 ${flight.duration[0]} س، ${flight.duration[1]} د">
+                        ${steps(flight.stops)}
+                      </span>
+                      <span class="end" data-time="${flight['arrivalTime']}" data-airport="${destination.IATA}" title="${destination.name}"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pricing col col-3 p-0">
+                  <div class="flight-pricing text-center p-0">
+                    <button class="btn">ننصح بها</button>
+                    <p class=" results-from-websites my-0 py-0 text-center"><small>النتائج من ${randomNumber(1, 10)} مواقع</small></p>
+                    <p class="price text-center">
+                      <span class="amount fw-bold py-0 my-0 fs-3">
+                        ${flightPrice.toFixed(2)}
+                      </span>
+                      ج م
+                    </p>
+                    <p class="price-info py-0 my-0 text-center">للفرد شاملة الضريبة</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col col-3 border">
-              <div class="flight-pricing text-center">
-                <p><button class="btn btn-outline-success btn-sm my-0">ننصح بها</button></p>
-                <p class="my-0 py-0"><small>النتائج من 10 مواقع</small></p>
-                <p class="price text-center"><span class="amount fw-bold py-0 my-0 fs-3">4300</span> ج م</p>
-                <p class="provider-name py-0 my-0">للفرد شاملة الضريبة</p>
-              </div>
-            </div>
+            </a>
           </div>
-        </div>
         `
       })
-      $('#search-result').html(rendered_results)
+      return res;
+    }
 
-      console.log(found_fights)
+    const flights = generateFlights(randomNumber(10, 15));
+    console.log(flights)
+      $('#search-result').html(rendered_results(flights))
+
 
       function htmlEl(name, text, attr) {
         let el = document.createElement(name)
@@ -418,7 +446,10 @@ hello<!doctype html>
 
       }
 
-
+      $('.result-info').on('click', function () {
+        $('body').addClass('freeze');
+        $('.result-info-section').addClass('show')
+      })
     </script>
 
 

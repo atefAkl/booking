@@ -293,16 +293,28 @@ const airlines = [
 ];
 const pricing = [
     {
-      id: 1,
+      id: 6,
       ECO: 1250,
       BC: 2200,
       FC: 3700
     },
     {
-      id: 2,
+      id: 0,
       ECO: 1200,
       BC: 2100,
       FC: 3400
+    },
+    {
+      id: 1,
+      ECO: 1150,
+      BC: 2000,
+      FC: 3300
+    },
+    {
+      id: 2,
+      ECO: 1000,
+      BC: 1900,
+      FC: 3000
     },
     {
       id: 3,
@@ -312,32 +324,25 @@ const pricing = [
     },
     {
       id: 4,
-      ECO: 1000,
-      BC: 1900,
-      FC: 3000
-    },
-    {
-      id: 5,
-      ECO: 1150,
-      BC: 2000,
-      FC: 3300
-    },
-    {
-      id: 6,
       ECO: 1200,
       BC: 2100,
       FC: 3700
     },
     {
-      id: 7,
+      id: 5,
       ECO: 1250,
       BC: 2250,
       FC: 3750
     },
 ]
 
-const flights = [
-  {},
+const direct_flights = [
+  {id: 0,
+    departureTime: "00:10:00",
+    arrivalTime: "01:21:00",
+    duration: [1,11],
+    stops: [],
+  },
   {
     id: 1,
     departureTime: "00:10:00",
@@ -418,3 +423,87 @@ function addElem(elem, text, attrs) {
   element.innerHTML = text;
   return element;
 }
+
+function randomNumber(start, period){
+  return start + Math.floor(Math.random() * period)
+}
+
+const generateFlights = (numberOfFlights) => {
+  const flights = [];
+
+  for (let i = 0; i < numberOfFlights; i++) {
+    // Generate departure time
+    const departureHours = Math.floor(Math.random() * 24);
+    const departureMinutes = Math.floor(Math.random() * 60);
+    const departureTimeString = `${String(departureHours).padStart(2, '0')}:${String(departureMinutes).padStart(2, '0')}:00`;
+
+    const margin = Math.floor(Math.random()*10)
+    // Calculate arrival time with 1 hour and 15 minutes difference
+    const arrivalHours = departureHours + 1;
+    const arrivalMinutes = departureMinutes + 5 + margin;
+    const arrivalTimeString = `${String(arrivalHours).padStart(2, '0')}:${String(arrivalMinutes).padStart(2, '0')}:00`;
+
+    // Generate random duration
+    const duration = [1, 5+margin];
+
+    flights.push({
+      departureTime: departureTimeString,
+      arrivalTime: arrivalTimeString,
+      duration,
+      stops: []
+    });
+  }
+
+  return flights;
+};
+
+// Generate 10 flights
+
+// const flights = generateFlights(randomNumber(10, 15));
+// console.log(flights);
+
+// const minDepartureTime = "00:00:00"; // Minimum departure time
+// const maxDepartureTime = "23:50:00"; // Maximum departure time
+// const numObjects = 10; // Number of objects to generate
+
+// function parseTime(timeString) {
+//   const [hours, minutes, seconds] = timeString.split(':');
+//   if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
+//     throw new Error('Invalid time format'); // Handle invalid time format
+//   }
+//   return hours * 3600 + minutes * 60 + seconds;
+// }
+
+// function formatTime(timestamp) {
+//   const hours = Math.floor(timestamp / 3600);
+//   const minutes = Math.floor((timestamp % 3600) / 60);
+//   const seconds = Math.floor(timestamp % 60);
+//   return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+// }
+
+// const flights = [];
+
+// for (let i = 0; i < numObjects; i++) {
+//   // Generate random departure time
+//   const randomTimeOffset = Math.random() * (parseTime(maxDepartureTime) - parseTime(minDepartureTime));
+//   const departureTime = addTime(parseTime(minDepartureTime), randomTimeOffset);
+//   const departureTimeString = formatTime(departureTime);
+
+//   // Calculate arrival time
+//   const arrivalTime = addTime(departureTime, 45 * 60); // 1 hour and 15 minutes in seconds
+//   const arrivalTimeString = formatTime(arrivalTime);
+
+//   // Generate random duration
+//   const randomHours = Math.floor(Math.random() * 2) + 1;
+//   const randomMinutes = Math.floor(Math.random() * 60);
+//   const duration = [randomHours, randomMinutes];
+
+//   // Create the object and add it to the array
+//   flights.push({
+//     departureTime: departureTimeString,
+//     arrivalTime: arrivalTimeString,
+//     duration: duration,
+//   });
+// }
+
+// console.log(flights); // Display the generated array of objects

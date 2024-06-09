@@ -53,6 +53,16 @@ input.form-control, select.form-select option {
     border: 1px solid rgba(16, 14, 14, 0.5);
 }
 
+
+
+/* Trips Section Styles */
+
+section.trips {
+  margin-top: 16px;
+}
+
+/* Flights List Styles */
+
 .flights-list .container {
     display: flex;
     gap: 1rem;
@@ -132,15 +142,22 @@ input.form-control, select.form-select option {
 }
 
 /* flights sections styles */
+.result {
+  border-radius: 0.4rem;
+  margin: 1.5rem auto;
+  
+  border: transparent 1px solid;
+  box-shadow: 0 0 4px 2px #eee;
+}
+.result:hover {
+  border: #777 1px solid;
+  box-shadow: 0 0 5px 3px #ccc;
 
+}
 .result-wrapper {
-  margin: 1rem;
-  box-shadow: 0 0 2px 1px #ccc;
   min-height: 150px;
 }
-.airline-provider {
-  border-left: 1px solid #ccc
-}
+
 .airline-provider p {
   text-align: center;
 }
@@ -241,4 +258,72 @@ input.form-control, select.form-select option {
   content: attr(data-airport);
   left: -30px;
   top: 1rem;
+}
+
+.result .stops span.stop {
+  color: rgb(98, 130, 233)
+}
+
+.result .pricing {
+  border-right: 1px solid #ccc;
+}
+.result .pricing  .flight-pricing .recommended {
+  
+  margin-top: 0.25rem;
+  text-align: center;
+  display: block;
+  border: 1px solid
+}
+
+p.recommended button {
+    padding: 0;
+    display: block;
+    margin: auto;
+}
+
+.result .direct {
+  padding-top: 1rem;
+  width: 100%;
+  text-align: center;
+  color: green
+}
+
+.result p.price-info {
+  padding: 0;
+  margin: 0;
+}
+
+/*result-info-section*/
+.result-info-section {
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  background-color: #0008;
+  z-index: 999999999;
+}
+.result-info-section.show {
+  display: block;
+}
+.result-info-section .card {
+  margin-top: 50px;
+}
+.result-info-section .card .card-header {
+  display: flex;
+  padding: 0;
+}
+.result-info-section .card .card-header h5 {
+  flex: auto;
+  padding: 0.375rem 1rem;
+}
+.result-info-section .card .card-header span.close {
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: larger;
+  line-height: 40px;
+
+
 }

@@ -1,7 +1,7 @@
 const users = JSON.parse(localStorage.getItem('users')) || []
 
 $(window).on('load', function () {
-    console.log(localStorage.getItem('reg_user'))
+    // console.log(localStorage.getItem('reg_user'))
     if (localStorage.getItem('reg_user')==1) {
         $('.user-buttons').addClass('hidden')
         $('#user-menu').removeClass('hidden')
@@ -12,6 +12,11 @@ $(window).on('load', function () {
 // toggle user menu
 $('#user-menu').on('click', function () {
     $('#user-menu ul').toggleClass('hidden')
+})
+
+$('#close-result-info').on('click', ()=>{
+  $($('#close-result-info').attr('data-bs-dismiss')).removeClass('show')
+  $('body').removeClass('freeze')
 })
 
 $('#logout').click(function (e) {
@@ -35,3 +40,22 @@ if (toastTrigger) {
     toastBootstrap.show()
   })
 }
+
+$(document).ready(function() {
+  const $childContent = $('.booking');
+  const $parentSection = $childContent.closest('#booking-section');
+  
+  // تغيير الرتفاع للأب مع تغير ارتفاع الابن
+  $childContent.on('DOMSubtreeModified', function() {
+    adjustParentHeight();
+  });
+  
+  // الحفاظ على ارتفاع ديناميكى للقسم مع تغير المحتوى بداخله
+  function adjustParentHeight() {
+    const childHeight = $childContent.height();
+    $parentSection.css('height', childHeight + 50 + 'px');
+  }
+  
+  // تعيين الارتفاع عن تحميل الصفحة
+  adjustParentHeight();
+});
