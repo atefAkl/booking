@@ -181,7 +181,6 @@ body.freeze {
 .input-group select:first-child,
 .input-group span:first-child {
   border-left: 0;
-  border-color: red;
   border-top-right-radius: 0.5rem !important; 
   border-bottom-right-radius: 0.5rem !important; 
 }
@@ -298,59 +297,209 @@ body.freeze {
 
 /* Trips */
 
-.trips .container .section-title {
+section .container .section-title {
   display: flex;
+  padding: 50px 0;
   flex-wrap: wrap;
   gap: 0.6rem;
   justify-content: center;
 }
-.trips .container span.letter {
+section .container span.letter {
   background-color: var(--light);
   color: var(--basic-darkblue);
   padding: 0.5rem 1rem;
   font: bolder 40px/1 Cairo;
   box-shadow: 0 0 8px 1px var(--light-grey) inset, 0 0 5px 3px #ccc;
 }
-.trips .container .box {
+section .container .box {
   flex: 1 1 30rem;
   border-radius: 0.5rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
-.trips .container .box img {
+section .container .box img {
   height: 25rem;
   width: 100%;
   object-fit: cover;
 }
-.trips .container .box .content {
+section .container .box .content {
   padding: 2rem;
 }
-.trips .container .box .content h3 {
+section .container .box .content h3 {
   font-size: 2rem;
   color: #333;
 }
-.trips .container .box .content h3 i {
+section .container .box .content h3 i {
   color: var(--blue);
 }
-.trips .container .box .content p {
+section .container .box .content p {
   font-size: 1.7rem;
   color: #666;
   padding: 1rem 0;
 }
-.trips .container .box .content .stars i {
+section .container .box .content .stars i {
   font-size: 1.7rem;
   color: var(--blue);
 }
-.trips .container .box .content .price {
+section .container .box .content .price {
   font-size: 2rem;
   color: #333;
   padding-top: 1rem;
 }
-.trips .container .box .content .price span {
+section .container .box .content .price span {
   font-size: 1.5rem;
   color: #666;
   text-decoration: line-through;
 }
+
+/* Reviews Styles */
+.swiper-slide {
+  padding: 1rem;
+  height: 300px;
+  background: var(--light);
+}
+.swiper-slide {
+  animation-play-state: paused;
+ 
+}
+.swiper-slide:hover .box {
+  box-shadow: 0 0 8px 3px #777;
+}
+.review .box {
+  margin: 0;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 1 2rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+.review .box img {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+.review .box h3 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 0;
+  font: bolder 1.2rem/50px Cairo;
+}
+.review .box p {
+  color: #666;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  min-height: 80px;
+  margin-bottom: 0;
+}
+.review .box .stars i {
+  color: orangered;
+}
+/* Reviews Styles */
+/* swiper-wrapper Styles */
+.swiper-wrapper {
+  display: flex;
+
+}
+/* swiper-wrapper Styles */
+.contact .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+.contact .row .image {
+  flex: 1 1 35rem;
+}
+.contact .row image img {
+  width: 100%;
+}
+.contact .row form {
+  flex: 1 1 50rem;
+  padding: 2rem;
+  box-shadow: 0 1 2rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+.contact .row form .inputbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact .row form .inputbox input,
+.contact .row form textarea {
+  width: 49%;
+  margin: 1rem 0;
+  padding: 1rem;
+  font-size: 1.7rem;
+  color: var(--dark-grey);
+  background: var(--light);
+}
+.contact .row form textarea {
+  height: 15rem;
+  width: 100%;
+}
+.footer {
+  background: var(--basic-darkblue);
+}
+.footer .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.footer .box-container .box {
+  padding: 1rem 0;
+  flex: 1 1 25rem;
+}
+.footer .box-container .box h3 {
+  font-size: 2.5rem;
+  padding: 0.7rem 0;
+  color: #fff;
+}
+
+.footer .box-container .box p {
+  font-size: 1.5rem;
+  padding: 0.7rem 0;
+  color: #eee;
+}
+.footer .box-container .box a {
+  font-size: 1.5rem;
+  padding: 0.7rem 0;
+  color: #eee;
+  display: block;
+}
+.footer .box-container .box a:hover {
+  color: #00f7ff;
+}
+.footer .created {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #fff;
+}
+.footer .created span {
+  color: var(--blue);
+}
+
+
+.slider-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.box {
+  flex: 0 0 auto;
+  width: 300px; /* Adjust as needed */
+  margin-right: 20px; /* Add some space between cards */
+}
+
+/**************************/
+
+
 
 
 @keyframes sp {
