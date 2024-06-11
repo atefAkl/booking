@@ -186,7 +186,8 @@
         </nav>
         <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
             <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
-              <form class="px-4 py-3" action="./pages/booking.html" method="GET">
+              
+              <form class="px-4 py-3" action="/pages/booking.html" method="GET">
                 
                 <div class="input-group">
                   <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الرحلة: ">  
@@ -199,12 +200,27 @@
                   <!-- <label for="from" class="input-group-text">الحجز من:</label> -->
                   <select class="form-control" name="departure" type="date" id="departure"></select>  
                   <!-- <label for="destination" class="input-group-text">الوجهة:</label> -->
-                  <select class="form-control" name="destination" type="date" id="destination"></select>
                   <button class="input-group-text" type="button" id="swap"><i class="fa-solid fa-right-left"></i></button>  
-                  <button type="submit" class="input-group-text">البحث</button>
+                  
+                  <select class="form-control" name="destination" type="date" id="destination"></select>
+                  </div>
+                <div class="input-group mt-2">
+                  <label for="grade" class="input-group-text">الدرجة:</label>
+                  
+                  <select name="grade" id="grade" class="form-control">
+                    <option value="ECO">الدرجة الاقتصادية</option>
+                    <option value="BC">درجة الاعمال</option>
+                    <option value="FC">الدرجة الأولى</option>
+                  </select>
+                  <label for="adult" class="input-group-text">البالغين:</label>
+                  <input type="number" name="adult" id="adult" class="form-control" min="1" step="1" value="1">
+                  <label for="child" class="input-group-text">الأطفال:</label>
+                  <input type="number" name="child" id="child" class="form-control" min="0" step="1" value="0">
+                  <label for="enfants" class="input-group-text">الرضع:</label>
+                  <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1" value="0">
+                  <button type="submit" id="search_flights" class="input-group-text">البحث</button>
                 </div>
               </form>
-
             </div>
             <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
               hotels</div>
