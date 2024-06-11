@@ -392,11 +392,7 @@
     <script>
       const urlParams = new URLSearchParams(window.location.search);
       $('#go').val(urlParams.get('go'))
-      $('#swap').on('click',() => {
-        localStorage.setItem('dep', $('#departure').val())
-        $('#departure').val($('#destination').val())
-        $('#destination').val(localStorage.getItem('dep'))
-      })
+
       $('#grade').val(urlParams.get('grade'))
       airports.forEach ((ap)=>{
         $('#departure').append(`<option ${urlParams.get('departure') == ap.id ? 'selected' : ''} value="${ap.id}">${ap.name}</option>`)

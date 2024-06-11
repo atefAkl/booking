@@ -7,6 +7,15 @@ $(window).on('load', function () {
         $('#user-menu').removeClass('hidden')
         $('#user-menu > button span.username').html(localStorage.getItem('username'))
     }
+
+   
+})
+
+ 
+$('#swap').on('click',() => {
+  localStorage.setItem('dep', $('#departure').val())
+  $('#departure').val($('#destination').val())
+  $('#destination').val(localStorage.getItem('dep'))
 })
 
 // toggle user menu
