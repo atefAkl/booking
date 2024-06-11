@@ -6,11 +6,12 @@ $(window).on('load', function () {
         $('.user-buttons').addClass('hidden')
         $('#user-menu').removeClass('hidden')
         $('#user-menu > button span.username').html(localStorage.getItem('username'))
-    }
-
-   
+    } 
 })
 
+tripCities.forEach((city)=>{
+  $('#city').append(`<option value="${city.id}">${city.arabicName}</option>`)
+})
  
 $('#swap').on('click',() => {
   localStorage.setItem('dep', $('#departure').val())
@@ -33,6 +34,9 @@ $('#logout').click(function (e) {
   localStorage.setItem('reg_user', 0)
   window.location.href='/'
 })
+
+
+
 
 //Tooltip
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')

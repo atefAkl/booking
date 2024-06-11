@@ -99,14 +99,14 @@
       <div class="booking  rounded-2 px-5 py-3">
          <nav>
             <div class="nav nav-tabs" id="nav-tab"  role="tablist" style="border: 0">
-                <button class="nav-link active" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
+                <button class="nav-link" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
                 
                 <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
-                <button class="nav-link" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
+                <button class="nav-link active" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
-            <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
+            <div class="tab-pane fade" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
              
               <form class="px-4 py-3" action="/pages/booking.html" method="GET">
                 
@@ -145,17 +145,14 @@
 
             </div>
             <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
-              
-              
+            <!-- Trips -->
             </div>
-            <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
+            <div class="tab-pane fade show active" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
             
               <form class="px-4 py-3" action="/pages/hotels.html" method="GET">
-                
                 <div class="input-group">
                   <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الوصول: ">  
                   <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="المدينة: ">  
-                    
                 </div>
                 <div class="input-group">
                   <input class="form-control" name="arrive" type="date" id="arrive" >  
@@ -164,9 +161,7 @@
                 </div>
               </form>
               
-
             </div>
-            
           </div>
         
     </section>
@@ -365,10 +360,7 @@
           <div id="errMessage">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, obcaecati quos. Consequatur.
           </div>
-          <!-- <div class="mt-2 pt-2 border-top">
-            <button type="button" class="btn btn-primary btn-sm">Take action</button>
-            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
-          </div> -->
+
         </div>
       </div>
     </div>
@@ -432,13 +424,11 @@
           departure_date: departure_date
         })
       })
-
-      const indexes = []
+const indexes = []
       for (let i = 0; i<100; i++){
         let index = Math.floor(Math.random()*100)
         indexes.push(index)
       }
-
       const now = new Date()
       
       function getDayName(date){
@@ -539,7 +529,7 @@
     }
 
     const flights = generateFlights(randomNumber(10, 15));
-
+    console.log(flights)
       $('#search-result').html(rendered_results(flights))
 
 
