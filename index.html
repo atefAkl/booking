@@ -179,9 +179,8 @@
          <nav>
             <div class="nav nav-tabs" id="nav-tab"  role="tablist" style="border: 0">
                 <button class="nav-link active" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
-                <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
                 <button class="nav-link" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
-                <button class="nav-link" id="nav-cars-tab" data-bs-toggle="tab" data-bs-target="#nav-cars" type="button" role="tab" aria-controls="nav-cars" aria-selected="false">سيارات</button>
+                <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
@@ -223,7 +222,21 @@
               </form>
             </div>
             <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
-              hotels</div>
+            
+              <form class="px-4 py-3" action="/pages/hotels.html" method="GET">
+                <div class="input-group">
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الوصول: ">  
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="المدينة: ">  
+                    
+                </div>
+                <div class="input-group">
+                  <input class="form-control" name="arrive" type="date" id="arrive" >  
+                  <select class="form-control" name="city" id="city"></select>
+                  <button class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
+                </div>
+              </form>
+
+            </div>
             <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
               trips</div>
             <div class="tab-pane fade" id="nav-cars" role="tabpanel" aria-labelledby="nav-cars-tab" tabindex="0">
@@ -523,7 +536,7 @@
             
           </div>
         </div>
-        <h4 class="text-center text-light pb-5">تم بواسطة <span>TRIPVUM فريق</span> كل الحقوق محفوظة</h4>
+        <h4 class="text-center text-light pb-5">تم بواسطة <span> فريق TRIPVUM </span> كل الحقوق محفوظة</h4>
     </section>
 
     <!-- Modals -->
