@@ -447,6 +447,8 @@ const generateFlights = (numberOfFlights) => {
     const duration = [1, 5+margin];
 
     flights.push({
+      margin: margin,
+      carrier: airlines.find((r)=>{return r.id == margin+1}),
       departureTime: departureTimeString,
       arrivalTime: arrivalTimeString,
       duration,
@@ -456,54 +458,3 @@ const generateFlights = (numberOfFlights) => {
 
   return flights;
 };
-
-// Generate 10 flights
-
-// const flights = generateFlights(randomNumber(10, 15));
-// console.log(flights);
-
-// const minDepartureTime = "00:00:00"; // Minimum departure time
-// const maxDepartureTime = "23:50:00"; // Maximum departure time
-// const numObjects = 10; // Number of objects to generate
-
-// function parseTime(timeString) {
-//   const [hours, minutes, seconds] = timeString.split(':');
-//   if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
-//     throw new Error('Invalid time format'); // Handle invalid time format
-//   }
-//   return hours * 3600 + minutes * 60 + seconds;
-// }
-
-// function formatTime(timestamp) {
-//   const hours = Math.floor(timestamp / 3600);
-//   const minutes = Math.floor((timestamp % 3600) / 60);
-//   const seconds = Math.floor(timestamp % 60);
-//   return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-// }
-
-// const flights = [];
-
-// for (let i = 0; i < numObjects; i++) {
-//   // Generate random departure time
-//   const randomTimeOffset = Math.random() * (parseTime(maxDepartureTime) - parseTime(minDepartureTime));
-//   const departureTime = addTime(parseTime(minDepartureTime), randomTimeOffset);
-//   const departureTimeString = formatTime(departureTime);
-
-//   // Calculate arrival time
-//   const arrivalTime = addTime(departureTime, 45 * 60); // 1 hour and 15 minutes in seconds
-//   const arrivalTimeString = formatTime(arrivalTime);
-
-//   // Generate random duration
-//   const randomHours = Math.floor(Math.random() * 2) + 1;
-//   const randomMinutes = Math.floor(Math.random() * 60);
-//   const duration = [randomHours, randomMinutes];
-
-//   // Create the object and add it to the array
-//   flights.push({
-//     departureTime: departureTimeString,
-//     arrivalTime: arrivalTimeString,
-//     duration: duration,
-//   });
-// }
-
-// console.log(flights); // Display the generated array of objects

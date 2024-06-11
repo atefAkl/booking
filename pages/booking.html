@@ -108,7 +108,7 @@
         </nav>
         <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
             <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
-              <form class="px-4 py-3" action="./pages/booking.html" method="GET">
+              <form class="px-4 py-3" action="/pages/booking.html" method="GET">
                 
                 <div class="input-group">
                   <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الرحلة: ">  
@@ -121,8 +121,25 @@
                   <!-- <label for="from" class="input-group-text">الحجز من:</label> -->
                   <select class="form-control" name="departure" type="date" id="departure"></select>  
                   <!-- <label for="destination" class="input-group-text">الوجهة:</label> -->
+                  <button class="input-group-text" type="button" id="swap"><i class="fa-solid fa-right-left"></i></button>  
+                  
                   <select class="form-control" name="destination" type="date" id="destination"></select>
-                    <button type="submit" id="search_flights" class="input-group-text">البحث</button>
+                  </div>
+                <div class="input-group mt-2">
+                  <label for="grade" class="input-group-text">الدرجة:</label>
+                  
+                  <select name="grade" id="grade" class="form-control">
+                    <option value="ECO">الدرجة الاقتصادية</option>
+                    <option value="BC">درجة الاعمال</option>
+                    <option value="FC">الدرجة الأولى</option>
+                  </select>
+                  <label for="adult" class="input-group-text">البالغين:</label>
+                  <input type="number" name="adult" id="adult" class="form-control" min="1" step="1" value="1">
+                  <label for="child" class="input-group-text">الأطفال:</label>
+                  <input type="number" name="child" id="child" class="form-control" min="0" step="1" value="0">
+                  <label for="enfants" class="input-group-text">الرضع:</label>
+                  <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1" value="0">
+                  <button type="submit" id="search_flights" class="input-group-text">البحث</button>
                 </div>
               </form>
 
@@ -308,6 +325,12 @@
     <script>
       const urlParams = new URLSearchParams(window.location.search);
       $('#go').val(urlParams.get('go'))
+      $('#swap').on('click',() => {
+        localStorage.setItem('dep', $('#departure').val())
+        $('#departure').val($('#destination').val())
+        $('#destination').val(localStorage.getItem('dep'))
+      })
+      $('#grade').val(urlParams.get('grade'))
       airports.forEach ((ap)=>{
         $('#departure').append(`<option ${urlParams.get('departure') == ap.id ? 'selected' : ''} value="${ap.id}">${ap.name}</option>`)
         $('#destination').append(`<option ${urlParams.get('destination') == ap.id ? 'selected' : ''} value="${ap.id}">${ap.name}</option>`)
@@ -380,20 +403,22 @@ const indexes = []
           const index = randomNumber(0, airlines.length)
           const alp = airlines[index]
         const weekDay = new Date(departure_date)
-        const grade =   'ECO'
+        const grade = $('#grade').val();
+        console.log(grade)
         const flightPrice = pricing[getDayName(weekDay)][grade]*alp.ratio
         
         const stops = flight.stops.map((stop)=>{ return '<span class="stop" data-stop="'+stop+'"></span>'})
         
         return `
+        
           <div class="result">
             <a class="result-info">
               <div class="row result-wrapper">
                 <div class="col col-3" style="border-left: 1px solid #ccc">
                   <div class="airline-provider p-3 ">
                     <p class="text-center">
-                      <img class="d-block m-auto" src="${alp.logo}" alt="" height="50" /></p>
-                    <p class="provider-name">${alp.name}</p>
+                      <img class="d-block m-auto" src="${flight.carrier['logo']}" alt="" height="50" /></p>
+                    <p class="provider-name">${flight.carrier['name']}</p>
                   </div>
                 </div>
                 <div class="col col-6 ">
