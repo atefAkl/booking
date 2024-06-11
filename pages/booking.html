@@ -169,6 +169,72 @@
                 <div class="filters-header">
                     فلترة النتائج
                 </div>
+                <div class="filter-contents">
+
+                  <div class="filters-section p-3" >
+                    <div class="card">
+                      <div class="card-header">
+                        <h6>الترانزيت</h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-check" dir="rtl">
+                          <label class="form-check-label" for="direct">رحلات مباشرة</label>
+                          <input class="form-check-input" type="radio" role="switch" name="transit" id="direct" checked>
+                        </div>
+                        <div class="form-check" dir="rtl">
+                          <label class="form-check-label" for="single-transit">1 ترانزيت</label>
+                          <input class="form-check-input" type="radio" role="switch" name="transit" id="single-transit" >
+                        </div>
+                        <div class="form-check" dir="rtl">
+                          <label class="form-check-label" for="multiple-transit">2+ ترانزيت</label>
+                          <input class="form-check-input" type="radio" role="switch" name="transit" id="multiple-transit" >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="filters-section p-3" >
+                    <div class="card">
+                      <div class="card-header">
+                        <h6>وسائل الدفع</h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-check form-switch" dir="rtl">
+                          <label class="form-check-label" for="cash">الدفع النقدى</label>
+                          <input class="form-check-input" type="checkbox" role="switch" id="cash" checked>
+                        </div>
+                        <div class="form-check form-switch" dir="rtl">
+                          <label class="form-check-label" for="visa">فيزا كارد</label>
+                          <input class="form-check-input" type="checkbox" role="switch" id="visa" checked>
+                        </div>
+                        <div class="form-check form-switch" dir="rtl">
+                          <label class="form-check-label" for="transfer">تحويل بنكى</label>
+                          <input class="form-check-input" type="checkbox" role="switch" id="transfer" checked>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="filters-section p-3" >
+                    <div class="card">
+                      <div class="card-header">
+                        <h6>خيارات الدفع</h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-check" dir="rtl">
+                          <label class="form-check-label" for="direct"> عبر TRIPVUM</label>
+                          <input class="form-check-input" type="radio" role="switch" name="transit" id="direct" checked>
+                        </div>
+                        <div class="form-check" dir="rtl">
+                          <label class="form-check-label" for="single-transit">عبر شركة الطيران</label>
+                          <input class="form-check-input" type="radio" role="switch" name="transit" id="single-transit" >
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
             </div>
         </div>
 
@@ -405,7 +471,7 @@ const indexes = []
         const weekDay = new Date(departure_date)
         const grade = $('#grade').val();
         console.log(grade)
-        const flightPrice = pricing[getDayName(weekDay)][grade]*alp.ratio
+        const flightPrice = pricing[getDayName(weekDay)][grade]*flight.carrier.ratio
         
         const stops = flight.stops.map((stop)=>{ return '<span class="stop" data-stop="'+stop+'"></span>'})
         
@@ -439,6 +505,7 @@ const indexes = []
                     <p class=" results-from-websites my-0 py-0 text-center"><small>النتائج من ${randomNumber(1, 10)} مواقع</small></p>
                     <p class="price text-center">
                       <span class="amount fw-bold py-0 my-0 fs-3">
+                       
                         ${flightPrice.toFixed(2)}
                       </span>
                       ج م
