@@ -1,0 +1,65 @@
+/*
+--- Basic Styling
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f4f4f4;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+--- Checkout Panel
+*/
+fieldset {
+  position: relative;
+  border: 1px solid #777;
+  margin: 1rem auto 1rem;
+  padding: 2rem 1rem 1rem;
+}
+fieldset legend {
+  position: absolute;
+  padding: 0.1rem 1.5rem;
+  background-color: #fff;
+  border: 1px solid #777;
+  top: -1.1rem;
+  font: 600 0.9rem Cairo;
+  display: inline-block;
+  right: 2rem;
+  width: auto;;
+}
+fieldset button {
+  border: 1px solid #cdd;
+  box-shadow: 0 0 5px 1px #ddd;
+  margin: 0.3rem;
+
+}
+fieldset button:hover {
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px 2px #bbb;
+}
+
+#method-card-form {
+  height: 0px;
+  overflow: hidden;
+}
+#method-card-form.show {
+  height: auto;
+}
+.blue-border {
+  border-color: var(--basic-darkblue)
+}
+table tr td,
+table tr th {
+  padding: 0.2rem 1rem
+}
+table tr input[type=number] {
+  padding: 0.2rem 1rem;
+}
+
