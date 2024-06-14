@@ -176,78 +176,76 @@
     <!-- Booking form -->
     <section id="booking-section" class="w-100">
       <div class="booking  rounded-2 px-5 py-3">
-         <nav>
-            <div class="nav nav-tabs" id="nav-tab"  role="tablist" style="border: 0">
-                <button class="nav-link active" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
-                <button class="nav-link" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
-                <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
-            </div>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab"  role="tablist" style="border: 0">
+              <button class="nav-link active" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
+              <button class="nav-link" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
+              <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
+          </div>
         </nav>
         <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
-            <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
-              
-              <form class="px-4 py-3" action="/pages/booking.html" method="GET">
-                
-                <div class="input-group">
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الرحلة: ">  
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الحجز من: ">  
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الوجهة: ">  
-                </div>
-                <div class="input-group">
-                  <!-- <label for="go" class="input-group-text">تاريخ الرحلة</label> -->
-                  <input class="form-control" name="go" type="date" id="go" >  
-                  <!-- <label for="from" class="input-group-text">الحجز من:</label> -->
-                  <select class="form-control" name="departure" type="date" id="departure"></select>  
-                  <!-- <label for="destination" class="input-group-text">الوجهة:</label> -->
-                  <button class="input-group-text" type="button" id="swap"><i class="fa-solid fa-right-left"></i></button>  
-                  
-                  <select class="form-control" name="destination" type="date" id="destination"></select>
-                  </div>
-                <div class="input-group mt-2">
-                  <label for="grade" class="input-group-text">الدرجة:</label>
-                  
-                  <select name="grade" id="grade" class="form-control">
-                    <option value="ECO">الدرجة الاقتصادية</option>
-                    <option value="BC">درجة الاعمال</option>
-                    <option value="FC">الدرجة الأولى</option>
-                  </select>
-                  <label for="adult" class="input-group-text">البالغين:</label>
-                  <input type="number" name="adult" id="adult" class="form-control" min="1" step="1" value="1">
-                  <label for="child" class="input-group-text">الأطفال:</label>
-                  <input type="number" name="child" id="child" class="form-control" min="0" step="1" value="0">
-                  <label for="enfants" class="input-group-text">الرضع:</label>
-                  <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1" value="0">
-                  <button type="submit" id="search_flights" class="input-group-text">البحث</button>
-                </div>
-              </form>
-            </div>
-            <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
+        <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
+          
+          <form class="px-4 py-3" action="/pages/booking.html" method="GET">
             
-              <form class="px-4 py-3" action="/pages/hotels.html" method="GET">
-                <div class="input-group">
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الوصول: ">  
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="المدينة: ">  
-                    
-                </div>
-                <div class="input-group">
-                  <input class="form-control" name="arrive" type="date" id="arrive" >  
-                  <select class="form-control" name="city" id="city"></select>
-                  <button class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
-                </div>
-              </form>
-
+            <div class="input-group">
+              <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الرحلة: ">  
+              <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الحجز من: ">  
+              <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الوجهة: ">  
             </div>
-            <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
-              trips</div>
-            <div class="tab-pane fade" id="nav-cars" role="tabpanel" aria-labelledby="nav-cars-tab" tabindex="0">
-              cars</div>
-          </div>
+            <div class="input-group">
+              <!-- <label for="go" class="input-group-text">تاريخ الرحلة</label> -->
+              <input class="form-control" name="go" type="date" id="go" >  
+              <!-- <label for="from" class="input-group-text">الحجز من:</label> -->
+              <select class="form-control" name="departure" type="date" id="departure"></select>  
+              <!-- <label for="destination" class="input-group-text">الوجهة:</label> -->
+              <button class="input-group-text" type="button" id="swap"><i class="fa-solid fa-right-left"></i></button>  
+              
+              <select class="form-control" name="destination" type="date" id="destination"></select>
+              </div>
+            <div class="input-group mt-2">
+              <label for="grade" class="input-group-text">الدرجة:</label>
+              
+              <select name="grade" id="grade" class="form-control">
+                <option value="ECO">الدرجة الاقتصادية</option>
+                <option value="BC">درجة الاعمال</option>
+                <option value="FC">الدرجة الأولى</option>
+              </select>
+              <label for="adult" class="input-group-text">البالغين:</label>
+              <input type="number" name="adult" id="adult" class="form-control" min="1" step="1" value="1">
+              <label for="child" class="input-group-text">الأطفال:</label>
+              <input type="number" name="child" id="child" class="form-control" min="0" step="1" value="0">
+              <label for="enfants" class="input-group-text">الرضع:</label>
+              <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1" value="0">
+              <button type="submit" id="search_flights" class="input-group-text">البحث</button>
+            </div>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
         
+          <form class="px-4 py-3" action="/pages/hotels.html" method="GET">
+            <div class="input-group">
+              <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الوصول: ">  
+              <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="المدينة: ">  
+                
+            </div>
+            <div class="input-group">
+              <input class="form-control" name="arrive" type="date" id="arrive" >  
+              <select class="form-control" name="city" id="city"></select>
+              <button class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
+            </div>
+          </form>
+
+        </div>
+        <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
+          trips</div>
+        <div class="tab-pane fade" id="nav-cars" role="tabpanel" aria-labelledby="nav-cars-tab" tabindex="0">
+          cars
+        </div>
+      </div>
     </section>
-
-
-        <!-- Trips -->
-     <section class="packages" id="trip" style="height: auto">
+    <!-- Trips -->
+    <section class="packages" id="trip" style="height: auto; background-color: #6a9ea5;">
         <div class="container mt-3 text-center">
           <div class="section-title text-center">
             <span class="letter">الـ</span>          
@@ -258,7 +256,7 @@
           </div>
         </div>
 
-        <div class="container" id="trip-contents">
+        <div class="container pb-5 mb-4" id="trip-contents">
             <div class="box">
                 <img src="/images/hurhada.jpeg" alt="">
                 <div class="content">
@@ -373,10 +371,35 @@
             </div>
         </div>
     </section>
+    <!---End Of Trips------>
 
-        <!----------------------------------------------------------------------------------------->
-    <!----------------------------------------------------------------------------------------->
+<!-- Hotels -->
+    <section class="packages mb-4 pb-5" id="hotel">
+      <div class="container mt-3 text-center">
+          <div class="section-title text-center">
+            <span class="letter">الـ</span>          
+            <span class="letter">ـفـ</span>
+            <span class="letter">ـنا</span>
+            <span class="letter">د</span>
+            <span class="letter">ق</span>
+          </div>
+        </div>
 
+      <div class="container" id="hotel-contents">
+          <!-- Hotel cards will be dynamically generated here -->
+        <div class="box">
+          <img src="/images/hotels/etab.luxur.cover.jpg" alt="">
+          <div class="content">
+            <h3>aswan</h3>
+            <p>بــــــــــ 500 جنية بس احجز نايل كروز بالاقصر واسوان شاملة الاقامة والوجبات بوفية مفتوح والمزارات والارشاد السياحي  وادفع الباقي لما توصل المركب .</p>
+            <a href="" class="btn">See more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- Hotels -->
+
+    <!---Reviews------>
     <section class="review pb-5" id="review" style="background-color: #6a9ea5;">
 
         <div class="container pb-5">
@@ -463,68 +486,64 @@
               <div class="swiper-button-next"></div>
           </div>
     </section>
+    <!---End Of Reviews------>
 
-    <!----------------------------------------------------------------------------------------------------->
-    <!----------------------------------------------------------------------------------------------------->
-
+    <!---Contact------>
     <section class="contact" id="contact">
-
-        <div class="container mt-3 text-center">
-          <div class="section-title text-center">
-            <span class="letter">اتـ</span>          
-            <span class="letter">ـصـ</span>
-            <span class="letter">ـل</span>
-            <span class="letter">بـ</span>
-            <span class="letter">ـنا</span>
-          </div>
+      <div class="container mt-3 text-center">
+        <div class="section-title text-center">
+          <span class="letter">اتـ</span>          
+          <span class="letter">ـصـ</span>
+          <span class="letter">ـل</span>
+          <span class="letter">بـ</span>
+          <span class="letter">ـنا</span>
         </div>
-        <div class="container">
-          <div class="row gap-0">
-            
-            <div class="col col-6">
-                <img src="./images/contact-img.svg" alt="" width="100%">
-            </div>
-
-            <div class="col col-6">
-              <form class="" action="" name="contact_form">
-                <div class="input-group">
-                  <label class="input-group-text" for="name">الاسم</label>  
-                  <input type="text" class="form-control" id="name">
-                </div>
-                <div class="input-group mt-2">
-                  <label class="input-group-text" for="email">البريد</label>  
-                  <input type="email" class="form-control" id="email">
-                </div>
-                <div class="input-group mt-2">
-                  <label class="input-group-text" for="number">رقم الهاتف</label>  
-                  <input type="number" class="form-control" id="number">
-                </div>
-                <div class="input-group mt-2">
-                  <label class="input-group-text" for="subject">الموضوع</label>  
-                  <input type="text" class="form-control" id="subject">
-                </div>
-                <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                  <label for="floatingTextarea">الرسالة</label>
-                </div>
-                <div class="input-group">
-                  <input type="submit" class="form-control bg-primary text-center text-light" value="الإرسال">
-                </div>
-              </form>
-            </div>
-
+      </div>
+      <div class="container">
+        <div class="row gap-0">
+          
+          <div class="col col-6">
+              <img src="./images/contact-img.svg" alt="" width="100%">
           </div>
+
+          <div class="col col-6">
+            <form class="" action="" name="contact_form">
+              <div class="input-group">
+                <label class="input-group-text" for="name">الاسم</label>  
+                <input type="text" class="form-control" id="name">
+              </div>
+              <div class="input-group mt-2">
+                <label class="input-group-text" for="email">البريد</label>  
+                <input type="email" class="form-control" id="email">
+              </div>
+              <div class="input-group mt-2">
+                <label class="input-group-text" for="number">رقم الهاتف</label>  
+                <input type="number" class="form-control" id="number">
+              </div>
+              <div class="input-group mt-2">
+                <label class="input-group-text" for="subject">الموضوع</label>  
+                <input type="text" class="form-control" id="subject">
+              </div>
+              <div class="form-floating">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">الرسالة</label>
+              </div>
+              <div class="input-group">
+                <input type="submit" class="form-control bg-primary text-center text-light" value="الإرسال">
+              </div>
+            </form>
+          </div>
+
         </div>
-        
+      </div>
     </section>
+    <!---End of Contact------>
 
     <section>
         <div id="users-list"></div>
     </section>
 
-    <!------------------------------------------------------------------------------------------->
-    <!------------------------------------------------------------------------------------------->
-
+    <!---Footer------>
     <section class="footer pt-5">
         <div class="container">
           <div class="row">
@@ -573,9 +592,9 @@
         </div>
         <h4 class="text-center text-light pb-5">تم بواسطة <span> فريق TRIPVUM </span> كل الحقوق محفوظة</h4>
     </section>
+    <!---End of Footer------>
 
     <!-- Modals -->
-
     <!-- Login Form -->
     <div class="modal fade" id="loginFormModal" tabindex="-1" aria-labelledby="loginFormLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -692,10 +711,10 @@
 			  src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
-    <script src="./js/hotels.js"></script>
-    <script src="./js/main.js"></script>
-    <script src="./js/register.js"></script>
-    <script src="./js/data.js"></script>
+    <script src="/js/hotels.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/register.js"></script>
+    <script src="/js/data.js"></script>
 
     <script>
       airports.forEach ((ap)=>{
@@ -722,9 +741,29 @@
           },
         },
       });
-
-
+    
+      let hotels = [...Hotels]
+      // Hotels to be rendered in homepage
+      const hpHotels = [1,6, 7, 10,13, 15, 17, 19, 22, 21, 26, 28, 30, 36, 38]
       
+      const generatedHotelsContent = hotels.map((hotel)=> {
+        if (hpHotels.indexOf(hotel.id)>-1){
+          let box = 
+          `<div class="box">
+            
+            <img src="${hotel.cover}" alt="">
+            <div class="content">
+              <h3>${hotel.name}</h3>
+              <p>${hotel.desc}</p>
+              <a href="/pages/hotel.html?id=${hotel.id}" class="btn">See more</a>
+            </div>
+          </div>`
+          return box
+        }
+      });
+
+      console.log(generatedHotelsContent)
+      $('#hotel-contents').html(generatedHotelsContent)
     </script>
 
 

@@ -180,6 +180,11 @@ const Hotels = [
         max: 120,
         meals: "افطار وعشاء",
         remain: 22,
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
       },
       {
         name: "غرفة مزدوجة",
@@ -187,6 +192,11 @@ const Hotels = [
         max: 180,
         meals: "افطار وغداء",
         remain: 9,
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
       },
       {
         name: "جناح متعدد الغرف",
@@ -194,6 +204,11 @@ const Hotels = [
         max: 500,
         meals: "افطار وغداء",
         remain: 2,
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
       },
     ],
     offers: [],
@@ -229,7 +244,7 @@ const Hotels = [
     city: "الاقصر",
     name: "فندق ايتاب الاقصر",
     desc: "افضل عروض نقدمها لكم خلال رحلتنا لفندق ايتاب الاقصر, فندق ايتاب الاقصر افضل فنادق الاقصر فئه ال 4نجوم, استمتعوا معنا باقامه مميزه في فندق ايتاب الاقصر",
-    cover: "/images/hotels/etab.luxur.cover.jpg",
+    cover: "/images/hotels/109503768.jpg",
     image: "/images/hotels/etab.luxur.image.jpg", //Logo
     advantages: [
       "يعد فندق ايتاب الاقصر من افضل فنادق الاقصرفهو يقع في وسط مدينه الاقصر ويبعد 6.7كم عن مطار الاقصر الدولي",
@@ -274,6 +289,11 @@ const Hotels = [
         max: 130,
         meals: "افطار وعشاء",
         remain: 10,
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
       },
       {
         name: "غرفة مزدوجة",
@@ -380,6 +400,11 @@ const Hotels = [
         min: 60,
         max: 130,
         meals: "افطار وعشاء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 19,
       },
       {
@@ -394,6 +419,11 @@ const Hotels = [
         min: 250,
         max: 600,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 10,
       },
       {
@@ -605,6 +635,11 @@ const Hotels = [
         max: 130,
         meals: "افطار وعشاء",
         remain: 19,
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
       },
       {
         name: "غرفة قياسية ثلاثية 3 أسرة فردية",
@@ -612,6 +647,11 @@ const Hotels = [
         max: 195,
         meals: "افطار وغداء",
         remain: 50,
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
       },
       {
         name: "غرفة ديلوكس مُطلة على النيل",
@@ -626,6 +666,11 @@ const Hotels = [
         max: 600,
         meals: "افطار وغداء",
         remain: 10,
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
       },
     ],
     offers: [],
@@ -723,6 +768,11 @@ const Hotels = [
         min: 90,
         max: 195,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 50,
       },
       {
@@ -829,6 +879,11 @@ const Hotels = [
         min: 60,
         max: 130,
         meals: "افطار وعشاء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 19,
       },
       {
@@ -836,6 +891,11 @@ const Hotels = [
         min: 90,
         max: 195,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 50,
       },
       {
@@ -843,6 +903,11 @@ const Hotels = [
         min: 250,
         max: 600,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 10,
       },
       {
@@ -1265,6 +1330,11 @@ const Hotels = [
         min: 60,
         max: 130,
         meals: "افطار وعشاء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 19,
       },
       {
@@ -1279,6 +1349,11 @@ const Hotels = [
         min: 250,
         max: 600,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 10,
       },
       {
@@ -1286,6 +1361,11 @@ const Hotels = [
         min: 250,
         max: 600,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 10,
       },
     ],
@@ -1327,7 +1407,7 @@ const Hotels = [
     city: "مرسى علم",
     name: "فندق مارينا لودج مرسي علم",
     desc: "احجز معنا الان بعيد الفطر بفندق مارينا لودج, اقضي معنا اجازتك بعيد الفطر بفندق مارينا لودج بورت غالب, استمتع معنا بفندق مارينا لودج مرسي علم",
-    cover: "/images/hotels/Marina-Lodge-At-Port-Ghalib-Mars.JPEG",
+    cover: "/images/hotels/Pod-hotelimages-pyramisa-sahl-hasheesh-281881-1.jpg",
     image: "/images/hotels/Marina-Lodge-At-Port-Ghalib-Marsa-Alam-Room.JPEG", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -1434,7 +1514,7 @@ const Hotels = [
     id: 13,
     stars: 4,
     city: "الغردقة",
-    name: "لونج بيتش ريزورت",
+    name: "فندق لونج بيتش ريزورت - الغردقة",
     desc: "يطل المنتجع مع شاطئه الخاص على البحر الأحمر الرائع، ويوفر حوض سباحة على غرار بحيرة ومركز للياقة البدنية. تضم الغرف المشرقة، والواسعة شرفة خاصة.",
     cover: "/images/hotels/longbeachrezortcover.jpg",
     image: "/images/hotels/longbeachrezort.jpg", //Logo
@@ -1654,9 +1734,8 @@ const Hotels = [
     city: "الغردقة",
     name: "صن رايز جاردن - الغردقة",
     desc: "يقع هذا الفندق الشامل كلياً من فئة 5 نجوم على ساحل البحر الأحمر بمدينة الغردقة، ويوفر استخدام شاطئ خاص ومركز غوص دولي",
-    cover: "/images/hotels/Marina Lodge.jpeg",
-    image:
-      "/images/hotels/Interior-Design-Ace-Hotel-Kyoto-Kengo-Kuma-Associates-Commune-Design-idx210201_kk01.jpg", //Logo
+    cover: "/images/hotels/448098217.jpg",
+    image: "/images/hotels/Interior-Design-Ace-Hotel-Kyoto-Kengo-Kuma-Associates-Commune-Design-idx210201_kk01.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
       "جميع غرف الفندق مكيفة وتضم تلفاز بقنوات فضائية وميني بار. وتضم حمام خاص مزود بحوض استحمام. وتضم بعض الغرف تلفاز بشاشة مسطحة وتطل على الحديقة.",
@@ -1764,7 +1843,7 @@ const Hotels = [
     city: "الغردقة",
     name: "صن رايز كريستال باي - الغردقة",
     desc: "يقع سينتيدو كريستال باي ريزورت طرف بحيرة مع شاطئ رملي خاص . -ويشتمل الفندق علي حمامات سباحة في الهواء الطلق وملاعب التنس",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/220249789.jpg",
     image: "/images/hotels/1503534991747.jpeg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -1873,7 +1952,7 @@ const Hotels = [
     city: "الغردقة",
     name: "فندق جرافيتى & أكوا بارك - الغردقة",
     desc: "يضم منطقة شاطئ خاص و4 مسابح خارجية ومركز رياضي، ويضم الفندق ذو مستوى 5 نجوم حديقة وغرف مكيفة. كما يشمل مكان الإقامة للضيوف صراف آلي",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/gravity-cover.jpg",
     image: "/images/hotels/hotel room with beachfront view.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -1982,7 +2061,7 @@ const Hotels = [
     city: "الغردقة",
     name: "فندق سنتيدو مملوك بالاس ريزورت - الغردقة",
     desc: "منتجع سينتيدو مملوك بالاس هو أحد منتجعات الغردقة 5 نجوم، التى تقدم مجموعة مُميزة من الغُرف الأنيقة والجذابة التى صممت بأحدث الأمكانيات وتم تزويدها بأحدث الخدمات والتسهيلات لتُلبى احتياجات الضيوف وتضم الغُرف تليفزيون مع قنوات فضائية، مكيف هواء، ",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/59923363.jpg",
     image: "/images/hotels/hotel-room-design-231216-1155-12-800x600.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -2029,22 +2108,31 @@ const Hotels = [
         min: 60,
         max: 130,
         meals: "افطار وعشاء",
-        remain: 19,
-      },
+        remain: 19,offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },      },
       {
         name: "غرفة قياسية ثلاثية 3 أسرة فردية",
         min: 90,
         max: 195,
         meals: "افطار وغداء",
-        remain: 50,
-      },
+        remain: 50,offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },      },
       {
         name: "غرفة ديلوكس مُطلة على النيل",
         min: 250,
         max: 600,
         meals: "افطار وغداء",
-        remain: 10,
-      },
+        remain: 10,offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },      },
       {
         name: "جناح جونيور - مطل على النيل",
         min: 250,
@@ -2091,7 +2179,7 @@ const Hotels = [
     city: "الغردقة",
     name: "فندق صن رايز هوليدايز ريزورت (للبالغين فقط ) - الغردقة",
     desc: "يقع فندق صن رايز هوليدايز ريزورت على بعد 15 كم من وسط مدينة الغردقة. -يوفر منطقة شاطئ خاص وحمام سباحة في الهواء الطلق يطل على البحر.",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/49152079.jpg",
     image: "/images/hotels/200501_MoHo_1145-1.webp", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -2200,7 +2288,7 @@ const Hotels = [
     city: "الغردقة",
     name: "فندق ذا ديزرت روز ريزورت - الغردقة",
     desc: "يصنف هذا الفندق من فئه ال5 نجوم ويوفر المنتجع مجموعة من الخيارات للاستجمام وتناول الطعام والتسوق والترفيه وكذلك الأعمال التجارية",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/568378160.jpg",
     image:
       "/images/hotels/hard-rock-hotel-nyc-live-view-ball-drop-times-square-420x300.webp", //Logo
     advantages: [
@@ -2310,7 +2398,7 @@ const Hotels = [
     city: "الغردقة",
     name: "فندق جولدن بيتش ريزورت - الغردقة",
     desc: "يتمتع الفندق بشاطئ رملي خاص بطول البحر الأحمر .تقع القرية على بعد 15 كم شمال الغردقة ويضم حمام السباحة المصمم على شكل بحيرة نهراً",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/348756353.jpg",
     image: "/images/hotels/631b54df678c63a870d3ccbc51f033a2.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -2419,7 +2507,7 @@ const Hotels = [
     city: "القاهرة",
     name: "فندق توليب النرجس - القاهرة",
     desc: "يوفر فندق تولب النرجس خدمة الواي فاي المجانية ومركز سبا، ويضم أماكن إقامة في القاهرة، ويضم الفندق مسبح خارجي وملعب للأطفال، ويمكن",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/568378059.jpg",
     image: "/images/hotels/main-entrance-alicia.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -2528,7 +2616,7 @@ const Hotels = [
     city: "القاهرة",
     name: "فندق لامار إزور - القاهرة",
     desc: "يوفر فندق لامار إزور خدمة الواي فاي المجانية ومركز سبا، ويضم أماكن إقامة في القاهرة، ويضم الفندق مسبح خارجي وملعب للأطفال، ويمكن",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/City-Stay-Dubai.jpg",
     image: "/images/hotels/RR_Atlantis_the_Royal_Dubai_6.webp", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -2637,7 +2725,7 @@ const Hotels = [
     city: "الاسكندرية",
     name: "فندق صن رايز أليكس أفينيو ريزورت (ميديترينيان أزور سابقا) ",
     desc: "يقع فندق ميديترينيان أزور? في موقع فريد علي البحر المتوسط في مدينة الاسكندرية. -علي بعد 10 كم من مطار الإسكندرية و3 كم من وسط مدينة.",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/the-makadi-palace-hotel.jpg",
     image: "/images/hotels/iStock-1171823729-2.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -2746,7 +2834,7 @@ const Hotels = [
     city: "الاسكندرية",
     name: "فندق جويل سان ستيفانو - الاسكندرية ",
     desc: "تتميز جميع الوحدات بأنها مكيّفة، وتحتوي على تلفزيون بشاشة مسطحة مع قنوات فضائية وغلاية ومجفف للشعر وخزانة ملابس. يتم تقديم وجبة",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/the-makadi-palace-hotel.jpg",
     image: "/images/hotels/istockphoto-1163498940-612x612.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -2855,7 +2943,7 @@ const Hotels = [
     city: "الاسكندرية",
     name: "فندق إيفو ريزورت - الاسكندرية ",
     desc: "تتميز جميع الوحدات بأنها مكيّفة، وتحتوي على تلفزيون بشاشة مسطحة مع قنوات فضائية وغلاية ومجفف للشعر وخزانة ملابس. يتم تقديم وجبة",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/718076783-Novotel-Marsa-Alam-Pool.jpg",
     image:
       "/images/hotels/b562d2403c25e7d7ecfd89378ad91ff6-maldron-hotel-parnell-square.webp", //Logo
     advantages: [
@@ -2965,7 +3053,7 @@ const Hotels = [
     city: "أسوان",
     name: "فندق توليب أسوان هوتيل - أسوان ",
     desc: "يحتل هلنان أسوان موقعا ممتازا مع مناظر خلابة لنهر النيل، ويعتبر المكان المثالي لقضاء عطلات رومانسية، أوقضاء شهر العسل، أو أولئك",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/3355-36-l.jpg",
     image: "/images/hotels/487976928.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -3074,7 +3162,7 @@ const Hotels = [
     city: "أسوان",
     name: "فندق موفنبيك أسوان هوتيل - أسوان ",
     desc: "يقع منتجع موفنبيك أسوان على جزيرة الفنتين في قلب نهر النيل. -ويوفر خدمات عديدة التي تشمل علي حمام سباحة وملعب تنس ونادي رياضي. -الغرف",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/Baron-Palace-Sahl-Hasheesh-990x490.jpg",
     image:
       "/images/hotels/d4743a21a414fd8c09c039b0d26a32ac775eb84825d991f7172b52ecb78c.avif", //Logo
     advantages: [
@@ -3184,7 +3272,7 @@ const Hotels = [
     city: "أسوان",
     name: "فندق سيتى ماكس أكوابارك - أسوان ",
     desc: "يقع منتجع موفنبيك أسوان على جزيرة الفنتين في قلب نهر النيل. -ويوفر خدمات عديدة التي تشمل علي حمام سباحة وملعب تنس ونادي رياضي. -الغرف",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/EGHR0016_34.webp",
     image: "/images/hotels/256843152.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -3293,7 +3381,7 @@ const Hotels = [
     city: "أسوان",
     name: "فندق سيتى ماكس الكورنيش - أسوان ",
     desc: "يقع منتجع موفنبيك أسوان على جزيرة الفنتين في قلب نهر النيل. -ويوفر خدمات عديدة التي تشمل علي حمام سباحة وملعب تنس ونادي رياضي. -الغرف",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/Img13182024_14352518.jpg",
     image: "/images/hotels/452963973.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -3402,7 +3490,7 @@ const Hotels = [
     city: "أسوان",
     name: "فندق بيراميزا ايزيس ايلاند - أسوان ",
     desc: "قع المنتجع بيراميزا ايزيس ايلاند على مقربة من ضريح أغاخان والمتحف النوبي وجزيرة النباتات. -و العديد من المعالم السياحية القريبة",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/355281570.jpg",
     image:
       "/images/hotels/146242708-inside-marina-square-singapore-raffles-avenue-entrance-marina-mandarin-oriental-hotel-in-background.jpg", //Logo
     advantages: [
@@ -3512,7 +3600,7 @@ const Hotels = [
     city: "شرم الشيخ",
     name: "فندق شرم هوليداى ريزورت - شرم الشيخ",
     desc: "يصنف هذا الفندق من فئه ال4 نجوم و يحتوي هذا الفندق علي شاطئين احداهما في خليج نعمه والاخر في الهضبة ويوفر الفندق باص للانتقال",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/d2037d6b_z.avif",
     image: "/images/hotels/11._Ambassador_City_Jomtien_Tower.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -3619,9 +3707,9 @@ const Hotels = [
     id: 33,
     stars: 5,
     city: "شرم الشيخ",
-    name: "فندق فندق صن رايز سيليكت دايموند بيتش ريزورت - شرم الشيخ",
+    name: "فندق صن رايز سيليكت دايموند بيتش ريزورت - شرم الشيخ",
     desc: "يحتوي هذا المنتجع الذي يتميز بموقعه الفريد على هضبة أم السيد علي حمامات سباحة.كما يضم مدرسة غوص وشاطئ خاص كما يتميز هذا المنتجع.",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/ccf7c579726775df36acc1ebd568fd66.jpg",
     image:
       "/images/hotels/marina-bay-sands-luxury-hotel-and-the-artscience-museum-in-marina-CW3HN6.jpg", //Logo
     advantages: [
@@ -3729,9 +3817,9 @@ const Hotels = [
     id: 34,
     stars: 5,
     city: "شرم الشيخ",
-    name: "فندق فندق شارمليون سى لايف ريزورت - شرم الشيخ",
+    name: "فندق شارمليون سى لايف ريزورت - شرم الشيخ",
     desc: "يصنف هذا الفندق من فئه ال5 نجوم وله موقع فريد وشاطئ خاص يمتد على مسافة 700 متر وبه رصيف خاص يعبر فوق منطقة الشعاب المرجانية بطول.",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/Zalagh-Kasbah-Hotel-via-medina-cover-r2s.webp",
     image: "/images/hotels/hotel-room-design-231216-1155-12-800x600.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -3840,7 +3928,7 @@ const Hotels = [
     city: "شرم الشيخ",
     name: "فندق باى نعمة - شرم الشيخ",
     desc: "يصنف هذا الفندق من فئه ال5 نجوم وله موقع فريد وشاطئ خاص يمتد على مسافة 700 متر وبه رصيف خاص يعبر فوق منطقة الشعاب المرجانية بطول.",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/maxresdefault.jpg",
     image: "/images/hotels/7e115dded317608d969a922167082ed1.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -3887,6 +3975,11 @@ const Hotels = [
         min: 60,
         max: 130,
         meals: "افطار وعشاء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 19,
       },
       {
@@ -3908,6 +4001,11 @@ const Hotels = [
         min: 250,
         max: 600,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 10,
       },
     ],
@@ -3949,7 +4047,7 @@ const Hotels = [
     city: "شرم الشيخ",
     name: "فندق ستيلا دي ماري بيتش & سبا - شرم الشيخ",
     desc: "يقع فندق ستيلا شرم بيتش بالقرب من خليج نعمة الشهير ويبعد مسافة قصيرة بالسيارة من مطار شرم الشيخ.علي بعد 3 كيلو متر من المدينة القديمة.",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/R.jpg",
     image: "/images/hotels/XdbGZbHcNHBKvKmCd8jR2Q-415-80.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -3996,6 +4094,11 @@ const Hotels = [
         min: 60,
         max: 130,
         meals: "افطار وعشاء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 19,
       },
       {
@@ -4003,6 +4106,11 @@ const Hotels = [
         min: 90,
         max: 195,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 50,
       },
       {
@@ -4017,6 +4125,11 @@ const Hotels = [
         min: 250,
         max: 600,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 10,
       },
     ],
@@ -4058,7 +4171,7 @@ const Hotels = [
     city: "شرم الشيخ",
     name: "فندق جاز بليفيدير - شرم الشيخ",
     desc: "يحظى جاز بلفيدير بإمكانية الوصول المباشر إلى شاطئ المنتزه في شرم الشيخ. -مما يجعل من المنتجع ذو الخمس نجوم موقعًا مثاليًا لقضاء.",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/363f55bf-018c-4dd8-b22c-fc598e1aa8bf.jpg",
     image: "/images/hotels/Bed.jpg", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -4105,6 +4218,11 @@ const Hotels = [
         min: 60,
         max: 130,
         meals: "افطار وعشاء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 19,
       },
       {
@@ -4167,7 +4285,7 @@ const Hotels = [
     city: "شرم الشيخ",
     name: "فندق صن رايز جراند سيليكت مونتمارى ريزورت  - شرم الشيخ",
     desc: "يقع صن رايز سيليكت مونتمارى ريزورت في مدينة شرم الشيخ، ويضمحمم سباحه في الهواء الطلق وشاطئ خاص ومطعم. تتوفر خدمة الواي فاي مجانا",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/250882267.jpg",
     image: "/images/hotels/THE-ST-REGIS-CHICAGO-ILLINOIS-USA.webp", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -4221,13 +4339,21 @@ const Hotels = [
         min: 90,
         max: 195,
         meals: "افطار وغداء",
-        remain: 50,
+        remain: 50,offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
       },
       {
         name: "غرفة ديلوكس مُطلة على النيل",
         min: 250,
         max: 600,
-        meals: "افطار وغداء",
+        meals: "افطار وغداء",offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 10,
       },
       {
@@ -4276,7 +4402,7 @@ const Hotels = [
     city: "شرم الشيخ",
     name: "فندق شارمليون كلوب أكوا بارك  - شرم الشيخ",
     desc: "يصنف هذا الفندق من فئه ال5 نجوم ويقع شارمليون كلوب أكوا بارك في منطقة نبق بشرم الشيخ على بعد 1 كم من الشاطئ ويبعد عن مطار شرم الشيخ",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/252191518-.jpg",
     image:
       "/images/hotels/TAL-atlantis-the-royal-dubai-sky-pool-villa-terrace-ott-ITLIST2023-828969fa8e9844ec9087c7af667fe395.jpg", //Logo
     advantages: [
@@ -4324,6 +4450,11 @@ const Hotels = [
         min: 60,
         max: 130,
         meals: "افطار وعشاء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 19,
       },
       {
@@ -4331,6 +4462,11 @@ const Hotels = [
         min: 90,
         max: 195,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 50,
       },
       {
@@ -4386,7 +4522,7 @@ const Hotels = [
     city: "شرم الشيخ",
     name: "فندق كونكورد السلام الأمامى - شرم الشيخ",
     desc: "يتميز فندق كونكورد السلام شرم الشيخ بموقعه على بعد 5 دقائق فقط سيرا على الأقدام من ساحة سوهو ويوفر لضيوفه مسبح في الهواء الطلق",
-    cover: "/images/hotels/Marina Lodge.jpeg",
+    cover: "/images/hotels/1303345430_WxH.webp",
     image: "/images/hotels/827e01b8c0adb18010eb47f1c72477ef-arlo-soho.webp", //Logo
     advantages: [
       "يمتاز منتجع Palmera Beach ذو الـ 4 نجوم بشاطئه الخاص الواقع على البحر الأحمر. ويضم غرف حديثة وفسيحة مزودة بمنطقة جلوس مفروشة وشرفة خاصة أو تراس. ويضم 4 مطاعم و3 بارات و3 مسابح.",
@@ -4440,6 +4576,11 @@ const Hotels = [
         min: 90,
         max: 195,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 7% على الغرفة بمناسبة بداية الربيع* ',
+          amount: 7,
+          type: 'percent'
+        },
         remain: 50,
       },
       {
@@ -4447,6 +4588,11 @@ const Hotels = [
         min: 250,
         max: 600,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          amount: 15,
+          type: 'percent'
+        },
         remain: 10,
       },
       {
@@ -4454,6 +4600,11 @@ const Hotels = [
         min: 250,
         max: 600,
         meals: "افطار وغداء",
+        offer: {
+          brief: 'خصم 20% على الشقق بمناسبة بداية الربيع* ',
+          amount: 20,
+          type: 'percent'
+        },
         remain: 10,
       },
     ],
@@ -4535,7 +4686,7 @@ function createStar(rate) {
     return `<i class="fas fa-star"></i>`;
   } else {
     if (rate < 1) {
-      return `<i class="fas fa-star-half-alt"></i>`;
+      return `<i class="fas fa-star-half-alt" style="transform: rotateY(180deg)"></i>`;
     } else {
       return `<i class="far fa-star"></i>`;
     }

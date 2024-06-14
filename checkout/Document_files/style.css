@@ -9,7 +9,7 @@
 html,
 body {
   font-family: 'Montserrat', sans-serif;
-  background: #f4f4f4;
+  background: #efefef;
   justify-content: center;
   align-items: center;
 }
@@ -55,6 +55,14 @@ fieldset button:hover {
 .blue-border {
   border-color: var(--basic-darkblue)
 }
+
+table#hotel tr th:first-child {
+  border-left: 1px solid var(--grey)
+}
+table#hotel tr th:last-child {
+  border-right: 1px solid var(--grey)
+}
+
 table tr td,
 table tr th {
   padding: 0.2rem 1rem

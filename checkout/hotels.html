@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="/checkout/Document_files/mastercard_logo.png" type="image/x-icon">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/all.css">
+  <link rel="stylesheet" href="./Document_files/style.css">
+<meta name="robots" content="noindex,follow">
+<script src="/js/hotels.js"></script>
+<script>
+   const hotelParams = new URLSearchParams(window.location.search);
+</script>
+</head>
+<body>
+  
+  <div class="container">
+    <br>
+    
+    <div class="input-group ">
+      <button data-goto="/pages/hotel.html?id=" onclick="window.location.href=this.getAttribute('data-goto')+hotelParams.get('id')" class="form-control m-3 text-center">العودة إلى الفندق</button>
+    </div>      
+    <fieldset>
+      <legend>مراجعة المدفوعات</legend>
+      <h5 class="">التفاصيل</h5>
+        <table id="hotel" class="table table-striped">
+          <thead>
+            <tr class="text-center">
+              <th class="bg-primary text-light">بيان</th>
+              <th class="bg-primary text-light w-50">قيمة/Value</th>
+              <th class="bg-primary text-light">Item</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="text-start">مقدم الخدمة</th>
+              <th class="text-center">TRIPVUM Company</th>
+              <th>Service Provider</th>
+            </tr>
+            <tr>
+              <th class="text-start">الإقامة فى: </th>
+              <th class="text-center" id="hotelName"></th>
+              <th>Residence In</th>
+
+            </tr>
+            <tr>
+              <th class="text-start">الوصف</th>
+              <td class="text-center" id="description"></td>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <th class="text-start">مدة الإقامة </th>
+              <td id="stay">
+                <div class="row px-3 gap-2">
+                  <div class="border col">
+                    <button data-count="-1" data-target="#daysCount" class="px-2 changeQty"><i class="fa fa-minus"></i></button>
+                    <span id="daysCount">0</span>
+                    <button data-count="1" data-target="#daysCount" class="px-2 changeQty"><i class="fa fa-plus"></i></button>
+                    <span>الأيام</span>
+                  </div>
+                  <div class="border col">
+                    <button data-count="-1" data-target="#nightsCount" class="px-2 changeQty"><i class="fa fa-minus"></i></button>
+                    <span id="nightsCount">0</span>
+                    <button data-count="1" data-target="#nightsCount" class="px-2 changeQty"><i class="fa fa-plus"></i></button>
+                    <span>الليالى</span>
+                  </div>
+                </div>
+              </td>
+              <th>Stay</th>
+            </tr>
+            <tr>
+              <th class="text-start">النزلاء</th>
+              <td id="paasengers" >
+                <div class="row px-3 gap-2">
+                  <div class="border col">
+                    <div class="d-block text-center">
+                      <button data-count="-1" data-target="#youngCount" class="px-2 changeQty"><i class="fa fa-minus"></i></button>
+                      <span id="youngCount">0</span>
+                      <button data-count="1" data-target="#youngCount" class="px-2 changeQty"><i class="fa fa-plus"></i></button>
+                    </div>
+                    <span class="d-block text-center">أقل من 6 سنوات</span>
+                  </div>
+                  <div class="border col">
+                    <div class="d-block text-center">
+                      <button data-count="-1" data-target="#childrenCount" class="px-2 changeQty"><i class="fa fa-minus"></i></button>
+                      <span id="childrenCount">0</span>
+                      <button data-count="1" data-target="#childrenCount" class="px-2 changeQty"><i class="fa fa-plus"></i></button>
+                    </div>
+                    <span class="d-block text-center">من 6 الى 12 سنة</span>
+                  </div>
+                  <div class="border col">
+                    <div class="d-block text-center">
+                      <button data-count="-1" data-target="#adultCount" class="px-2 changeQty"><i class="fa fa-minus"></i></button>
+                      <span id="adultCount">0</span>
+                      <button data-count="1" data-target="#adultCount" class="px-2 changeQty"><i class="fa fa-plus"></i></button>
+                    </div>
+                    <span class="d-block text-center">البالغين</span>
+                  </div>
+                </div>
+              </td>
+              <th>Paasengers</th>
+            </tr>
+            <tr>
+              <th class="text-start">الإضافات</th>
+              <td id="addons" >
+                <div class="form-check form-check-inline form-check-reverse">
+                  <input class="form-check-input" type="checkbox" id="breakfast" value="5">
+                  <label class="form-check-label" value="" for="breakfast">افطار</label>
+                </div>
+                <div class="form-check form-check-inline form-check-reverse">
+                  <input class="form-check-input" type="checkbox" id="lunch" value="8">
+                  <label class="form-check-label" value="" for="lunch">غداء</label>
+                </div>
+                <div class="form-check form-check-inline form-check-reverse">
+                  <input class="form-check-input" type="checkbox" id="dinner" value="6">
+                  <label class="form-check-label" value="" for="dinner">عشاء</label>
+                </div>
+                <div class="form-check form-check-inline form-check-reverse">
+                  <input class="form-check-input" type="checkbox" id="trans" value="10">
+                  <label class="form-check-label" value="" for="trans">انتقالات</label>
+                </div>
+                <div class="form-check form-check-inline form-check-reverse">
+                  <label class="form-check-label" value="" for="car">سيارة خاصة</label>
+                  <input class="form-check-input" type="checkbox" id="car" value="12">
+                </div>
+              </td>
+              <th>Addons</th>
+            </tr>
+            <tr>
+              <th class="text-start"> عدد الغرف</th>
+              <td>
+                <div class="row px-3 gap-2">
+                  <div class="border col">
+                    <button data-count="-1" data-target="#roomsCount" class="px-2 changeQty"><i class="fa fa-minus"></i></button>
+                    <span id="roomsCount">0</span>
+                    <button data-count="1" data-target="#roomsCount" class="px-2 changeQty"><i class="fa fa-plus"></i></button>
+                    <span>غرقة / جناح</span>
+                  </div>
+                  
+                </div>
+              </td>
+              <th>Rooms Number</th>
+            </tr>
+            <tr>
+              <th class="bg-primary text-light text-start"> الاجمالى</th>
+              <th class="bg-primary text-light " id="total"> </th>
+              <th class="bg-primary text-light "> Total Price</th>
+            </tr>
+            <tr>
+              <th class="text-start"> الخصومات والعروض </th>
+              <td id="discount">
+                
+              </td>
+              <th>Discount / Offers</th>
+            </tr>
+            <tr>
+              <th class="bg-primary text-light text-start"> الاجمالى بعد الخصم</th>
+              <th class="bg-primary text-light " id="total"> </th>
+              <th class="bg-primary text-light "> Total After Discount</th>
+            </tr>
+          </tbody>
+          <tfoot>
+            <caption>
+              <p class="text-success text-center">السعر يشمل ضريبة المبيعات VAT Included.</p>
+            </caption>
+          </tfoot>
+      </table>
+    </fieldset>
+
+    <fieldset class="mt-5">
+      <legend>اختر وسيلة الدفع</legend>
+
+      <button class="v-card p-5 text-center">
+        <img src="/checkout/Document_files/visa_logo.png" alt="nothing" height="40px">
+        <img src="/checkout/Document_files/mastercard_logo.png" alt="nothing" height="40px">
+        <h6>الدفع عبر البطاقات الائتمانية</h6>
+      </button>
+      <button class="p-5 paypal text-center">
+        <img src="/checkout/Document_files/paypal_logo.png" alt="nothing" height="40px">
+        <h6>الدفع عبر PayPal</h6>
+      </button>
+      <button class="bitcoin p-5 text-center">
+        <img src="/checkout/Document_files/th (1).jpeg" alt="nothing" height="40px">
+        <img src="/checkout/Document_files/th.jpeg" alt="nothing" height="40px">
+        <h6>الدفع بالعملات المشفرة</h6>
+      </button>
+
+      <div class="input-fields" id="method-card-form">
+        <div class="row my-3">
+          <div class="col col-6" style="height: 270px;">
+            <div class="p-3 m-2 border">
+              <div class="input-group my-2">
+                <label class="input-group-text" for="cardNumber">رقم البطاقة:</label>
+                <input type="text" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" class="form-control card-number" required>
+              </div>
+              <div class="input-group my-2">
+                <label class="input-group-text"   for="cardholderName">اسم صاحب البطاقة:</label>
+                <input type="text" id="cardholderName" placeholder="احمد عبد الحميد" class="cardholder-name form-control" required>
+              </div>
+              <div class="input-group my-2">
+                <label class="input-group-text" for="expiryYear">انتهاء الصلاحية:</label>
+                <input type="text" class="form-control" placeholder="MM/YY">
+                <label class="input-group-text" for="cvv">CVV:</label>
+                <input type="password" id="cvv" placeholder="123" class="form-control cvv" required>
+              </div>
+              <div class="input-group my-2">
+                <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
+              </div>
+              <div class="input-group my-2">
+              <button class="form-control text-center" id="confirmPayment" type="submit">التأكيد والدفع</button>
+              </div>
+            </div>
+          </div>
+          <div class="col col-6" style="height: 240px;">
+            <div class="p-3 m-2 border"></div>
+          </div>
+        </div>
+      </div>
+      
+    </fieldset>
+
+  </div>
+  <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    
+    const hotelId = hotelParams.get('id')
+    const hotel = Hotels.find((hotel)=>hotel.id == hotelId);
+    
+    const serviceItemIndex = hotelParams.get('serviceIndex')-1
+    const serviceItem = hotel.prices[serviceItemIndex]
+    var stars = ''
+    for (let i =0; i<hotel.stars;i++) {
+      stars+= `<i class="fa fa-star" style="color: #B87333"></i>`
+    }
+
+    $('#hotelName').html(hotel.name + ' &nbsp; ' + stars)
+    $('#description').html(serviceItem.name)
+    
+    // تعيين الخصومات والعروض
+    if (serviceItem.offer) {
+      $('#discount').html(serviceItem.offer.brief)
+    } else {
+      $('#discount').html('لا يوجد عروض أو خصم على الخدمة التى اخترتها')
+    }
+
+    $('#confirmPayment').click(()=>{
+      if ($('#cardNumber').val() == '' || $('#cardholderName').val() == '' || $('#expiryYear').val() == '' || $('#cvv').val() == '') {
+        alert('من فضلك املأ الحقول المطلوبة')
+      } else {
+        if (confirm('سوف يتم خصم من رصيدك مبلغ :' + totalPrice)) {
+          return true
+        }
+      }
+    })
+    
+    window.onload=function(){
+      const cardMethod = document.querySelector('button.v-card');  // استخدام مُحدد الفئة
+      const cardMethodForm = document.querySelector('#method-card-form');
+
+      cardMethod.onclick = function() {
+      cardMethod.classList.toggle('blue-border');
+      cardMethodForm.classList.toggle('show');
+    };
+  }
+
+  const changeQtyBtns = document.querySelectorAll('.changeQty')
+  changeQtyBtns.forEach((btn)=>{
+    btn.addEventListener( 'click', ()=>{
+      var targetElement = document.querySelector(btn.getAttribute('data-target'))
+      var amount = +(targetElement.innerHTML)
+      amount += +(btn.getAttribute('data-count'))
+      targetElement.innerHTML = amount
+      console.log(amount)
+    })
+  })
+
+
+</script>
+
+  <script src="/checkout/Document_files/jquery.min.js.download"></script>
+  <script src="/checkout/Document_files/script.js.download"></script>
+                                          
+  </body>
+</html>
