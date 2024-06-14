@@ -297,7 +297,7 @@
 
         const hotelImages = document.getElementById('images')
         const renderedImages = hotel.images.map((img)=>{
-          return `<img src="${img}" alt="${hotel.name}"/>`
+          return `<img src="..${img}" alt="${hotel.name}"/>`
         })
         hotelImages.innerHTML=renderedImages
 
