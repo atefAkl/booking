@@ -66,16 +66,19 @@
                 <button class="btn text-light "> &nbsp; <i class="fa fa-user"></i>&nbsp; مرحبا  <span class="username"></span></button>
                 <ul class="hidden">
                   <li>
-                    <a href="">حساب شخصى</a>
+                    <a href="/pages/profile.html">حساب شخصى</a>
                   </li>
                   <li>
-                      <a href="">المفضلة</a>
+                      <a href="/pages/profile.html">المفضلة</a>
                   </li>
                   <li>
-                    <a href="">رحلات</a>
+                    <a href="/pages/profile.html?trips=1">رحلات</a>
                   </li>
                   <li>
-                    <a href="">حجوزات</a>
+                    <a href="/pages/profile.html?flights=1">طيران</a>
+                  </li>
+                  <li>
+                    <a href="/pages/profile.html?hotels=1">فنادق</a>
                   </li>
                   <li>
                     <a id="logout">خروج</a>
@@ -186,7 +189,7 @@
         <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
         <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
           
-          <form class="px-4 py-3" action="/pages/booking.html" method="GET">
+          <form class="px-4 py-3" action="/pages/flights.search.html" method="GET">
             
             <div class="input-group">
               <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الرحلة: ">  
@@ -223,24 +226,24 @@
         </div>
         <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
         
-          <form class="px-4 py-3" action="/pages/hotels.html" method="GET">
+          <form class="px-4 py-3" action="/pages/hotels.search.html" method="GET">
             <div class="input-group">
               <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الوصول: ">  
               <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="المدينة: ">  
                 
             </div>
             <div class="input-group">
+              <input name="tab" type="hidden" id="tab" value="hotels">  
               <input class="form-control" name="arrive" type="date" id="arrive" >  
               <select class="form-control" name="city" id="city"></select>
               <button class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
             </div>
           </form>
 
+        
         </div>
         <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
-          trips</div>
-        <div class="tab-pane fade" id="nav-cars" role="tabpanel" aria-labelledby="nav-cars-tab" tabindex="0">
-          cars
+          trips
         </div>
       </div>
     </section>
@@ -598,8 +601,8 @@
           </div>
           <div class="modal-body">
             <div class="input-group mb-2">
-              <label for="email" class="input-group-text">اسم المستخدم: </label>
-              <input class="form-control" type="email" id="email">
+              <label for="login-email" class="input-group-text">اسم المستخدم: </label>
+              <input class="form-control" type="email" id="login-email">
             </div>
             <div class="input-group mb-2">
               <label for="password" class="input-group-text">كلمة المرور: </label>
@@ -709,10 +712,33 @@
     <script src="./js/data.js"></script>
 
     <script>
+      $('#departure').append(`<option hidden>اختر البداية</option>`)
+      $('#destination').append(`<option hidden>اختر الوجهة</option>`)
       airports.forEach ((ap)=>{
         $('#departure').append(`<option value="${ap.id}">${ap.name}</option>`)
         $('#destination').append(`<option value="${ap.id}">${ap.name}</option>`)
+      })
 
+      $('#departure').on('change', () => {
+        const remainingAirports = airports.filter((ap)=>{
+          return ap.id != $('#departure').val();
+        })
+        
+        $('#destination').html('')
+        remainingAirports.forEach ((ap)=>{
+          $('#destination').append(`<option value="${ap.id}">${ap.name}</option>`)
+        })
+      })
+
+      $('#destination').on('change', () => {
+        const remainingAirports = airports.filter((ap)=>{
+          return ap.id != $('#destination').val();
+        })
+        
+        $('#departure').html('')
+        remainingAirports.forEach ((ap)=>{
+          $('#departure').append(`<option value="${ap.id}">${ap.name}</option>`)
+        })
       })
 
       var swiper = new Swiper(".review-slider", {
@@ -744,17 +770,18 @@
           `<div class="box">
             
             <img src=".${hotel.cover}" alt="">
-            <div class="content">
+            <div class="content position-relative" style="height: 235px" >
               <h3>${hotel.name}</h3>
               <p>${hotel.desc}</p>
-              <a href="/pages/hotel.html?id=${hotel.id}" class="btn">See more</a>
-            </div>
+
+              <a href="/pages/hotel.html?id=${hotel.id}" class="btn btn-outline-success" style="position: absolute; bottom: 1.2rem; left: 1rem; right: 1rem">المزيد ..... </a>
+              </div>
           </div>`
           return box
         }
       });
 
-      console.log(generatedHotelsContent)
+      console.log(users)
       $('#hotel-contents').html(generatedHotelsContent)
     </script>
 

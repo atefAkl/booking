@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/booking.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
+    <script type="text/javascript">
+      const urlParams = new URLSearchParams(window.location.search);
+      
+    </script>
   </head>
   <body dir="rtl">
     <header>
@@ -66,16 +69,19 @@
                 <button class="btn text-light "> &nbsp; <i class="fa fa-user"></i>&nbsp; مرحبا  <span class="username"></span></button>
                 <ul class="hidden">
                   <li>
-                    <a href="">حساب شخصى</a>
+                    <a href="/pages/profile.html">حساب شخصى</a>
                   </li>
                   <li>
-                      <a href="">المفضلة</a>
+                      <a href="/pages/favourites.html">المفضلة</a>
                   </li>
                   <li>
-                    <a href="">رحلات</a>
+                    <a href="/pages/favourites.html?trips=1">رحلات</a>
                   </li>
                   <li>
-                    <a href="">حجوزات</a>
+                    <a href="/pages/favourites.html?flights=1">طيران</a>
+                  </li>
+                  <li>
+                    <a href="/pages/favourites.html?hotels=1">فنادق</a>
                   </li>
                   <li>
                     <a id="logout">خروج</a>
@@ -108,7 +114,7 @@
         <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
             <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
              
-              <form class="px-4 py-3" action="/pages/booking.html" method="GET">
+              <form class="px-4 py-3" action="/pages/flights.search.html" method="GET">
                 
                 <div class="input-group">
                   <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الرحلة: ">  
@@ -377,22 +383,67 @@
 
     <div class="result-info-section" id="info-section">
       <div class="container">
-        <div class="card mt-5 w-75 m-auto">
+        <div class="card mt-5 w-50 m-auto">
           <div class="card-header">
             <h5>معلومات الرحلة</h5>
             
             <span id="close-result-info" class="close" data-bs-dismiss="#info-section"><i class="fa fa-times"></i></span>
           </div>
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            
+            <table id="flight-info">
+              <tr>
+                <th>تاريخ الحجز:</th>
+                <td id="bookingDate"></td>
+              </tr>
+              <tr>
+                <th >من:</th>
+                <td id="fromAirport"></td>
+              </tr>
+              <tr>
+                <th>إلى:</th>
+                <td id="toAirport">إلى:</td>
+              </tr>
+              <tr>
+                <th>وقت الاقلاع:</th>
+                <td id="departureTime"></td>
+              </tr>
+              <tr>
+                <th>وقت الوصول:</th>
+                <td id="arrivalTime">وقت الوصول:</td>
+              </tr>
+              <tr>
+                <th>مدة الرحلة:</th>
+                <td id="flightDuration">مدة الرحلة:</td>
+              </tr>
+              <tr>
+                <th>الدرجة:</th>
+                <td id="flightGrade">الدرجة:</td>
+              </tr>
+              <tr>
+                <th rowspan="3">الركاب:</th>
+                <td><span id="adultCount"></span> بالغين </td>
+              </tr>
+              <tr>
+                <td><span id="childrenCount"></span> أطفال </td>
+              </tr>
+              <tr>
+                <td><span id="babiesCount"></span> رضع </td>
+              </tr>
+              <tr>
+                <th>الناقل:</th>
+                <td id="carrierName">الناقل:</td>
+              </tr>
+              <tr>
+                <th>السعر الكلى:</th>
+                <td id="totalPrice"></td>
+              </tr>
+            </table>
           </div>
           <div class="card-footer">
             <div class="input-group" dir="rtl">
-              <label class="input-group-text"><a href="">اكمال الحجز</a></label>
+              <label class="input-group-text"><a href="/checkout/flights.html">اكمال الحجز</a></label>
               <label class="input-group-text"><a href="#">الذهاب الى موقع مزود الخدمة</a></label>
-              <label class="input-group-text"><a href="#">البحث عن رحلة أخرى</a></label>
+              <label class="input-group-text"><a href="">البحث عن رحلة أخرى</a></label>
             </div>
           </div>
         </div>
@@ -408,8 +459,21 @@
     <script src="../js/data.js"></script>
 
     <script>
-      const urlParams = new URLSearchParams(window.location.search);
+
+      if(urlParams.get('go') == '') {
+        if (confirm ('من فضلك اختر موعد للرحلة لنتمكن من البحث')){
+          $('#go').focus()
+        } else {
+          goTo('/')
+        }
+      }
+
+      const fromAirport = airports.find((ap)=>{return ap.id==urlParams.get('departure')})
+
       $('#go').val(urlParams.get('go'))
+      $('#adult').val(urlParams.get('adult'))
+      $('#child').val(urlParams.get('child'))
+      $('#enfants').val(urlParams.get('enfants'))
 
       $('#grade').val(urlParams.get('grade'))
       airports.forEach ((ap)=>{
@@ -432,6 +496,7 @@
           departure_date: departure_date
         })
       })
+      console.log(departure)
 
       const indexes = []
       for (let i = 0; i<100; i++){
@@ -487,11 +552,10 @@
           const alp = airlines[index]
         const weekDay = new Date(departure_date)
         const grade = $('#grade').val();
-        console.log(grade)
+        
         const flightPrice = pricing[getDayName(weekDay)][grade]*flight.carrier.ratio
         
         const stops = flight.stops.map((stop)=>{ return '<span class="stop" data-stop="'+stop+'"></span>'})
-        
         return `
         
           <div class="result">
@@ -499,9 +563,18 @@
               <div class="row result-wrapper">
                 <div class="col col-3" style="border-left: 1px solid #ccc">
                   <div class="airline-provider p-3 ">
-                    <p class="text-center">
+                    <p class="text-center" >
                       <img class="d-block m-auto" src="${flight.carrier['logo']}" alt="" height="50" /></p>
                     <p class="provider-name">${flight.carrier['name']}</p>
+                    <button 
+                      data-carrier-id="${flight.carrier['name']}" 
+                      class="flight-more-info btn btn-sm px-3 btn-outline-primary m-0"
+                      data-departure-time="${flight['departureTime']}"
+                      data-flight-duration="${flight.duration[0]} س، ${flight.duration[1]} د"
+                      data-arrival-time="${flight['arrivalTime']}"
+                      data-flight-price="${flightPrice.toFixed(2)}"
+                      data-flight-index="${i}"
+                      >عرض المزيد </button>
                   </div>
                 </div>
                 <div class="col col-6 ">
@@ -519,7 +592,8 @@
                 <div class="pricing col col-3 p-0">
                   <div class="flight-pricing text-center p-0">
                     <button class="btn">ننصح بها</button>
-                    <p class=" results-from-websites my-0 py-0 text-center"><small>النتائج من ${randomNumber(1, 10)} مواقع</small></p>
+                    <p class=" results-from-websites my-0 py-0 text-center">
+                      <small>النتائج من ${randomNumber(1, 10)} مواقع</small></p>
                     <p class="price text-center">
                       <span class="amount fw-bold py-0 my-0 fs-3">
                        
@@ -551,14 +625,39 @@
         }
         return el
       }
-      function renderFlights(element) {
-        // $(element).appendChild(result)
-        /*  */
 
-      }
+      const regUser = JSON.parse(localStorage.getItem('reg_user'))
 
-      $('.result-info').on('click', function () {
+
+      $('.flight-more-info').on('click', function (e) {
         $('body').addClass('freeze');
+        const selectedFlight = {
+          user: regUser.email,
+          index: e.target.getAttribute('data-flight-index'),
+          adultCount: +urlParams.get('adult'),
+          childrenCount: +urlParams.get('child'),
+          babiesCount: +urlParams.get('enfants'),
+          flightGrade: urlParams.get('grade'),
+          bookingDate: urlParams.get('go'),
+          fromAirport: airports.find((al)=> {return al.id == urlParams.get('departure')}).name,
+          toAirport: airports.find((al)=> {return al.id == urlParams.get('destination')}).name,
+          
+          carrierName: e.target.getAttribute('data-carrier-id'),
+          flightDuration: e.target.getAttribute('data-flight-duration'),
+          departureTime: e.target.getAttribute('data-departure-time'),
+          arrivalTime: e.target.getAttribute('data-arrival-time'),
+          price: +e.target.getAttribute('data-flight-price'),
+          
+        }
+        for (prop in selectedFlight){
+          if ($('#'+prop) != undefined) {
+            $('#'+prop).html(selectedFlight[prop])
+          }
+        }
+        selectedFlight.totalPrice= (selectedFlight.adultCount*selectedFlight.price) + (selectedFlight.babiesCount*selectedFlight.price*0.8) + (selectedFlight.childrenCount*selectedFlight.price*0.92)
+        $('#totalPrice').html(selectedFlight.totalPrice)
+        
+        localStorage.setItem('pickedFlight', JSON.stringify(selectedFlight))
         $('.result-info-section').addClass('show')
       })
     </script>

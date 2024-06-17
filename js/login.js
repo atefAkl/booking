@@ -4,14 +4,16 @@ let submit = document.querySelector(".submit-login")
 let spenar = document.querySelector(".fa-spinner")
 let ss = document.querySelector(".ss")
 
+//
 let setName = localStorage.getItem("name")
+console.log(setName)
 let setPassword = localStorage.getItem("password")
 
 submit.addEventListener("click",function(e){
     e.preventDefault()
     if(name.value ==="" || password.value===""){
         alert("please enter your data")
-    }else{
+    } else {
         if(setName && setName.trim() ===name.value && setPassword && setPassword.trim()===password.value ){
             localStorage.setItem("user", name.value)
             setTimeout(() => {
@@ -20,7 +22,7 @@ submit.addEventListener("click",function(e){
             }, 500);
             setTimeout(() => {
                 spenar.style.display = "none"
-            submit.innerHTML = `<i class="fa-solid fa-check"></i>`
+                submit.innerHTML = `<i class="fa-solid fa-check"></i>`
             }, 1500);
             setTimeout(() => {
                 window.location = "index.html"

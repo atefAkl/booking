@@ -1,0 +1,37 @@
+.single-ticket * {
+                font: bold 12px / 1 'Times New Roman', Times, serif;
+              }
+              .card.single-ticket .card-body {
+                padding: 0.5rem;
+                min-height: 8rem;
+              }
+              .single-ticket .card-footer,
+              .single-ticket .card-header {
+                background-color: orangered;
+                border-radius: 0;
+                padding: 0.6rem 1rem;
+                position: relative;
+              }
+             
+              #ticketBrief .info {
+                background-color: orange;
+              }
+              #ticket {
+                border-right: 2px dashed #f33
+              }
+              .single-ticket .card-body {
+                padding: 1rem;
+              }
+              .single-ticket .ticket-row {
+                display: flex;
+                flex-direction: row-reverse;
+              }
+              .single-ticket .ticket-row span.label {
+                padding: 0.1rem 0.2rem;
+              }
+              .single-ticket .ticket-row span.info {
+                text-align: left;
+                padding: 0.1rem 0.2rem;
+                flex: auto;
+                background-color: orangered;
+              }

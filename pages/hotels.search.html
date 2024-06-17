@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TRIPVUM</title>
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/booking.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      const urlParams = new URLSearchParams(window.location.search);
+      console.log(urlParams.get('go'))
+    </script>
+  </head>
+  <body dir="rtl">
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" data-bs-toggle="tooltip" title="موقع حجز رحلات الطيران الداخلى" href="/index.html">
+            <img class="d-block" src="../images/icon.png" height="40" alt="">
+            <img class="d-block" src="../images/tripvum.png" height="12" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/index.html">
+                  <i class="fa fa-home"></i> &nbsp; الرئيسية</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-clipboard-check"></i> &nbsp; الحجز</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-suitcase-rolling"></i> &nbsp; رحلات</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-hotel"></i>  &nbsp;  إقامة</a>
+              </li><li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-plane"></i>  &nbsp;  طيران</a>
+              </li><li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-star-half-alt"></i> &nbsp; تقييمات</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-id-card"></i> &nbsp; اتصل بنا</a>
+              </li>
+            </ul>
+            <!-- Button trigger modal -->
+            <div class="user">
+              <div class="user-buttons">
+                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginFormModal">
+                  الدخول
+                </button>
+                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">
+                  التسجيل
+                </button>
+              </div>
+              <div id="user-menu" class="user-menu hidden">
+                <button class="btn text-light "> &nbsp; <i class="fa fa-user"></i>&nbsp; مرحبا  <span class="username"></span></button>
+                <ul class="hidden">
+                  <li>
+                    <a href="/pages/profile.html">حساب شخصى</a>
+                  </li>
+                  <li>
+                      <a href="/pages/profile.html">المفضلة</a>
+                  </li>
+                  <li>
+                    <a href="/pages/profile.html?trips=1">رحلات</a>
+                  </li>
+                  <li>
+                    <a href="/pages/profile.html?flights=1">طيران</a>
+                  </li>
+                  <li>
+                    <a href="/pages/profile.html?hotels=1">فنادق</a>
+                  </li>
+                  <li>
+                    <a id="logout">خروج</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+
+    <section class="booking-header" style="background: url('../images/booking-header.jpeg'); background-size: 100%; background-position: left 30%; height: 200px">
+
+    </section>
+
+
+    <!-- Booking form -->
+    <section id="booking-section" class="w-100">
+      <div class="booking  rounded-2 px-5 py-3">
+         <nav>
+            <div class="nav nav-tabs" id="nav-tab"  role="tablist" style="border: 0">
+                <button class="nav-link" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
+                <button class="nav-link active" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
+                <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
+            <div class="tab-pane fade " id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
+             
+              <form class="px-4 py-3" action="/pages/flights.search.html" method="GET">
+                
+                <div class="input-group">
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الرحلة: ">  
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الحجز من: ">  
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الوجهة: ">  
+                </div>
+                <div class="input-group">
+                  <!-- <label for="go" class="input-group-text">تاريخ الرحلة</label> -->
+                  <input class="form-control" name="go" type="date" id="go" >  
+                  <!-- <label for="from" class="input-group-text">الحجز من:</label> -->
+                  <select class="form-control" name="departure" type="date" id="departure"></select>  
+                  <!-- <label for="destination" class="input-group-text">الوجهة:</label> -->
+                  <button class="input-group-text" type="button" id="swap"><i class="fa-solid fa-right-left"></i></button>  
+                  
+                  <select class="form-control" name="destination" type="date" id="destination"></select>
+                  </div>
+                <div class="input-group mt-2">
+                  <label for="grade" class="input-group-text">الدرجة:</label>
+                  
+                  <select name="grade" id="grade" class="form-control">
+                    <option value="ECO">الدرجة الاقتصادية</option>
+                    <option value="BC">درجة الاعمال</option>
+                    <option value="FC">الدرجة الأولى</option>
+                  </select>
+                  <label for="adult" class="input-group-text">البالغين:</label>
+                  <input type="number" name="adult" id="adult" class="form-control" min="1" step="1" value="1">
+                  <label for="child" class="input-group-text">الأطفال:</label>
+                  <input type="number" name="child" id="child" class="form-control" min="0" step="1" value="0">
+                  <label for="enfants" class="input-group-text">الرضع:</label>
+                  <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1" value="0">
+                  <button type="submit" id="search_flights" class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
+                </div>
+              </form>
+
+            </div>
+            <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
+              
+              
+            </div>
+            <div class="tab-pane show active" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
+            
+              <form class="px-4 py-3" action="/pages/hotels.search.html" method="GET">
+                
+                <div class="input-group">
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الوصول: ">  
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="المدينة: ">  
+                    
+                </div>
+                <div class="input-group">
+                  <input class="form-control" name="arrive" type="date" id="arrive" >  
+                  <select class="form-control" name="city" id="city"></select>
+                  <button class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
+                </div>
+              </form>
+              
+
+            </div>
+            
+          </div>
+        
+    </section>
+
+
+    <section class="flights-list" dir="rtl">
+        <div class="container">
+            <div id="filters" style="min-height: 100vh; background: #fff;" class="w-75">
+                <div class="filters-header">
+                  نتائج البحث
+                  </div>
+                  <div id="search-result" class="p-3">
+
+                  </div>
+            </div>
+            <div id="filters" style="height: 100vh; background: #fff;" class="w-25">
+                <div class="filters-header">
+                    فلترة النتائج
+                </div>
+                <div class="filter-contents">
+
+                  <div class="filters-section p-3" >
+                    <div class="card">
+                      <div class="card-header">
+                        <h6>الترانزيت</h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-check" dir="rtl">
+                          <label class="form-check-label" for="direct">رحلات مباشرة</label>
+                          <input class="form-check-input" type="radio" role="switch" name="transit" id="direct" checked>
+                        </div>
+                        <div class="form-check" dir="rtl">
+                          <label class="form-check-label" for="single-transit">1 ترانزيت</label>
+                          <input class="form-check-input" type="radio" role="switch" name="transit" id="single-transit" >
+                        </div>
+                        <div class="form-check" dir="rtl">
+                          <label class="form-check-label" for="multiple-transit">2+ ترانزيت</label>
+                          <input class="form-check-input" type="radio" role="switch" name="transit" id="multiple-transit" >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="filters-section p-3" >
+                    <div class="card">
+                      <div class="card-header">
+                        <h6>وسائل الدفع</h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-check form-switch" dir="rtl">
+                          <label class="form-check-label" for="cash">الدفع النقدى</label>
+                          <input class="form-check-input" type="checkbox" role="switch" id="cash" checked>
+                        </div>
+                        <div class="form-check form-switch" dir="rtl">
+                          <label class="form-check-label" for="visa">فيزا كارد</label>
+                          <input class="form-check-input" type="checkbox" role="switch" id="visa" checked>
+                        </div>
+                        <div class="form-check form-switch" dir="rtl">
+                          <label class="form-check-label" for="transfer">تحويل بنكى</label>
+                          <input class="form-check-input" type="checkbox" role="switch" id="transfer" checked>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="filters-section p-3" >
+                    <div class="card">
+                      <div class="card-header">
+                        <h6>خيارات الدفع</h6>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-check" dir="rtl">
+                          <label class="form-check-label" for="direct"> عبر TRIPVUM</label>
+                          <input class="form-check-input" type="radio" role="switch" name="transit" id="direct" checked>
+                        </div>
+                        <div class="form-check" dir="rtl">
+                          <label class="form-check-label" for="single-transit">عبر شركة الطيران</label>
+                          <input class="form-check-input" type="radio" role="switch" name="transit" id="single-transit" >
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- Modals -->
+
+    <!-- Login Form -->
+    <div class="modal fade" id="loginFormModal" tabindex="-1" aria-labelledby="loginFormLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+         
+          <div class="modal-header p-1 px-3">
+            <h3 class="modal-title" id="loginFormLabel">تسجيل الدخول</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-2">
+              <label for="email" class="input-group-text">اسم المستخدم: </label>
+              <input class="form-control" type="email" id="email">
+            </div>
+            <div class="input-group mb-2">
+              <label for="password" class="input-group-text">كلمة المرور: </label>
+              <input class="form-control" type="password" id="password">
+            </div>
+                    
+            <div class="input-group mb-2" dir="rtl">
+              <label class="input-group-text" for="">
+                <input type="checkbox" id="btn-check" autocomplete="off">
+              </label>
+            <label class="input-group-text" for="btn-check">تذكرنى</label>
+
+            </div>
+            
+            <div class="input-group row m-auto">
+              <button type="button" class="btn btn-m btn-outline-secondary col-6" data-bs-dismiss="modal">الغاء</button>
+              <button type="button" id="submitLogin" class="btn btn-m btn-outline-primary col-6">تسجيل الدخول</button>
+            </div>
+
+          </div>
+          <div class="modal-footer py-1 px-3">
+            <p>نسيت كلمة المرور؟ <a href="./reset.password.html">احصل على كلمة مرور جديدة</a></p>
+            <p>ليس لديك حساب؟ يمكنك  
+              <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">
+                  التسجيل
+                </button> فى الموقع.
+            </p>
+            <p></p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Register Form -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+         
+          <div class="modal-header p-1 px-3">
+            <h3 class="modal-title" id="registerModalLabel">تسجيل حساب جديد</h3>
+            <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times text-light"></i></button>
+          </div>
+          <div class="modal-body">
+            <div id="register-form">
+                <div class="input-group mb-2">
+                    <label for="username" class="input-group-text">اسم المستخدم:</label>
+                    <input type="text" id="reg_username" placeholder="محمد أحمد" class="form-control">
+                </div>
+                <div class="input-group mb-2">
+                    <label for="email" class="input-group-text">البريد الالكتروني:</label>
+                    <input type="email" id="reg_email" placeholder="abcd@website.ext" class="form-control">
+                </div>
+                <div class="input-group mb-2">
+                    <label for="password" class="input-group-text">كلمة المرور:</label>
+                    <input type="password" id="reg_password" placeholder="كلمة المرور" class="form-control">
+                    <input type="password" id="reg_cPassword" placeholder="تأكيد كلمة المرور" class="form-control">
+                </div>
+                <div class="input-group row m-auto">
+                  <button type="button" class="btn btn-m btn-outline-secondary col-6" data-bs-dismiss="modal">الغاء</button>
+                  <button type="submit" id="submit-register" class="btn btn-m btn-outline-primary col-6"><span class="ss">التسجيل</span></button>
+                </div>
+            </div>
+
+          </div>
+          <div class="modal-footer py-1 px-3">
+            <p>لديك حساب مسجل بالفعل؟ &nbsp; 
+              <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginFormModal">
+                تسجيل الدخول
+              </button></p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <button type="button" class="btn btn-primary hidden" id="liveToastBtn">Show live toast</button>
+
+    <!-- alerts -->
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
+      <div id="liveToast"  style="z-index: 99999;" class="toast registerError" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <span class="rounded me-2 bg-primary"></span>
+          <strong class="me-auto">موقع TRIPVUM</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+
+        <div class="toast-body">
+          <div id="errMessage">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, obcaecati quos. Consequatur.
+          </div>
+          <!-- <div class="mt-2 pt-2 border-top">
+            <button type="button" class="btn btn-primary btn-sm">Take action</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="result-info-section" id="info-section">
+      <div class="container">
+        <div class="card mt-5 w-75 m-auto">
+          <div class="card-header">
+            <h5>معلومات الرحلة</h5>
+            
+            <span id="close-result-info" class="close" data-bs-dismiss="#info-section"><i class="fa fa-times"></i></span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            
+          </div>
+          <div class="card-footer">
+            <div class="input-group" dir="rtl">
+              <label class="input-group-text"><a href="">اكمال الحجز</a></label>
+              <label class="input-group-text"><a href="#">الذهاب الى موقع مزود الخدمة</a></label>
+              <label class="input-group-text"><a href="#">البحث عن رحلة أخرى</a></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script src="../js/hotels.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="../js/data.js"></script>
+
+    <script>
+      
+      $('#arrive').val(urlParams.get('arrive'))
+
+      
+
+      $('#city').val(urlParams.get('city'))
+
+      console.log(Hotels)
+      const filteredHotels = Hotels.filter(hotel=>{return hotel.city == urlParams.get('city')})
+
+      const hotelsSerachContact = filteredHotels.map(hotel=>{
+        const [votes, rate] = calcRating(hotel.rating);
+        return (`
+          <div class="col col-12">
+            <div class="card mb-3">
+              <div class="row g-0">
+                
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">${hotel.name}</h5>
+                    <p class="card-text">${hotel.desc}</p>
+                    <p>${rate} ${drowStars(rate)}
+                      <button class="btn btn-outline-success btn-sm"><a href="/pages/hotel.html?id=${hotel.id}">عرض المزيد .... </a></button>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <img src="${hotel.cover}" style="height: 100%; width: 100%" class="img-fluid rounded-start" alt="${hotel.name}">
+                </div>
+              </div>
+            </div>
+          </div>
+        `)
+      })
+
+      $('#search-result').html(hotelsSerachContact)
+
+      $('.result-info').on('click', function () {
+        $('body').addClass('freeze');
+        $('.result-info-section').addClass('show')
+      })
+    </script>
+
+
+  </body>
+</html>

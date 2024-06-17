@@ -67,16 +67,19 @@
                 <button class="btn text-light "> &nbsp; <i class="fa fa-user"></i>&nbsp; مرحبا  <span class="username"></span></button>
                 <ul class="hidden">
                   <li>
-                    <a href="">حساب شخصى</a>
+                    <a href="/pages/profile.html">حساب شخصى</a>
                   </li>
                   <li>
-                      <a href="">المفضلة</a>
+                      <a href="/pages/favourites.html">المفضلة</a>
                   </li>
                   <li>
-                    <a href="">رحلات</a>
+                    <a href="/pages/favourites.html?trips=1">رحلات</a>
                   </li>
                   <li>
-                    <a href="">حجوزات</a>
+                    <a href="/pages/favourites.html?flights=1">طيران</a>
+                  </li>
+                  <li>
+                    <a href="/pages/favourites.html?hotels=1">فنادق</a>
                   </li>
                   <li>
                     <a id="logout">خروج</a>
@@ -88,51 +91,6 @@
         </div>
       </div>
     </header>
-
-
-    <!-- <link rel="stylesheet" href="../files/css/style.css" /> -->
-
-<!-- 
-    <div class="login-form" id="loginform">
-      <i class="fas fa-times" id="form-close" onclick="hideform()"></i>
-      <form action="">
-        <h3>login</h3>
-        <input type="email" class="box" placeholder="Enter your email" />
-        <input type="password" class="box" placeholder="Enter your password" />
-        <input type="submit" value="login now" class="btn" />
-        <input type="checkbox" id="remember" />
-        <label for="remmember"> remember me</label>
-        <p>forget password? <a href="">click here</a></p>
-        <p>
-          don't have acount?
-          <a href="javascript:void(0);" onclick="GoToSignUp()">sign up</a>
-        </p>
-      </form>
-    </div>
-   
-    <div class="login-form signupform">
-      <i class="fas fa-times" id="form-close" onclick="hideformSignUP()"></i>
-      <form action="">
-        <h3>Register</h3>
-        <input type="text" class="box" placeholder="Enter your name" />
-        <input type="email" class="box" placeholder="Enter your email" />
-        <input type="number" min="1" class="box" placeholder="Enter your age" />
-        <input
-          type="tel"
-          pattern="[0-9]{11}"
-          class="box"
-          placeholder="Enter your phone"
-        />
-        <input type="password" class="box" placeholder="Enter your password" />
-        <input type="password" class="box" placeholder="Confirm password" />
-        <input type="submit" value="Register now" class="btn" />
-        <p>
-          Have an accounnt?<a href="javascript:void(0);" onclick="GoToLogin()">
-            sign in</a
-          >
-        </p>
-      </form>
-    </div> -->
 
     <section id="hotel-info" dir="rtl">
       <div class="container mb-5">
@@ -179,7 +137,6 @@
                     <th>#</th>
                     <th>وصف</th>
                     <th>السعر</th>
-                    <th>وجبات</th>
                     <th>متبقى للحجز</th>
                     <th>الحجز</th>
                   </tr>
@@ -203,7 +160,20 @@
             <div class="tab" id="offers">عروض</div>
             <div class="tab" id="contact" style="padding: 2rem; text-align: center;">
               <h1 style="font-size: 32px;">بيانات الاتصال</h1>
-              <table class="contacts" style="width: 50%; border: 1px solid; margin: auto"></table>
+              <style>
+                table.contacts {
+                  border-top: 3px solid;
+                  border-bottom: 3px solid;
+                }
+                table.contacts tr td {
+                  padding: 3px 1rem;
+                }
+                table.contacts tr td:first-child {
+                  border-left: 1px solid #777;
+                  text-align: left
+                }
+              </style>
+              <table class="contacts" style="width: 50%; ; margin: auto"></table>
             </div>
           </div>
         </nav>
@@ -230,10 +200,19 @@
         const urlParams = new URLSearchParams(window.location.search);
         const hotels = Hotels;
         const hotel = hotels.find((h) => h.id == urlParams.get("id"));
-
+        
+        var bookedHotels = JSON.parse(localStorage.getItem('bookedHotels')) || []
+        var userBookedHotel = null
+        const reg_user = JSON.parse(localStorage.getItem('reg_user'))
+        if (reg_user) {
+          userBookedHotel = bookedHotels.find((hotel)=> {return hotel.user == reg_user.email})
+        }
+        var bookedService= 0;
+        if (userBookedHotel.hotelId == hotel.id){
+          bookedService = userBookedHotel.serviceId
+        }
+        console.log(bookedService)
         if (hotel) {
-          
-       
         
         document.querySelector("#hotel-name").innerHTML = hotel.name;
         document.querySelector(".hotel-name").innerHTML = hotel.name;
@@ -291,7 +270,7 @@
             advContainer.appendChild(advElem)
           }  
         )
-        console.log(advData)
+        
       advantagesDiv.appendChild(advContainer);
         // Rendering Images Section
 
@@ -306,21 +285,25 @@
         const renderedPricing = hotel.prices.map((item, index)=>{
           let offer = ''
           if (item.offer) {
-            offer = `<div class="alert alert-success py-1 my-1 text-center">خصم ${item.offer.brief} ${item.offer.type == 'percent' ? '%' : ' $'}</div>`
+            offer = `<div class="alert alert-success py-1 my-1 text-center"> ${item.offer.brief} ${item.offer.type == 'percent' ? '' : ' $'}</div>`
           }
           return (`
             <tr>
-              <td>${++index}</td>
+              <td>${++index}
+                ${bookedService == index ? '<div class="alert alert-success py-0 alert-block">Booked</div>' : ''}
+                </td>
               <td>${item.name + offer}</td>
               <td>${item.max}$</td>
-              <td>${item.meals}</td>
-              <td>${item.remain}</td>
-              <td><a href="/checkout/hotels.html?id=${hotel.id}&serviceIndex=${index}"><i class="fas fa-shopping-basket text-success"></i></a></td>
+              <td>${bookedService == index ? item.remain-1 : item.remain}</td>
+              <td>
+                ${bookedService == index ? '<i class="fa fa-trash text-danger" data-bs-toggle="tooltip" title="الغاء الحجز"></i>' 
+                : '<a href="/checkout/hotels.html?id='+hotel.id+'&serviceIndex='+index+'"><i class="fas fa-shopping-basket text-success"></i></a>'}
+                </td>
             </tr>
           `)
         })
         renderedPricing.forEach((pricing)=>{
-          pricingBody.innerHTML+=pricing
+          pricingBody.innerHTML += pricing
         })
 
         // Rendering Contact Info
@@ -342,8 +325,6 @@
         )
         
         // Terms and conditions
-
-        console.log(hotel.terms)
         const terms = document.getElementById('terms')
         const hotelTerms = hotel.terms
         hotelTerms.forEach((term)=>{

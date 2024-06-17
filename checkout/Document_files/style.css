@@ -48,6 +48,7 @@ fieldset button:hover {
 #method-card-form {
   height: 0px;
   overflow: hidden;
+  transition: all 0.5s ease;
 }
 #method-card-form.show {
   height: auto;
@@ -70,4 +71,123 @@ table tr th {
 table tr input[type=number] {
   padding: 0.2rem 1rem;
 }
+/* the card styles */
 
+#card-display {
+  width: 500px;
+  height: 280px;
+  cursor: pointer;
+  perspective: 1000px;
+  padding: 1rem;
+  margin: 0 auto; 
+  position: relative;
+}
+.visacard-front,
+.visacard-back {
+  width: 400px;
+  background-image: linear-gradient(to left, #bdbdbd, rgb(255, 255, 255));
+  height: calc(280px - 2rem);
+  border-radius: 1rem;
+  margin: auto;
+  padding: 1rem;
+  position: absolute;
+  transition: all 1s ease;
+  backface-visibility: hidden;
+  box-shadow: 0 0 10px 4px #7777;
+}
+
+.visacard-front {
+  z-index: 1;
+}
+.visacard-back {
+  z-index: 0;
+  transform: rotateY(180deg);
+}
+
+#card-display:hover .visacard-front {
+  transform: rotateY(180deg);
+}
+
+#card-display:hover .visacard-back {
+  transform: rotateY(0deg);
+}
+
+.the-card {
+  width: 100%;
+  height: 100%;
+  background-image: url('./map.png');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+}
+.top-section {
+  height: 50px
+}
+.mid-section {
+  position: relative;
+  top: 30px;
+  width: 100%;
+  padding: 0.2rem 0.5rem;
+  overflow: hidden;
+}
+.card-number-section {
+  position: relative;
+  top: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0 1rem;
+  gap: 0.3rem
+}
+.card-number-section span {
+  color: var(--basic-darkblue);
+  font-size: 1.5em;
+  text-shadow: 1px 1px 1px #777;
+  padding: 1px;
+}
+.card-number-section .part {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.expiry {
+  position: relative;
+  top: -4rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.expiry > div {
+  width: 50px;
+  color: var(--basic-darkblue);
+  font-size: 0.7rem
+}
+.mid-section img {
+  display: block;
+  float: left;
+  border-radius: 0.8rem;
+  padding: 2px;
+  box-shadow: 2px 2px 4px 2px #888 inset ;  
+}
+.card-signature .blind-area {
+  height: 40px;
+  width: 83.3333333%;
+  background-image: url('./stripes.png');
+  background-size: 3% 100%;
+  background: repeating-linear-gradient(
+    to left,
+    45deg,
+    #000 33%,
+    #666 66%,
+    #fff 99%
+  );
+  background-size: 5px;
+}
+#card-holder {
+  position: relative;
+  top: -4rem;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1rem;
+  color: var(--basic-darkblue);
+  font-weight: bold;
+  text-align: right;
+}

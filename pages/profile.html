@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TRIPVUM</title>
+    <link rel="stylesheet" href="/css/hotel.css" />
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/pages/profile.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  </head>
+  <body dir="rtl">
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" data-bs-toggle="tooltip" title="موقع حجز رحلات الطيران الداخلى" href="/index.html">
+            <img class="d-block" src="../images/icon.png" height="40" alt="">
+            <img class="d-block" src="../images/tripvum.png" height="12" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/index.html">
+                  <i class="fa fa-home"></i> &nbsp; الرئيسية</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-clipboard-check"></i> &nbsp; الحجز</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-suitcase-rolling"></i> &nbsp; رحلات</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-hotel"></i>  &nbsp;  إقامة</a>
+              </li><li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-plane"></i>  &nbsp;  طيران</a>
+              </li><li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-star-half-alt"></i> &nbsp; تقييمات</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-id-card"></i> &nbsp; اتصل بنا</a>
+              </li>
+            </ul>
+            <!-- Button trigger modal -->
+            <div class="user">
+              <div class="user-buttons">
+                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginFormModal">
+                  الدخول
+                </button>
+                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">
+                  التسجيل
+                </button>
+              </div>
+              <div id="user-menu" class="user-menu hidden">
+                <button class="btn text-light "> &nbsp; <i class="fa fa-user"></i>&nbsp; مرحبا  <span class="username"></span></button>
+                <ul class="hidden">
+                  <li>
+                    <a href="/pages/profile.html">حساب شخصى</a>
+                  </li>
+                  <li>
+                      <a href="/pages/profile.html?fav=1">المفضلة</a>
+                  </li>
+                  <li>
+                    <a href="/pages/profile.html?trips=1">رحلات</a>
+                  </li>
+                  <li>
+                    <a href="/pages/profile.html?flights=1">طيران</a>
+                  </li>
+                  <li>
+                    <a href="/pages/profile.html?hotels=1">فنادق</a>
+                  </li>
+                  <li>
+                    <a id="logout">خروج</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    <section class="d-none" id="hotel-info" dir="rtl">
+      <div class="container mb-5">
+        <div id="banner">
+          <div class="profile">
+            <div class="stars"></div>
+            <div id="hotel-img"></div>
+            <div id="hotel-name"></div>
+          </div>
+        </div>
+        <div class="space" style="height: 120px"></div>
+        <nav>
+          <ul class="navs">
+            <li class="nav-item active" data-open="favourites">المفضلة</li>
+            <li class="nav-item" id="open-pricing-part" data-open="trips">الرحلات</li>
+            <li class="nav-item" data-open="flights">الطيران</li>
+            
+            <li class="nav-item" data-open="hotels"> الفنادق </li>
+          </ul>
+          <div class="nav-contents">
+            
+            <div class="tab active" id="favourites"> لا يوجد عناصر مفضلة لك حتى الآن </div>
+            <div class="tab" id="trips"> انت غير مشترك فى أى رحلات على هذا الموقع </div>
+            <div class="tab" id="flights">
+              <div class="row">لا يوجد رحلات طيران محجوزة باسمك على هذا الموقع</div>  
+            </div>
+            
+            <div class="tab" id="hotels" style="">
+             
+              <div class="row"> لا توجد أية حجوزات لك فى أى فنادق حتى الأن </div>
+              
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <!-------------------------------------------------------------------------------->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script
+			  src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script src="/js/hotels.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/register.js"></script>
+    <script src="/js/data.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script src="../hotels.js"></script>
+    <script src="../travel.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hotels = Hotels;
+        const reg_user = JSON.parse(localStorage.getItem('reg_user'))
+        
+        if (reg_user) {
+          $('#hotel-info').removeClass('d-none')
+          $('#banner').css({
+            backgroundImage: 'url("/images/eid-mubarak.png")',
+            backgroundSize: '100% 100%',
+            backgroundRepeat: 'no-repeat'
+          })
+          $('#hotel-img').css({
+            backgroundImage: 'url("/images/profile.jpg")',
+            backgroundSize: '100% 100%',
+          })
+          $('#banner .stars').html(reg_user.email).css({
+            fontSize: '1.5rem',
+            background: 'transparent',
+            color: 'blue'
+          })
+          $("#hotel-name").html(reg_user.username);
+          var bookedHotels = JSON.parse(localStorage.getItem('bookedHotels')) || []
+        
+          if (reg_user) {
+            userBookedHotels = bookedHotels.filter((hotel)=> {return hotel.user == reg_user.email})
+          }
+          
+          
+          
+          const hotelsList = userBookedHotels.map((bh)=> {
+            const hotel = hotels.find((h)=>{return h.id == bh.hotelId})
+            const check = '<i class="fa fa-check text-success"></i>'
+            const times = '<i class="fa fa-times text-danger"></i>'
+            const nullAddons = '<div class="">لا يوجد إضافات</div>'
+            const transAddons = '<div class="">لقد اخترت خدمة الانتقالات الداخلية</div>'
+            const carAddons = '<div class="">لقد اخترت سيارة خاصة</div>'
+            return (`
+              <div class="col col-6">
+                <div class="card mb-3">
+                  <div class="card-header">${hotel.name}</div>
+                    <div class="card-body">
+                    <h5>نوع الخدمة: ${hotel.prices[bh.serviceId-1].name}</h5>
+                    <div class=""></div>
+                    <table class="w-100 border">
+                      <tr>
+                        <th colspan="3" class="text-center fs-5 bg-primary text-light">عدد النزلاء</th>
+                      </tr>
+                      
+                      <tr>
+                        <th class="border py-1 px-3 text-center">البالغين</th>
+                        <th class="border py-1 px-3 text-center">من 6 : 12 سنة </th>
+                        <th class="border py-1 px-3 text-center">أقل من 6 سنوات</th>
+                      </tr>
+                      <tr>
+                        <td class="border py-1 px-3 text-center">${bh.passengers.adults}</td>
+                        <td class="border py-1 px-3 text-center">${bh.passengers.children}</td>
+                        <td class="border py-1 px-3 text-center">${bh.passengers.youngs}</td>
+                      </tr>
+
+                      <tr>
+                        <th colspan="3" class="text-center fs-5 bg-primary text-light">الوجبات</th>
+                      </tr>
+                      <tr>
+                        <th class="border py-1 px-3 text-center">الافطار</th>
+                        <th class="border py-1 px-3 text-center">الغداء</th>
+                        <th class="border py-1 px-3 text-center">العشاء</th>
+                      </tr>
+                      <tr>
+                        <td class="border py-1 px-3 text-center">${bh.selectedMeals[0]?check:times}</td>
+                        <td class="border py-1 px-3 text-center">${bh.selectedMeals[1]?check:times}</td>
+                        <td class="border py-1 px-3 text-center">${bh.selectedMeals[2]?check:times}</td>
+                      </tr>
+                       
+                      <tr>
+                        <th colspan="3" class="text-center fs-5 bg-primary text-light">الإضافات</th>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="border py-1 px-3 text-center">${bh.selectedAddons == null?nullAddons:bh.selectedAddons=='trans'? transAddons:carAddons}</td>
+                      </tr>
+                       
+                    </table>
+                    
+                  </div>
+                </div>
+              </div>
+            `)
+          })
+      
+          $('#hotels .row').html(hotelsList)
+          const navItems = document.querySelectorAll('.nav-item')
+          const tabs = document.querySelectorAll('.tab')
+          
+          const bookedFlights = JSON.parse(localStorage.getItem('bookedFlights')) || []
+          const userBookedFlights = bookedFlights.filter((fl)=>{return fl.user == reg_user.email})
+          if (userBookedFlights.length > 0) {
+            const bookedFlightsContent = bookedFlights.map((bf)=>{
+              const carrier = airlines.find((al)=>{return al.name == bf.carrierName})
+              console.log(bf)
+              return(`
+              <div class="col col-6">
+                <div class="card single-ticket mb-3" style="">
+                <div class="row g-0">
+                  <div id="ticketBrief" class="col-md-4">
+                    <div class="card-header" style="background-color: #ff7b00; color: white; text-align: center"><br>BOARDING PASS</div>
+                    <div class="card-body">
+                      <div class="ticket-row mb-1">
+                        <span class="label">Name</span><span class="info">${reg_user.username}</span>
+                      </div>
+                      <div class="ticket-row mb-1">
+                        <span class="label">SEAT</span><span class="info">27D</span>
+                      </div>
+                      <div class="ticket-row mb-1">
+                        <span class="label">FROEM</span><span class="info">${bf.fromAirport}</span>
+                      </div>
+                      <div class="ticket-row mb-1">
+                        <span class="label">To</span><span class="info">${bf.toAirport}</span>
+                      </div>
+                      <div class="ticket-row mb-1">
+                        <span class="label">FLIGHT</span><span class="info">${carrier.shortName}524A</span>
+                      </div>
+                      <div class="ticket-row mb-1">
+                        <span class="label">DATE</span><span class="info">${bf.bookingDate}</span>
+                      </div>
+                    </div>
+                    <div class="card-footer" style="background-color: #ff7b00;"></div>
+                  </div>
+                  <div id="ticket" class="col-md-8">
+                    <div class="card-header" style="background-color: orangered; color: white;">
+                    BOARDING PASS CARTE A'EMPARQUEMENT<br><small style="font-size: 9px">BOARDKARTE - CARTA A'IMPARCO - TARJETA DE EMBARQUE</small>
+                  <img src="/images/flight-icon.jpg" alt="" width="50" style="position: absolute; border-radius: 50%; border: 3px solid #fff;top: 0.2rem; left: 0.5rem">  
+                  </div>
+                    <div class="card-body">
+                      <div class="d-flex">
+                        <div class="" style="width: 2.5rem">
+                          <img src="/images/barcode.jpeg" alt="" 
+                          style="transform: rotate(-90deg) translateX(2rem); height: 2rem; width: 7rem; transform-origin: right bottom; ">
+                        </div>
+                        <div style="flex: auto" class="">
+                          <div class="ticket-row mb-2">
+                            <span class="label">CLASS</span><span class="info">${bf.flightGrade}</span>
+                            <span class="label">BOARDING TIME</span><span class="info">12:00:00</span>
+                          </div>
+                          <div class="ticket-row mb-2">
+                            <span class="label">FLIGHT</span><span class="info">${carrier.shortName}524A</span>
+                            <span class="label">DATE</span><span class="info">${bf.bookingDate}</span>
+                          </div>
+                          <div class="ticket-row mb-2">
+                            <span class="label">GATE</span><span class="info">SECTION 3</span>
+                            <span class="label">SEAT</span><span class="info">27D</span>
+                          </div>
+                          <div class="ticket-row mb-2">
+                            <span class="label">FROM</span><span class="info">${bf.fromAirport}</span>
+                            <span class="label">TO</span><span class="info">${bf.toAirport}</span>
+                          </div>
+                          <div class="ticket-row mb-2">
+                            <span class="label">NAME OF PASSENGER</span><span class="info">${reg_user.username}</span>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <div class="card-footer"></div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              `)
+            })
+
+            $('#flights .row').html(bookedFlightsContent)
+          }
+
+          navItems.forEach((item)=>{
+            item.addEventListener('click', function (e) {
+              let currentSelectedItem = document.querySelector('nav ul li.nav-item.active')
+              currentSelectedItem.classList.remove('active')
+              e.target.classList.add('active')
+              const the_target = item.getAttribute('data-open')
+
+              tabs.forEach(tab=>{
+                tab.classList.remove('active')
+              })
+              document.getElementById(the_target).classList.add('active')
+            })
+          })
+      
+        } else {
+          if ( confirm('يجب عليك تسجيل الدخول حتى تتمكن من رؤية هذه الصفحة') ) {
+            goTo('/')
+          }
+        }
+      });
+
+
+
+
+
+    </script>
+  </body>
+</html>

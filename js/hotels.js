@@ -181,7 +181,7 @@ const Hotels = [
         meals: "افطار وعشاء",
         remain: 22,
         offer: {
-          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع ',
           amount: 15,
           type: 'percent'
         },
@@ -193,7 +193,7 @@ const Hotels = [
         meals: "افطار وغداء",
         remain: 9,
         offer: {
-          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع ',
           amount: 15,
           type: 'percent'
         },
@@ -205,7 +205,7 @@ const Hotels = [
         meals: "افطار وغداء",
         remain: 2,
         offer: {
-          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع* ',
+          brief: 'خصم 15% على الغرف بمناسبة بداية الربيع ',
           amount: 15,
           type: 'percent'
         },

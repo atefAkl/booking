@@ -1,16 +1,19 @@
 const users = JSON.parse(localStorage.getItem('users')) || []
 
 $(window).on('load', function () {
-    // console.log(localStorage.getItem('reg_user'))
-    if (localStorage.getItem('reg_user')==1) {
-        $('.user-buttons').addClass('hidden')
-        $('#user-menu').removeClass('hidden')
-        $('#user-menu > button span.username').html(localStorage.getItem('username'))
-    } 
+  const reg_user = localStorage.getItem('reg_user')
+  const regUser = JSON.parse(reg_user)
+  
+  
+  if (regUser) {
+      $('.user-buttons').addClass('hidden')
+      $('#user-menu').removeClass('hidden')
+      $('#user-menu > button span.username').html(regUser.username)
+  } 
 })
 
 tripCities.forEach((city)=>{
-  $('#city').append(`<option value="${city.id}">${city.arabicName}</option>`)
+  $('#city').append(`<option value="${city.arabicName}">${city.arabicName}</option>`)
 })
  
 $('#swap').on('click',() => {
@@ -35,6 +38,10 @@ $('#logout').click(function (e) {
   window.location.href='/'
 })
 
+// navigate to 
+function goTo( path) {
+  return window.location.href = path
+}
 
 
 

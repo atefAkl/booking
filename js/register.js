@@ -62,7 +62,7 @@ $('#submitLogin').on('click', function () {
         }, 100);
     }
 
-    if ($('#email').val() == '') {
+    if ($('#login-email').val() == '') {
         $('#errMessage').html('ادخل اسم المستخدم')
         setTimeout( async() => {
             $('#liveToastBtn').click()
@@ -78,30 +78,36 @@ $('#submitLogin').on('click', function () {
     }
 
     const registered = users.find((u)=>{
-        return u.email == $('#email').val() && u.password == $('#password').val()
+        return u.email == $('#login-email').val() && u.password == $('#password').val()
     })
-    console.log(undefined != registered)
-     if (undefined != registered) {
-            now = new Date().toLocaleString('en-EG')
-            localStorage.setItem('reg_user', 1)
-            localStorage.setItem('username', registered.username)
-            localStorage.setItem('email', registered.email)
-            localStorage.setItem('login_time', now)
-            console.log('if sector')
-            $('#errMessage').html('مرحبا بك '+registered.username+' مرة أخرى، تم تسجيل دخولك بنجاح.')
-            $('#liveToastBtn').click()
+    console.log($('#login-email').val(),$('#password').val())
+    if (undefined != registered) {
+        const loginTime = new Date().toLocaleString('en-EG')
+        const reg_user = {
+            status: true,
+            ...registered,
+            login_since: loginTime
+        }
+
+        localStorage.setItem('reg_user', JSON.stringify(reg_user))
+        // localStorage.setItem('username', registered.username)
+        // localStorage.setItem('email', registered.email)
+        // localStorage.setItem('login_time', now)
+        console.log(reg_user)
+        $('#errMessage').html('مرحبا بك '+registered.username+' مرة أخرى، تم تسجيل دخولك بنجاح.')
+        $('#liveToastBtn').click()
+    
+        setTimeout(() => {
+            window.location.href ='/index.html'
+        }, 3000);
+    } else {
         
-            setTimeout(() => {
-                window.location.href ='/index.html'
-            }, 3000);
-        } else {
-            
-            $('#errMessage').html('البريد المستخدم أو كلمة المرور غير صحيح')
-            setTimeout(() => {
-                $('#liveToastBtn').click()
-                    return false
-            }, 100);
-            console.log('else sector')
-        } 
+        $('#errMessage').html('البريد المستخدم أو كلمة المرور غير صحيح')
+        setTimeout(() => {
+            $('#liveToastBtn').click()
+                return false
+        }, 100);
+        console.log('else sector')
+    } 
     
 })

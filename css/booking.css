@@ -64,12 +64,18 @@ section.trips {
 /* Flights List Styles */
 
 .flights-list .container {
+    max-width: 90%;
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
 }
 .flights-list .container #filters {
     border: 1px solid #ccc;
+  }
+.flights-list .container #filters:first-child {
+  width: auto;
+  min-width: 650px;
+
 }
 .flights-list .container #filters .filters-header {
     background-color:  #ccc;
@@ -172,6 +178,7 @@ section.trips {
   top: calc(50% - 1px);
   background-color: #ccc;
   position: absolute;
+  top: 4.7rem;
 }
 .timing {
   display: flex;
