@@ -192,9 +192,6 @@
     <script src="/js/register.js"></script>
     <script src="/js/data.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
-    <script src="../hotels.js"></script>
-    <script src="../travel.js"></script>
     <script>
       window.addEventListener("load", function () {
         const urlParams = new URLSearchParams(window.location.search);
@@ -202,13 +199,13 @@
         const hotel = hotels.find((h) => h.id == urlParams.get("id"));
         
         var bookedHotels = JSON.parse(localStorage.getItem('bookedHotels')) || []
-        var userBookedHotel = null
+        var userBookedHotel
         const reg_user = JSON.parse(localStorage.getItem('reg_user'))
         if (reg_user) {
           userBookedHotel = bookedHotels.find((hotel)=> {return hotel.user == reg_user.email})
         }
         var bookedService= 0;
-        if (userBookedHotel.hotelId == hotel.id){
+        if (userBookedHotel != null && userBookedHotel.hotelId == hotel.id){
           bookedService = userBookedHotel.serviceId
         }
         console.log(bookedService)

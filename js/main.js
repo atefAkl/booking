@@ -16,9 +16,12 @@ tripCities.forEach((city)=>{
   $('#city').append(`<option value="${city.arabicName}">${city.arabicName}</option>`)
 })
  
+// toggle departure airport with destination
 $('#swap').on('click',() => {
   localStorage.setItem('dep', $('#departure').val())
-  $('#departure').val($('#destination').val())
+  localStorage.setItem('dest', $('#destination').val())
+  
+  $('#departure').val(localStorage.getItem('dest'))
   $('#destination').val(localStorage.getItem('dep'))
 })
 

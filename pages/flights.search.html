@@ -479,7 +479,6 @@
       airports.forEach ((ap)=>{
         $('#departure').append(`<option ${urlParams.get('departure') == ap.id ? 'selected' : ''} value="${ap.id}">${ap.name}</option>`)
         $('#destination').append(`<option ${urlParams.get('destination') == ap.id ? 'selected' : ''} value="${ap.id}">${ap.name}</option>`)
-
       })
 
 

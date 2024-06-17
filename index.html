@@ -190,7 +190,7 @@
         <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
           
           <form class="px-4 py-3" action="/pages/flights.search.html" method="GET">
-            
+                
             <div class="input-group">
               <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الرحلة: ">  
               <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الحجز من: ">  
@@ -220,7 +220,7 @@
               <input type="number" name="child" id="child" class="form-control" min="0" step="1" value="0">
               <label for="enfants" class="input-group-text">الرضع:</label>
               <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1" value="0">
-              <button type="submit" id="search_flights" class="input-group-text">البحث</button>
+              <button type="submit" id="search_flights" class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
             </div>
           </form>
         </div>
@@ -712,8 +712,7 @@
     <script src="./js/data.js"></script>
 
     <script>
-      $('#departure').append(`<option hidden>اختر البداية</option>`)
-      $('#destination').append(`<option hidden>اختر الوجهة</option>`)
+      
       airports.forEach ((ap)=>{
         $('#departure').append(`<option value="${ap.id}">${ap.name}</option>`)
         $('#destination').append(`<option value="${ap.id}">${ap.name}</option>`)
