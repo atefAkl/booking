@@ -61,6 +61,11 @@
   list-style: none;
 }
 
+.orange {
+  background-color: orangered;
+  color: #fff !important;
+}
+
 #hotel-info nav ul.navs li {
   height: 100%;
   font: 700 18px / 36px Cairo;
@@ -219,4 +224,38 @@
 }
 #pricing table.contacts tr td:last-child {
   text-align: left;
+}
+
+/*Trips Settings*/
+#images .card-group .card {
+  border-radius: 0;
+  border: 1px dashed #aaa;
+  border-left: 0;
+  overflow: hidden;
+}
+#images .card-group .card:first-child .list-group-item,
+#images .card-group .card:first-child {
+  background-color: #eee; 
+}
+#images .card-group .card:not(:first-child):hover .section-separator,
+#images .card-group .card:not(:first-child):hover .list-group-item {
+  background-color: #abecab;
+  border-bottom: 1px solid #eee;
+}
+#images .card-group .card:not(:first-child):hover {
+  border:1px solid green; 
+  background-color: #abecab;
+}
+#images .card-group .card:first-child  {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+#images .card-group .card:last-child {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-left: 1px dashed #aaa;
+}
+#images .list-group-item {
+  min-height: 42px;
+  text-align: center
 }

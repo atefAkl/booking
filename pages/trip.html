@@ -1,0 +1,429 @@
+trip.html
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TRIPVUM</title>
+    <link rel="stylesheet" href="/css/hotel.css" />
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  </head>
+  <body dir="rtl">
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" data-bs-toggle="tooltip" title="موقع حجز رحلات الطيران الداخلى" href="/index.html">
+            <img class="d-block" src="../images/icon.png" height="40" alt="">
+            <img class="d-block" src="../images/tripvum.png" height="12" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/index.html">
+                  <i class="fa fa-home"></i> &nbsp; الرئيسية</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-clipboard-check"></i> &nbsp; الحجز</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-suitcase-rolling"></i> &nbsp; رحلات</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-hotel"></i>  &nbsp;  إقامة</a>
+              </li><li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-plane"></i>  &nbsp;  طيران</a>
+              </li><li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-star-half-alt"></i> &nbsp; تقييمات</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-id-card"></i> &nbsp; اتصل بنا</a>
+              </li>
+            </ul>
+            <!-- Button trigger modal -->
+            <div class="user">
+              <div class="user-buttons">
+                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginFormModal">
+                  الدخول
+                </button>
+                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">
+                  التسجيل
+                </button>
+              </div>
+              <div id="user-menu" class="user-menu hidden">
+                <button class="btn text-light "> &nbsp; <i class="fa fa-user"></i>&nbsp; مرحبا  <span class="username"></span></button>
+                <ul class="hidden">
+                  <li>
+                    <a href="/pages/profile.html">حساب شخصى</a>
+                  </li>
+                  <li>
+                      <a href="/pages/favourites.html">المفضلة</a>
+                  </li>
+                  <li>
+                    <a href="/pages/favourites.html?trips=1">رحلات</a>
+                  </li>
+                  <li>
+                    <a href="/pages/favourites.html?flights=1">طيران</a>
+                  </li>
+                  <li>
+                    <a href="/pages/favourites.html?hotels=1">فنادق</a>
+                  </li>
+                  <li>
+                    <a id="logout">خروج</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="pt-5 mt-0" id="hotel-info" dir="rtl">
+      <div class="container mb-5">
+        <div id="banner">
+          <div class="profile">
+            <div class="stars">[ <span class="stars-count">  </span> stars ]</div>
+            <div id="hotel-img"></div>
+            <div id="hotel-name"></div>
+          </div>
+        </div>
+        <div class="space" style="height: 120px"></div>
+        <nav>
+          <ul class="navs bg-primary">
+            <li class="nav-item active" data-open="about"> عن المدينة</li>
+            <li class="nav-item" id="open-pricing-part" data-open="pricing"> الرحلات </li>
+            <li class="nav-item" data-open="images"> البرامج </li>
+            <li class="nav-item" data-open="contact"> احجز معنا </li>
+          </ul>
+          <div class="nav-contents">
+            <div class="tab" id="about">
+              <div class="row" style="width: 1100px; margin: auto; height: 380px; padding: 14px 0">
+                <div id="big-show" class="col col-6" style="overflow: hidden;"></div>
+                <div class="col col-6">
+                    <div id="thumbs" class="d-grid" style="grid-template-columns: repeat(2, 1fr); gap: 0.6rem"></div>
+                </div>
+              </div>
+              <div id="tour-info">
+                <h4>ما تقدمه TripVUM فى <span class="cityName"></span></h4>
+                <div class="contents row"></div>
+              </div>
+              <button onclick="document.getElementById('open-pricing-part').click()" class="w-100 mb-5 btn btn-block btn-outline-success">الاطلاع على العروض</button>
+            </div>
+            <div class="tab" id="pricing">
+              <h3 class="orange" style="font-size: 1.3rem;"> الرحلات الموسمية </h1>
+              <div id="periodicOccations">
+                <div class="row"></div>
+              </div>
+              <h3 class="orange" style="font-size: 1.3rem;"> الرحلات المستمرة </h1>
+              <div id="continuousOccations" >
+              </div>
+            </div>
+            <div class="tab active" id="images">
+                <style>
+                    .section-separator {
+                        height: 2.5rem; 
+                        padding: 3px 1rem; 
+                        margin: 0;
+                        background-color: #ccc;
+                    }
+                </style>
+                <h4 class="orange text-center py-2">الباقات المتاحة</h4>
+                <div class="card-group p-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">الخيارات</h5>
+                        </div>
+                        <h5 class="section-separator">الإقامة</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">  تكلفة الفرد / ليلة  </li>
+                            <li class="list-group-item"> الحد الأدنى للأفراد </li>
+                            <li class="list-group-item"> تكلفة الفرد الإضافى </li>
+                            <li class="list-group-item"> الحد الأقصى للأفراد </li>
+                            <li class="list-group-item"> الأطفال دون 6 سنوات </li>
+                            <li class="list-group-item"> الأطفال من 6:12 سنوات </li>
+                            <li class="list-group-item"> غرف مختلطة بدون زوزاج </li>
+                        </ul>
+                        <h5 class="section-separator">الوجبات</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> تكلفة الفرد </li>
+                            <li class="list-group-item"> تكلفة الفرد الإضافى </li>
+                            <li class="list-group-item"> وجبات مجانية </li>
+                            <li class="list-group-item"> الحد الأقصى للوجبات / يوم </li>
+                            <li class="list-group-item"> الأطفال دون 6 سنوات </li>
+                            <li class="list-group-item"> الأطفال من 6:12 سنوات </li>
+                            <li class="list-group-item"> وجبات خارج فندق الإقامة </li>
+                        </ul>
+                        <h5 class="section-separator">البرنامج</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> الالتزام بالبرنامج </li>
+                            <li class="list-group-item"> اختيار الرحلات </li>
+                            <li class="list-group-item"> تغيير البرنامج </li>
+                            <li class="list-group-item"> الغاء الرحلة </li>
+                            <li class="list-group-item"> تعديل الرحلة </li>
+                            <li class="list-group-item"> تمديد الرحلة </li>
+                            <li class="list-group-item"> اصطحاب الحيوانات الأليفة </li>
+                            <li class="list-group-item"> تخصيص مساعد / مرشد </li>
+                            <li class="list-group-item"> برنامج تجميع النقاط </li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">الأفراد</h5>
+                        </div>
+                        <h5 class="section-separator"></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> 500$ </li>
+                            <li class="list-group-item"> 1 </li>
+                            <li class="list-group-item"> 80% </li>
+                            <li class="list-group-item"> 3 </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            
+                        </ul>
+                        <h5 class="section-separator"></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> 20$ </li>
+                            <li class="list-group-item"> 80% </li>
+                            <li class="list-group-item"> 1 </li>
+                            <li class="list-group-item"> 3 </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            <li class="list-group-item"> 50% </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                        </ul>
+                        <h5 class="section-separator"></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> اجبارى </li>
+                            <li class="list-group-item"> حسب البرنامج </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">العائلات</h5>
+                        </div>
+                        <h5 class="section-separator"></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> 450$ </li>
+                            <li class="list-group-item"> 1 </li>
+                            <li class="list-group-item"> 70% </li>
+                            <li class="list-group-item"> 10 </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            
+                        </ul>
+                        <h5 class="section-separator"></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> 16$ </li>
+                            <li class="list-group-item"> 75% </li>
+                            <li class="list-group-item"> 1 </li>
+                            <li class="list-group-item"> 4 </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> 50% </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                        </ul>
+                        <h5 class="section-separator"></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> اختيارى </li>
+                            <li class="list-group-item"> متاح </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        
+                        <div class="card-body">
+                        <h5 class="card-title text-center">الشركات والمنظمات</h5>
+                        
+                        </div>
+                        <h5 class="section-separator"></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> 400$ </li>
+                            <li class="list-group-item"> 1 </li>
+                            <li class="list-group-item"> 70% </li>
+                            <li class="list-group-item"> 10 </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
+                            
+                        </ul>
+                        <h5 class="section-separator"></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> 16$ </li>
+                            <li class="list-group-item"> 75% </li>
+                            <li class="list-group-item"> 1 </li>
+                            <li class="list-group-item"> 4 </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> 50% </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                        </ul>
+                        <h5 class="section-separator"></h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> مرة واحدة </li>
+                            <li class="list-group-item"> حسب المنظمين </li>
+                           <li class="list-group-item"> اختيارى </li>
+                            <li class="list-group-item"> متاح </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
+                            
+                    </div>
+                </div>
+            </div>
+            <div class="tab" id="offers">عروض</div>
+            <div class="tab" id="contact" style="padding: 2rem; text-align: center;">
+              <h1 style="font-size: 32px;">بيانات الاتصال</h1>
+              <style>
+                table.contacts {
+                  border-top: 3px solid;
+                  border-bottom: 3px solid;
+                }
+                table.contacts tr td {
+                  padding: 3px 1rem;
+                }
+                table.contacts tr td:first-child {
+                  border-left: 1px solid #777;
+                  text-align: left
+                }
+              </style>
+              <table class="contacts" style="width: 50%; ; margin: auto"></table>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <!-------------------------------------------------------------------------------->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script src="/js/hotels.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/register.js"></script>
+    <script src="/js/data.js"></script>
+    
+    <script>
+      window.addEventListener("load", function () {
+        const tripParams = new URLSearchParams(window.location.search);
+        const tripId = tripParams.get('id');
+        const trip = tripCities.find((trip)=>{return trip.id == tripId});
+
+        // set the trip image icon 
+        $('#hotel-img').css({backgroundImage: `url("${trip.image}")`})
+        $('#banner').css({backgroundImage: `url("${trip.cover}")`})
+        $('#hotel-name').html(trip.arabicName + ' || ' + trip.latinName)
+    //    console.log(trip)
+       
+        const renderedThumbs = trip.images.thumbs.map((thumb)=>{return `<div style="overflow: hidden"><img src="${thumb}" height="170" width="100%" alt=""></div>`})
+        
+        $('#big-show').html(`<img src="${trip.images.bigShow}" height="350" width="100%" alt="">`)
+        
+        $('#thumbs').html(renderedThumbs)
+
+        // render tour info
+        const tourInfo = trip.tour.map((ti)=>{
+
+            console.log(ti.places)
+            var renderedPlaces = '';
+            if (ti.places != 'undefined') {
+                renderedPlaces = ti.places.map((pl)=>{
+                    return `<li >${pl}</li>`
+                }) 
+            }
+            return (`
+            <div class="col col-6">
+            <h5 class="py-2 px-3" style="background: orangered; color: #fff"> زيارة ${ti.name}</h5>
+            ${renderedPlaces ? '<ul class="px-5">'+renderedPlaces.join('')+'</ul>': ''}
+            `)
+        })
+
+        $('.cityName').html(trip.arabicName + ' || ' + trip.latinName)
+
+        $('#tour-info .contents').html(tourInfo)
+
+        // set periodic Occasions and continuous Occasions contents
+        const periodicOccationsContents = periodicOccations.map(occ=>{
+            var months = occ.months.map(m=>{return `<span class="badge text-bg-secondary">${m}</span>`})
+            return (`
+                <div class="col col-6 py-2">
+                    <div class="card mb-3" style="height: 100%">
+                        <div class="card-header fw-bold">
+                            ${occ.name}
+                        </div>
+                        <div class="card-body">
+                            <p class="p-0" style="text-align: justify">${occ.brief}</p>
+                                
+                            <div class="badge text-bg-primary">تبدأ من: ${occ.starts}</div>
+                            <div class="badge text-bg-primary">حتى: ${occ.starts}</div>
+                            <p>احجز قبل الموعد بوقت كاف</p>
+                            ${months.join(' ')}
+                        </div>
+                    </div>
+                </div>
+            `)
+        })
+        const continuousOccationsContents = continuousOccations.map(occ=>{
+            return (`
+            <fieldset class="border position-relative pt-4 mt-5"> 
+                <legend class="border position-absolute fw-bold px-3 py-1" style="width: auto; right: 2rem; top: -1.3rem; background-color: #fff; font-size: 1.2rem">${occ.name}</legend>
+                <p class="" style="text-align: justify">${occ.brief}</p>
+                </fieldset>
+            `)
+        })
+
+        $('#periodicOccations .row').html(periodicOccationsContents)
+        $('#continuousOccations').html(continuousOccationsContents)
+        // console.log(tourInfo)
+
+
+    });
+
+    // run the navbar
+    const navItems = document.querySelectorAll('.nav-item')
+    const tabs = document.querySelectorAll('.tab')
+    
+    navItems.forEach((item)=>{
+        item.addEventListener('click', function (e) {
+        let currentSelectedItem = document.querySelector('nav ul li.nav-item.active')
+        currentSelectedItem.classList.remove('active')
+        e.target.classList.add('active')
+        const the_target = item.getAttribute('data-open')
+
+        tabs.forEach(tab=>{
+            tab.classList.remove('active')
+        })
+        document.getElementById(the_target).classList.add('active')
+        })
+    })
+    </script>
+  </body>
+</html>
