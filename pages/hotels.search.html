@@ -12,7 +12,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript">
       const urlParams = new URLSearchParams(window.location.search);
-      console.log(urlParams.get('go'))
     </script>
   </head>
   <body dir="rtl">
@@ -99,19 +98,19 @@
 
     </section>
 
-
-    <!-- Booking form -->
+<!-- Booking form -->
     <section id="booking-section" class="w-100">
       <div class="booking  rounded-2 px-5 py-3">
          <nav>
             <div class="nav nav-tabs" id="nav-tab"  role="tablist" style="border: 0">
                 <button class="nav-link" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
+                
                 <button class="nav-link active" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
                 <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
-            <div class="tab-pane fade " id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
+            <div class="tab-pane fade" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
              
               <form class="px-4 py-3" action="/pages/flights.search.html" method="GET">
                 
@@ -150,32 +149,47 @@
 
             </div>
             <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
-              
-              
-            </div>
-            <div class="tab-pane show active" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
-            
-              <form class="px-4 py-3" action="/pages/hotels.search.html" method="GET">
-                
-                <div class="input-group">
+              <!-- قسم البحث فى الرحلات -->
+              <form class="px-4 py-3" action="/pages/trips.search.html" method="GET">
+                <div class="input-group mb-2">
                   <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الوصول: ">  
                   <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="المدينة: ">  
-                    
                 </div>
                 <div class="input-group">
-                  <input class="form-control" name="arrive" type="date" id="arrive" >  
-                  <select class="form-control" name="city" id="city"></select>
+                  <label for="tripCheckInDate" class="input-group-text">تاريخ الحجز</label>
+                  <input type="date" name="tripCheckInDate" id="tripCheckInDate" class="form-control">
+                  <label for="tripcity" class="input-group-text">المدينة</label>
+                  <select name="tripcity" id="tripcity" class="form-control"></select>
                   <button class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
                 </div>
               </form>
               
-
             </div>
+            <div class="tab-pane fade show active" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
             
+              <form class="px-4 py-3" action="/pages/hotels.search.html" method="GET">
+                <div class="input-group mb-2">
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الوصول: ">  
+                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="المدينة: ">  
+                </div>
+                <div class="input-group mb-2">
+                  <input name="tab" type="hidden" id="tab" value="hotels">  
+                  <input class="form-control" name="arrive" type="date" id="arrive" >  
+                  <select class="form-control" name="city" id="city"></select>
+                </div>
+                <div class="input-group mb-2">
+                  <label for="adult" class="input-group-text">البالغين:</label>
+                  <input type="number" name="adult" id="adult" class="form-control" min="1" step="1" value="1">
+                  <label for="child" class="input-group-text">الأطفال:</label>
+                  <input type="number" name="child" id="child" class="form-control" min="0" step="1" value="0">
+                  <label for="enfants" class="input-group-text">الرضع:</label>
+                  <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1" value="0">
+                  <button type="submit" id="search_flights" class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
+                </div>
+              </form>
+            </div>
           </div>
-        
     </section>
-
 
     <section class="flights-list" dir="rtl">
         <div class="container">
@@ -416,12 +430,10 @@
       
       $('#arrive').val(urlParams.get('arrive'))
 
-      
-
       $('#city').val(urlParams.get('city'))
 
       console.log(Hotels)
-      const filteredHotels = Hotels.filter(hotel=>{return hotel.city == urlParams.get('city')})
+      const filteredHotels = Hotels.filter(hotel=>{return hotel.cityId == urlParams.get('city')})
 
       const hotelsSerachContact = filteredHotels.map(hotel=>{
         const [votes, rate] = calcRating(hotel.rating);

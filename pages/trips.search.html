@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/booking.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      const urlParams = new URLSearchParams(window.location.search);
+      const tripParams = new URLSearchParams(window.location.search);
       
     </script>
   </head>
@@ -99,20 +99,19 @@
 
     </section>
 
-
-    <!-- Booking form -->
+<!-- Booking form -->
     <section id="booking-section" class="w-100">
       <div class="booking  rounded-2 px-5 py-3">
          <nav>
             <div class="nav nav-tabs" id="nav-tab"  role="tablist" style="border: 0">
-                <button class="nav-link active" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
+                <button class="nav-link" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
                 
                 <button class="nav-link" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
-                <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
+                <button class="nav-link active" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
-            <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
+            <div class="tab-pane fade" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
              
               <form class="px-4 py-3" action="/pages/flights.search.html" method="GET">
                 
@@ -150,7 +149,7 @@
               </form>
 
             </div>
-            <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
+            <div class="tab-pane fade show active" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
               <!-- قسم البحث فى الرحلات -->
               <form class="px-4 py-3" action="/pages/trips.search.html" method="GET">
                 <div class="input-group mb-2">
@@ -189,13 +188,9 @@
                   <button type="submit" id="search_flights" class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
                 </div>
               </form>
-
             </div>
-            
           </div>
-        
     </section>
-
 
     <section class="flights-list" dir="rtl">
         <div class="container">
@@ -271,16 +266,12 @@
                           <label class="form-check-label" for="single-transit">عبر شركة الطيران</label>
                           <input class="form-check-input" type="radio" role="switch" name="transit" id="single-transit" >
                         </div>
-                        
                       </div>
                     </div>
                   </div>
-
                 </div>
             </div>
         </div>
-
-
     </section>
 
     <!-- Modals -->
@@ -478,206 +469,99 @@
     <script src="../js/data.js"></script>
 
     <script>
-
-      if(urlParams.get('go') == '') {
-        if (confirm ('من فضلك اختر موعد للرحلة لنتمكن من البحث')){
-          $('#go').focus()
-        } else {
-          goTo('/')
-        }
-      }
-
-      const fromAirport = airports.find((ap)=>{return ap.id==urlParams.get('departure')})
-
-      $('#go').val(urlParams.get('go'))
-      $('#adult').val(urlParams.get('adult'))
-      $('#child').val(urlParams.get('child'))
-      $('#enfants').val(urlParams.get('enfants'))
-
-      $('#grade').val(urlParams.get('grade'))
-      airports.forEach ((ap)=>{
-        $('#departure').append(`<option ${urlParams.get('departure') == ap.id ? 'selected' : ''} value="${ap.id}">${ap.name}</option>`)
-        $('#destination').append(`<option ${urlParams.get('destination') == ap.id ? 'selected' : ''} value="${ap.id}">${ap.name}</option>`)
-      })
-
-
-      const departure = airports.find((ap)=>ap.id == urlParams.get('departure'))
-      const destination = airports.find((ap)=>ap.id == urlParams.get('destination'))
-      const departure_date = urlParams.get('go')
-      const found_fights = []
-
-      airlines.forEach((al, i)=>{
-        found_fights.push({
-          flight_id: ++i,
-          departure: departure,
-          destination: destination,
-          departure_date: departure_date
-        })
-      })
-      console.log(departure)
-
-      const indexes = []
-      for (let i = 0; i<100; i++){
-        let index = Math.floor(Math.random()*100)
-        indexes.push(index)
-      }
-
-      const now = new Date()
       
+      const now = new Date()
+      const cityId = tripParams.get('tripcity')
+      const pickedCity = tripCities.find((city)=>{return city.id == cityId})
+      $('#tripCheckInDate').val(tripParams.get('tripCheckInDate'))
+      $('#tripcity').val(cityId)
+
       function getDayName(date){
         return date.getDay()
       }
 
-      // فلترة البيانات
-      //flights.sort((a, b) => a.price - b.price);
+      const foundperiodicTours = periodicOccations.map((occ)=>{
+        const startDate = Date.parse(occ.starts)
+        const targetDate = Date.parse(tripParams.get('tripCheckInDate'))
+        const endDate = Date.parse(occ.ends)
 
-
-      // توليد قيم عشوائية لعدد مواقع البحث التى تم جلب البيانات منها
-      
-
-      // توليد محطات التوقف للرحلات غير المباشرة
-      const steps = (stops) =>{
-        let rs = ''
-        if (stops.length > 0) {
-        stops.forEach(stop=>{
-          rs += `<span class="stop" data-stop="${stop}"></span>`
+        const cityHotels = pickedCity.hotels
+        const uniqueRandomArray = generateUniqueRandomArray(4, cityHotels.length);
+        const renderedCityHotels = uniqueRandomArray.map(num=>{
+          return `<span class="badge rounded-pill text-bg-success">${cityHotels[num]}</span>`
         })
-      } else {
-        rs=`<span class="direct">رحلة مباشرة</span>`
-      }
-        return rs;
-      }
 
-      // ترتيب المصفوفة بشكل عشوائى
-      function shuffleArray(array) {
-        // Create a copy of the array to avoid modifying the original
-        const shuffledArray = [...array];
-        // Use the Fisher-Yates shuffle algorithm
-        for (let i = shuffledArray.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1)); // Random index between 0 and i (inclusive)
-          [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Swap elements
-        }
-        return shuffledArray;
-      }
-      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-      ////////////////////////////////////////
-
-
-      const rendered_results = (flights) => {
-        const res = flights.map ((flight, i)=>{
-          const index = randomNumber(0, airlines.length)
-          const alp = airlines[index]
-        const weekDay = new Date(departure_date)
-        const grade = $('#grade').val();
-        
-        const flightPrice = pricing[getDayName(weekDay)][grade]*flight.carrier.ratio
-        
-        const stops = flight.stops.map((stop)=>{ return '<span class="stop" data-stop="'+stop+'"></span>'})
-        return `
-        
-          <div class="result">
-            <a class="result-info">
-              <div class="row result-wrapper">
-                <div class="col col-3" style="border-left: 1px solid #ccc">
-                  <div class="airline-provider p-3 ">
-                    <p class="text-center" >
-                      <img class="d-block m-auto" src="${flight.carrier['logo']}" alt="" height="50" /></p>
-                    <p class="provider-name">${flight.carrier['name']}</p>
-                    <button 
-                      data-carrier-id="${flight.carrier['name']}" 
-                      class="flight-more-info btn btn-sm px-3 btn-outline-primary m-0"
-                      data-departure-time="${flight['departureTime']}"
-                      data-flight-duration="${flight.duration[0]} س، ${flight.duration[1]} د"
-                      data-arrival-time="${flight['arrivalTime']}"
-                      data-flight-price="${flightPrice.toFixed(2)}"
-                      data-flight-index="${i}"
-                      >عرض المزيد </button>
-                  </div>
+        if (targetDate > startDate && targetDate < endDate) {
+          return (`
+          <div class="card mb-3" style="overflow: hidden; max-height: 15rem">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/images/trips/${occ.image}" class="img-fluid rounded-start" alt="..." style="height: 15rem; width: 17rem">
                 </div>
-                <div class="col col-6 ">
-                  <div class="flight-details p-3 ">
-                    <div class="line"></div>
-                    <div class="timing">
-                      <span class="start" data-time="${flight['departureTime']}" data-airport="${departure.IATA}" title="${departure.name}"></span>
-                      <span class="stops text-center" data-period="🕓 ${flight.duration[0]} س، ${flight.duration[1]} د">
-                        ${steps(flight.stops)}
-                      </span>
-                      <span class="end" data-time="${flight['arrivalTime']}" data-airport="${destination.IATA}" title="${destination.name}"></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="pricing col col-3 p-0">
-                  <div class="flight-pricing text-center p-0">
-                    <button class="btn">ننصح بها</button>
-                    <p class=" results-from-websites my-0 py-0 text-center">
-                      <small>النتائج من ${randomNumber(1, 10)} مواقع</small></p>
-                    <p class="price text-center">
-                      <span class="amount fw-bold py-0 my-0 fs-3">
-                       
-                        ${flightPrice.toFixed(2)}
-                      </span>
-                      ج م
-                    </p>
-                    <p class="price-info py-0 my-0 text-center">للفرد شاملة الضريبة</p>
+                <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">${occ.name}</h5>
+                  <p class="card-text">${occ.brief}</p>
+                  <div>${renderedCityHotels.join(' ')}</div>
+                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  <button class="btn btn-outline-primary position-absolute" style="left: 1rem; bottom: 1rem">
+                    <a href="/pages/trip.html?id=${cityId}">المزيد</a></button>
                   </div>
                 </div>
               </div>
-            </a>
-          </div>
-        `
-      })
-      return res;
-    }
-
-    const flights = generateFlights(randomNumber(10, 15));
-
-      $('#search-result').html(rendered_results(flights))
-
-
-      function htmlEl(name, text, attr) {
-        let el = document.createElement(name)
-        el.innerHTML = text
-        for (prop in attr) {
-          el.setAttribute(prop, attr[prop])
+            </div>
+          `)
+        } else {
+          return ''
         }
-        return el
+      })
+
+      const foundTours = continuousOccations.map((occ)=>{
+
+        const cityHotels = pickedCity.hotels
+        const uniqueRandomArray = generateUniqueRandomArray(4, cityHotels.length);
+        const renderedCityHotels = uniqueRandomArray.map(num=>{
+          return `<span class="badge rounded-pill text-bg-success">${cityHotels[num]}</span>`
+        })
+        return (`
+          <div class="card mb-3" style="overflow: hidden; max-height: 15rem">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/images/trips/${occ.image}" class="img-fluid rounded-start" alt="..." style="height: 15rem; width: 17rem">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">${occ.name}</h5>
+                  <p class="card-text">${occ.brief}</p>
+                  <div>${renderedCityHotels.join(' ')}</div>
+                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  <button class="btn btn-outline-primary position-absolute" style="left: 1rem; bottom: 1rem">
+                    <a href="/pages/trip.html?id=${cityId}">المزيد</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `)
+      })
+
+      $('#search-result').html( foundperiodicTours.join('') + foundTours.join(' ')).css({paddingTop: '1rem'})
+      console.log(foundperiodicTours)
+      // فلترة البيانات
+     function generateUniqueRandomArray(length, max) {
+        const set = new Set();
+        while (set.size < length) {
+          const randomNumber = Math.floor(Math.random() * max);
+          set.add(randomNumber);
+        }
+        return Array.from(set);
       }
 
-      const regUser = JSON.parse(localStorage.getItem('reg_user'))
+      
+      
 
-
-      $('.flight-more-info').on('click', function (e) {
-        $('body').addClass('freeze');
-        const selectedFlight = {
-          user: regUser.email,
-          index: e.target.getAttribute('data-flight-index'),
-          adultCount: +urlParams.get('adult'),
-          childrenCount: +urlParams.get('child'),
-          babiesCount: +urlParams.get('enfants'),
-          flightGrade: urlParams.get('grade'),
-          bookingDate: urlParams.get('go'),
-          fromAirport: airports.find((al)=> {return al.id == urlParams.get('departure')}).name,
-          toAirport: airports.find((al)=> {return al.id == urlParams.get('destination')}).name,
-          
-          carrierName: e.target.getAttribute('data-carrier-id'),
-          flightDuration: e.target.getAttribute('data-flight-duration'),
-          departureTime: e.target.getAttribute('data-departure-time'),
-          arrivalTime: e.target.getAttribute('data-arrival-time'),
-          price: +e.target.getAttribute('data-flight-price'),
-          
-        }
-        for (prop in selectedFlight){
-          if ($('#'+prop) != undefined) {
-            $('#'+prop).html(selectedFlight[prop])
-          }
-        }
-        selectedFlight.totalPrice= (selectedFlight.adultCount*selectedFlight.price) + (selectedFlight.babiesCount*selectedFlight.price*0.8) + (selectedFlight.childrenCount*selectedFlight.price*0.92)
-        $('#totalPrice').html(selectedFlight.totalPrice)
-        
-        localStorage.setItem('pickedFlight', JSON.stringify(selectedFlight))
-        $('.result-info-section').addClass('show')
-      })
+      // توليد محطات التوقف للرحلات غير المباشرة
+      
     </script>
 
 

@@ -13,7 +13,8 @@ $(window).on('load', function () {
 })
 
 tripCities.forEach((city)=>{
-  $('#city').append(`<option value="${city.arabicName}">${city.arabicName}</option>`)
+  $('#city').append(`<option value="${city.id}">${city.arabicName}</option>`)
+  $('#tripcity').append(`<option value="${city.id}">${city.arabicName}</option>`)
 })
  
 // toggle departure airport with destination

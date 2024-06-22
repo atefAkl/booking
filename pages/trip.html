@@ -1,4 +1,3 @@
-trip.html
 <!DOCTYPE html>
 <!doctype html>
 <html lang="en">
@@ -111,7 +110,7 @@ trip.html
             <li class="nav-item" data-open="contact"> احجز معنا </li>
           </ul>
           <div class="nav-contents">
-            <div class="tab" id="about">
+            <div class="tab  active" id="about">
               <div class="row" style="width: 1100px; margin: auto; height: 380px; padding: 14px 0">
                 <div id="big-show" class="col col-6" style="overflow: hidden;"></div>
                 <div class="col col-6">
@@ -133,7 +132,7 @@ trip.html
               <div id="continuousOccations" >
               </div>
             </div>
-            <div class="tab active" id="images">
+            <div class="tab" id="images">
                 <style>
                     .section-separator {
                         height: 2.5rem; 
@@ -226,7 +225,7 @@ trip.html
                         <h5 class="section-separator"></h5>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"> 450$ </li>
-                            <li class="list-group-item"> 1 </li>
+                            <li class="list-group-item"> 2 </li>
                             <li class="list-group-item"> 70% </li>
                             <li class="list-group-item"> 10 </li>
                             <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
@@ -266,9 +265,9 @@ trip.html
                         <h5 class="section-separator"></h5>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"> 400$ </li>
-                            <li class="list-group-item"> 1 </li>
-                            <li class="list-group-item"> 70% </li>
-                            <li class="list-group-item"> 10 </li>
+                            <li class="list-group-item"> 8 </li>
+                            <li class="list-group-item"> 90% </li>
+                            <li class="list-group-item"> 100 </li>
                             <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
                             <li class="list-group-item"> <i class="fa fa-check text-success"></i> </li>
                             <li class="list-group-item"> <i class="fa fa-times text-danger"></i> </li>
@@ -299,23 +298,65 @@ trip.html
                     </div>
                 </div>
             </div>
-            <div class="tab" id="offers">عروض</div>
+            
             <div class="tab" id="contact" style="padding: 2rem; text-align: center;">
-              <h1 style="font-size: 32px;">بيانات الاتصال</h1>
-              <style>
-                table.contacts {
-                  border-top: 3px solid;
-                  border-bottom: 3px solid;
-                }
-                table.contacts tr td {
-                  padding: 3px 1rem;
-                }
-                table.contacts tr td:first-child {
-                  border-left: 1px solid #777;
-                  text-align: left
-                }
-              </style>
-              <table class="contacts" style="width: 50%; ; margin: auto"></table>
+              <h4 class="orange" style="font-size: 32px;">الحجز</h4>
+              
+                <div class="input-group mb-2">
+                    <label for="type" class="input-group-text">نوع الحجز</label>
+                    <select name="type" id="type" class="form-control">
+                        <option value="فردى">فردى</option>
+                        <option value="عائلى">عائلى</option>
+                        <option value="شركات">شركات</option>
+                    </select>
+
+                    
+                    <label for="city" class="input-group-text">المدينة</label>
+                    <select name="city" id="the_city" class="form-control"></select>
+                </div>
+                <div class="input-group mb-2">
+                    <label for="adults" class="input-group-text">تاريخ الحجز</label>
+                    <input type="date" name="checkin" id="checkin" class="form-control">
+                    <label for="adults" class="input-group-text">عدد البالغين</label>
+                    <input type="number" min="1" value="1" max="100" step="1" name="adults" id="adults" class="form-control">
+                    <label for="enfants" class="input-group-text">أقل من 6 سنوان</label>
+                    <input type="number" min="0" value="0" max="100" step="1" name="enfants" id="enfants" class="form-control">
+                    <label for="children" class="input-group-text">من 6:12 سنة</label>
+                    <input type="number" min="0" value="0" max="100" step="1"  name="children" id="children" class="form-control">
+                </div>
+                <div id="options" class="input-group mb-2 border rounded-2 p-3">
+                    <h5 style="font-size: 0.9rem; font-weight: bold;">تخصيص البرنامج</h5>
+                    <div class="row"></div>
+                </div>
+                <div id="cityHotels" class="input-group mb-2 border rounded-2 p-3">
+                    <style>
+                        input[type=radio].btn-check:checked ~ label.btn {
+                            border: 1px solid #0173c0;
+                            border-radius: 0.5rem !important;
+                            background-color: #57db5e69;
+                        }
+                    </style>
+                    
+                    <h5 style="font-size: 0.9rem; font-weight: bold;">اختر مكان الإقامة</h5>
+                    <div class="row"></div>
+                </div>
+                <h5 style="font-size: 0.9rem; font-weight: bold;">البيانات الشخصية</h5>
+                <div class="input-group mb-2">
+                    
+                    <label for="name" class="input-group-text">الاسم</label>
+                    <input type="text" name="name" id="name" class="form-control">
+                    <label for="phone" class="input-group-text">رقم الهاتف</label>
+                    <input type="phone" name="phone" id="phone" class="form-control">
+                </div>
+                <div class="input-group mb-2">
+                    <label for="address" class="input-group-text">العنوان</label>
+                    <input type="text" min="0" value="0" max="100" step="1" name="address" id="address" class="form-control">
+                </div>
+                
+                    
+                <button name="submit" id="submitTrip" type="submit" class="btn w-100 btn-outline-success"> الحجز</button>
+                
+              
             </div>
           </div>
         </nav>
@@ -352,7 +393,7 @@ trip.html
         // render tour info
         const tourInfo = trip.tour.map((ti)=>{
 
-            console.log(ti.places)
+            // console.log(ti.places)
             var renderedPlaces = '';
             if (ti.places != 'undefined') {
                 renderedPlaces = ti.places.map((pl)=>{
@@ -391,6 +432,13 @@ trip.html
                 </div>
             `)
         })
+        // set the city value for selext city field
+        tripCities.forEach((city)=>{
+            $('#the_city').append(`<option hidden></option>`)
+            $('#the_city').append(`<option value="${city.id}">${city.arabicName}</option>`)
+        })
+        // $('#the_city').val(tripParams.get('id'))
+
         const continuousOccationsContents = continuousOccations.map(occ=>{
             return (`
             <fieldset class="border position-relative pt-4 mt-5"> 
@@ -405,6 +453,43 @@ trip.html
         // console.log(tourInfo)
 
 
+        // assign picked city
+        var pickedCityId = tripId
+        $('#the_city').on('change', () => {
+            pickedCityId = $('#the_city').val()
+            const pickedCity = tripCities.find((city)=>city.id==pickedCityId)
+
+            const pickedCityActivities = pickedCity.tour.map((tour, x)=>{
+                const tourPlaces = tour.places.map((place, i)=>{
+                    return (`
+                    <div class="col col-4">
+                        <div class="form-check form-check-reverse px-3 py-1">
+                            <label class="form-check-label" for="place_${x+'_'+i}">${place}</label>
+                            <input class="form-check-input" type="checkbox" role="switch" value="" id="place_${x+'_'+i}">
+                        </div>
+                    </div>
+                `)
+                })
+                return tourPlaces.join(' ')
+            })
+            const pickedCityHotels = pickedCity.hotels.map((hotel, i)=>{
+                return (`
+                <div class="col col-auto" >
+                    <input type="radio" class="btn-check" name="cityHotel" id="option_${i}" autocomplete="off">
+                    <label class="btn" for="option_${i}">${hotel}</label>
+                </div>
+                `)
+            })
+            $('#options .row').html(pickedCityActivities.join(' '))
+            $('#cityHotels .row').html(pickedCityHotels.join(' '))
+            console.log(pickedCityActivities)
+        })
+
+        $('#submitTrip').on('click', ()=>{
+          if (confirm('اهلا بك '+$('#name').val()+ ' يرجى تأكيد حجز مكان فى الرحلة')) {
+            alert('سوف يقم أحد المندوبين بالاتصال بكم واطلاعكم على التفاصيل، واتمكام عملية الحجز')
+          } return false
+        })
     });
 
     // run the navbar

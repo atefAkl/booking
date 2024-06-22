@@ -64,6 +64,10 @@
 .orange {
   background-color: orangered;
   color: #fff !important;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.2rem 1rem;
+  font-size: 1.5rem;
 }
 
 #hotel-info nav ul.navs li {
@@ -258,4 +262,8 @@
 #images .list-group-item {
   min-height: 42px;
   text-align: center
+}
+
+#options .form-check-input {
+  width: 20px; height: 20px; border: 1px solid #999; margin-left: 1rem; border-radius: 5px !important;
 }
