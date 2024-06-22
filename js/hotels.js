@@ -826,7 +826,7 @@ const tripCities = [
         '/images/trips/cairo-thumbs-4.webp'
       ]
     }
-  },
+  }
 ];
 
 const periodicOccations = [
@@ -5425,7 +5425,7 @@ const Hotels = [
       "/images/hotels/sonesta-hotels-img-6.jpg",
       "/images/hotels/sonesta-hotels-img-7.jpg",
     ],
-  },
+  }
 ];
 
 
