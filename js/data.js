@@ -214,6 +214,7 @@ const airlines = [
     id: 1,
     name: "مصر للطيران",
     eName: "Egypt Air Airlines",
+    link:'https://www.egyptair.com/ar/Pages/HomePage.aspx',
     logo: "/images/airlines/egyptair.jpg",
     shortName: "MS",
     ratio: 1.3
@@ -222,6 +223,7 @@ const airlines = [
     id: 2,
     name: "اير كايرو",
     eName: "Air Cairo Airlines",
+    link:'https://aircairo.com/',
     logo: "/images/airlines/aircairo.png",
     shortName: "ACA",
     ratio: 1.09
@@ -230,6 +232,7 @@ const airlines = [
     id: 3,
     name: "طيران سيناء",
     eName: "Sinai Airlines",
+    link:'https://onemileatatime.com/air-sinai/',
     logo: "/images/airlines/sinai.jpg",
     shortName: "SAL",
     ratio: 1.16
@@ -238,6 +241,7 @@ const airlines = [
     id: 4,
     name: "طيران الاسكندرية",
     eName: "alexandria Airlines",
+    link:'https://www.alexandriaairlines.com/',
     logo: "/images/airlines/alexlines.png",
     shortName: "AAL",
     ratio: 1.2
@@ -246,6 +250,7 @@ const airlines = [
     id: 5,
     name: "العربية للطيران مصر",
     eName: "Air Arabya Airlines",
+    link:'https://www.airarabia.com/ar',
     logo: "/images/airlines/arabyaairlines.jpg",
     shortName: "EAR",
     ratio: 1.07
@@ -254,6 +259,7 @@ const airlines = [
     id: 6,
     name: "ألكان اير",
     eName: "Alcan Air Airlines",
+    link:'https://alkanair.com/',
     logo: "/images/airlines/alcanair.png",
     shortName: "ALC",
     ratio: 1.22
@@ -262,6 +268,7 @@ const airlines = [
     id: 7,
     name: "النيل للطيران",
     eName: "Nile Airlines",
+    link:'https://www.nileair.com/ar#!',
     logo: "/images/airlines/nileair.jpg",
     shortName: "NAC",
     ratio: 1.28
@@ -270,6 +277,7 @@ const airlines = [
     id: 8,
     name: "لوتس للطيران",
     eName: "Lutus Airlines",
+    link:'https://www.planespotters.net/airline/Lotus-Air',
     logo: "/images/airlines/lotusairlines.png",
     shortName: "LUA",
     ratio: 1.17
@@ -278,6 +286,7 @@ const airlines = [
     id: 9,
     name: "فلاى ايجبت",
     eName: "Fly Egypt Airlines",
+    link:'https://www.flyegypt.com/',
     logo: "/images/airlines/flyEgypt.webp",
     shortName: "LUA",
     ratio: 0.98
@@ -286,6 +295,7 @@ const airlines = [
     id: 10,
     name: "طيران نسمة",
     eName: "Nesma Airlines",
+    link:'https://www.nesmaairlines.com/',
     logo: "/images/airlines/lotusairlines.png",
     shortName: "LUA",
     ratio: 1.21,

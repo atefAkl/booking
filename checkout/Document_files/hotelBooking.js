@@ -1,12 +1,8 @@
     
-    
-// console.log(hotelParams.get('serviceIndex'))
-// $(document).on('keyup', '#cardholderName', ()=>{
-   
-//     $('#card-holder').html($('#cardholderName').val())
-// })
 
+const usd = 5
 var discount = serviceItem.offer ? serviceItem.offer.amount : 0
+console.log(discount)
 var stayInDays = 1;
 var children = 0;
 var adults = 1;
@@ -19,11 +15,11 @@ $('#childrenCount').html(children);
 $('#adultCount').html(adults);
 $('#roomsCount').html(roomsCount);
 $('#roomsCount').attr('data-max', serviceItem.remain);
-$('#total-stay').html(serviceItem.max.toFixed(2))
+$('#total-stay').html(serviceItem.max.toFixed(2)*usd)
 $('#total-meals').html('0.00')
 $('#total-addons').html('0.00')
-$('#total').html(serviceItem.max.toFixed(2))
-$('#totalAfterDiscount').html((serviceItem.max-serviceItem.max*discount/100).toFixed(2))
+$('#total').html(serviceItem.max.toFixed(2)*usd)
+$('#totalAfterDiscount').html((usd*serviceItem.max-usd*serviceItem.max*discount/100).toFixed(2))
 
 $('.changeDayCount').on('click', function() {
     let current = +($('#daysCount').html())
@@ -43,8 +39,27 @@ $('.changeYoungsCount').on('click', function() {
     let tot = current + changeValue
     if (tot < $('#youngCount').attr('data-min')) return
     youngs = current + changeValue
-
     $('#youngCount').html(youngs)
+    var youngsForms = ''
+
+        let i =0
+        for(;i<youngs;){
+        const formText = 
+            `
+            <div class="input-group mb-2">
+            <label class="input-group-text">${i+1}</label>
+            <label for="name_${i}" class="input-group-text">الاسم</label>
+            <input type="text" class="form-control" id="name_${i}">
+            <label for="natId_${i}" class="input-group-text">الرقم القومى</label>
+            <input type="text" class="form-control" id="natId_${i}">
+            </div>
+            `
+            youngsForms += formText
+            i++
+        }
+        $('#youngsForm').html(youngsForms)
+        console.log(youngsForms)
+    
 })
 
 $('.changeChildrenCount').on('click', function() {
@@ -55,6 +70,25 @@ $('.changeChildrenCount').on('click', function() {
     children = current + changeValue
 
     $('#childrenCount').html(children)
+    var childrenForms = ''
+        let i =0
+        for(;i<children;){
+        const formText = 
+            `
+            <div class="input-group mb-2">
+            <label class="input-group-text">${i+1}</label>
+            <label for="name_${i}" class="input-group-text">الاسم</label>
+            <input type="text" class="form-control" id="name_${i}">
+            <label for="natId_${i}" class="input-group-text">الرقم القومى</label>
+            <input type="text" class="form-control" id="natId_${i}">
+            </div>
+            `
+            childrenForms += formText
+            i++
+        
+        }
+        $('#childrenForm').html(childrenForms)
+        console.log(childrenForms)
 })
 
 $('.changeAdultCount').on('click', function() {
@@ -64,6 +98,27 @@ $('.changeAdultCount').on('click', function() {
     if (tot < $('#adultCount').attr('data-min')) return
     adults = current + changeValue
     $('#adultCount').html(adults)
+    var adultsForms = ''
+
+        let i =1
+        for(;i<adults;){
+        const formText = 
+            `
+            <div class="input-group mb-2">
+            <label class="input-group-text">${i+1}</label>
+            <label for="name_${i}" class="input-group-text">الاسم</label>
+            <input type="text" class="form-control" id="name_${i}">
+            <label for="natId_${i}" class="input-group-text">الرقم القومى</label>
+            <input type="text" class="form-control" id="natId_${i}">
+            </div>
+            `
+            adultsForms += formText
+            i++
+        
+
+        $('#adultsForm').html(adultsForms)
+        console.log(adultsForms)
+    }
 })
 
 $('.changeRoomsCount').on('click', function() {
@@ -73,38 +128,53 @@ $('.changeRoomsCount').on('click', function() {
     if (tot < $('#roomsCount').attr('data-min')||tot > $('#roomsCount').attr('data-max')) return
     roomsCount = current + changeValue
     $('#roomsCount').html(roomsCount)
+    
 })
 
 $(document).click(()=>{
-    var stayInDaysCost = stayInDays * serviceItem.max * roomsCount
+    var stayInDaysCost = stayInDays * serviceItem.max * roomsCount  * usd
     $('#total-stay').html(stayInDaysCost.toFixed(2))
     
     const childrenMealsCost = (+calcCostFor('#breakfast') + +calcCostFor('#lunch') + +calcCostFor('#dinner')) * children*0.5
     const adultsMealsCost = (+calcCostFor('#breakfast') + +calcCostFor('#lunch') + +calcCostFor('#dinner')) * adults
-    const totalMealsCost = childrenMealsCost + adultsMealsCost
+    totalMealsCost = childrenMealsCost + adultsMealsCost
     $('#total-meals').html(totalMealsCost.toFixed(2))
-    console.log(totalMealsCost)
     
     const selectedAddon = +$('input[name="addons"]:checked').attr('data-cost')||0;
-    const addonsCost = selectedAddon.toFixed(2)*stayInDays*stars/2
-    console.log(addonsCost)
+    const addonsCost = +(selectedAddon)*stayInDays*stars/1.5
     $('#total-addons').html(addonsCost.toFixed(2))
+    
+    
+    
     var total = stayInDaysCost + totalMealsCost + addonsCost;
+    console.log(stayInDaysCost, totalMealsCost, addonsCost)
+
     totalStayAfterDiscount = stayInDaysCost - stayInDaysCost * discount/100
     $('#total').html(total.toFixed(2))
-    console.log(totalStayAfterDiscount, totalMealsCost , addonsCost)
-    var totalAfterDiscount = totalStayAfterDiscount + totalMealsCost + addonsCost;
+    
+    var totalAfterDiscount = (totalStayAfterDiscount + totalMealsCost + addonsCost);
     $('#totalAfterDiscount').html(totalAfterDiscount.toFixed(2))
 })
 
 const reg_user = JSON.parse(localStorage.getItem('reg_user'))
 
+function promptForCode() {
+    let code = prompt('من فضلك ادخل الرمز الذى تم ارساله على هاتفك المسجل لدى البنك') 
+    if (!/^\d{4}$/.test(code)) {
+    alert("كود التحقق غير صحيح. يجب إدخال 4 أرقام فقط.");
+    promptForCode(); // Prompt again if invalid
+    return;
+  }
+  return code;
+}
 
 $('#confirmPayment').click(()=>{
     if ($('#cardNumber').val() == '' || $('#cardholderName').val() == '' || $('#expiryYear').val() == '' || $('#cvv').val() == '') {
         alert('من فضلك املأ الحقول المطلوبة')
     } else {
-        if (confirm('سوف يتم الخصم من رصيدك مبلغ :' + $('#totalAfterDiscount').html() + ' $')) {
+        promptForCode()
+            
+        if (confirm('تم التحقق بنجاح، سوف يتم الخصم من رصيدك مبلغ :' + $('#totalAfterDiscount').html() + ' EGP')) {
             
             const bookedHotel = {
                 user: reg_user.email, 
@@ -125,8 +195,15 @@ $('#confirmPayment').click(()=>{
             }
             bookedHotels = [...bookedHotels, bookedHotel]
             localStorage.setItem('bookedHotels', JSON.stringify(bookedHotels))
-        }
-        window.location.href = '/pages/hotel.html?id='+hotelId
+            $('#authenticating').addClass('show')
+            setTimeout(() => {
+                $('#authenticating').removeClass('show')
+                window.location.href = '/pages/profile.html'
+            }, 3000);
+        } else {return false}
+
+        
+        
     }
 })
 

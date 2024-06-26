@@ -67,7 +67,7 @@
   text-align: center;
   font-weight: bold;
   padding: 0.2rem 1rem;
-  font-size: 1.5rem;
+  font: bold 1.3rem/1.2 Cairo !important;
 }
 
 #hotel-info nav ul.navs li {

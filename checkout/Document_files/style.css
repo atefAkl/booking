@@ -17,23 +17,10 @@ body {
 /*
 --- Checkout Panel
 */
-fieldset {
-  position: relative;
-  border: 1px solid #777;
-  margin: 1rem auto 1rem;
-  padding: 2rem 1rem 1rem;
+input#addPassengersLater:checked + #companyForms {
+  display: none
 }
-fieldset legend {
-  position: absolute;
-  padding: 0.1rem 1.5rem;
-  background-color: #fff;
-  border: 1px solid #777;
-  top: -1.1rem;
-  font: 600 0.9rem Cairo;
-  display: inline-block;
-  right: 2rem;
-  width: auto;;
-}
+
 fieldset button {
   border: 1px solid #cdd;
   box-shadow: 0 0 5px 1px #ddd;
@@ -148,6 +135,7 @@ table tr input[type=number] {
 .card-number-section .part {
   display: flex;
   flex-direction: row-reverse;
+  margin: 0
 }
 .expiry {
   position: relative;
@@ -190,4 +178,24 @@ table tr input[type=number] {
   color: var(--basic-darkblue);
   font-weight: bold;
   text-align: right;
+}
+#authenticating {
+  position: fixed;
+  height: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  overflow: hidden
+}
+#authenticating.show {
+  bottom: 0;
+  height: auto;
+  background-color: #fffa;
+}
+
+#authenticating img {
+  width: 200px;
+  display: block;
+  margin: 100px auto
 }

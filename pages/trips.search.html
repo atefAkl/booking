@@ -12,7 +12,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript">
       const tripParams = new URLSearchParams(window.location.search);
-      
     </script>
   </head>
   <body dir="rtl">
@@ -501,7 +500,7 @@
                   <div>${renderedCityHotels.join(' ')}</div>
                   <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                   <button class="btn btn-outline-primary position-absolute" style="left: 1rem; bottom: 1rem">
-                    <a href="/pages/trip.html?id=${cityId}">المزيد</a></button>
+                    <a href="/pages/trip.html?id=${cityId}&date=${tripParams.get('tripCheckInDate')}&tripId=${occ.id}">المزيد</a></button>
                   </div>
                 </div>
               </div>

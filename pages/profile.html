@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -110,8 +109,12 @@
           </ul>
           <div class="nav-contents">
             
-            <div class="tab active" id="favourites"> لا يوجد عناصر مفضلة لك حتى الآن </div>
-            <div class="tab" id="trips"> انت غير مشترك فى أى رحلات على هذا الموقع </div>
+            <div class="tab" id="favourites"> لا يوجد عناصر مفضلة لك حتى الآن </div>
+            <div class="tab active" id="trips">
+              <div class="row">
+                انت غير مشترك فى أى رحلات على هذا الموقع 
+              </div>
+            </div>
             <div class="tab" id="flights">
               <div class="row">لا يوجد رحلات طيران محجوزة باسمك على هذا الموقع</div>  
             </div>
@@ -126,20 +129,16 @@
     </section>
 
     <!-------------------------------------------------------------------------------->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script
 			  src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
-    <script src="/js/hotels.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/register.js"></script>
-    <script src="/js/data.js"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
-    <script src="../hotels.js"></script>
-    <script src="../travel.js"></script>
+    <script src="../js/hotels.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="../js/data.js"></script>
+    
     <script>
       window.addEventListener("load", function () {
         const urlParams = new URLSearchParams(window.location.search);
@@ -168,6 +167,47 @@
           if (reg_user) {
             userBookedHotels = bookedHotels.filter((hotel)=> {return hotel.user == reg_user.email})
           }
+
+          // console.log(tripCities)
+          const bookedTrips = JSON.parse(localStorage.getItem('bookedTrips'))
+          const userTrips = bookedTrips.filter((bt)=> {return bt.user == reg_user.email})
+          const userTripsContent = userTrips.map(ut=>{
+            const tripCity = tripCities.find((c)=>{return c.id == ut.cityId})
+            const tripProgram = ut.selectedActivities.map((act)=>{
+              return (`<span class="badge text-bg-success">${act}</span>`)
+            })
+            return (`
+            <div class="col col-6">
+                  <div class="card">
+                    <div class="card-header">
+                    ${ut.tripName} - ${ut.tripDate}
+                    </div>
+                    <div class="card-body">
+                      <div class="border mb-2">
+                        <p style="margin: 0; font-size: 13px; padding: 0"><b style="padding: 0 1rem;"> اسم المسئول:</b>${ut.name}</p>
+                        <p style="margin: 0; font-size: 13px; padding: 0"><b style="padding: 0 1rem;">الرقم القومى:</b>${ut.natId}</p>
+                        <p style="margin: 0; font-size: 13px; padding: 0"><b style="padding: 0 1rem;">الهاتف:</b>${ut.phone}</p>
+                        <p style="margin: 0; font-size: 13px; padding: 0"><b style="padding: 0 1rem;">العنوان:</b>${ut.address}</p>
+                        <p style="margin: 0; font-size: 13px; padding: 0"><b style="padding: 0 1rem;">فندق الإقامة:</b>${ut.hotel}</p>
+                        <p style="margin: 0; font-size: 13px; padding: 0"><b style="padding: 0 1rem;">المدينة:</b>${tripCity.arabicName}</p>
+                        <p style="margin: 0; font-size: 13px; padding: 0"><b style="padding: 0 1rem;">الناقل:</b>${ut.transport}</p>
+                      </div>
+                      <div class="border p-3 ">
+                          برنامج الرحلة:
+                          <br>
+                          ${tripProgram.join(' ')}
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="bg-warning text-light text-center">قيد المراجعة</div>  
+                    </div>  
+                  </div>
+                </div>
+            `)
+          })
+
+          $('#trips .row').html(userTripsContent)
+          console.log(userTrips)
           
           
           
@@ -234,10 +274,10 @@
           const navItems = document.querySelectorAll('.nav-item')
           const tabs = document.querySelectorAll('.tab')
           
-          const bookedFlights = JSON.parse(localStorage.getItem('bookedFlights')) || []
-          const userBookedFlights = bookedFlights.filter((fl)=>{return fl.user == reg_user.email})
+          const bookedTickets = JSON.parse(localStorage.getItem('bookedTickets')) || []
+          const userBookedFlights = bookedTickets.filter((fl)=>{return fl.user == reg_user.email})
           if (userBookedFlights.length > 0) {
-            const bookedFlightsContent = bookedFlights.map((bf)=>{
+            const bookedFlightsContent = bookedTickets.map((bf)=>{
               const carrier = airlines.find((al)=>{return al.name == bf.carrierName})
               console.log(bf)
               return(`
@@ -248,7 +288,7 @@
                     <div class="card-header" style="background-color: #ff7b00; color: white; text-align: center"><br>BOARDING PASS</div>
                     <div class="card-body">
                       <div class="ticket-row mb-1">
-                        <span class="label">Name</span><span class="info">${reg_user.username}</span>
+                        <span class="label">Name</span><span class="info">${bf.name}</span>
                       </div>
                       <div class="ticket-row mb-1">
                         <span class="label">SEAT</span><span class="info">27D</span>

@@ -36,173 +36,216 @@
           <a  style="flex:1" onclick="goTo('/pages/hotel.html?id='+hotelParams.get('id'))" class="m-1 btn btn-outline-primary text-center">العودة إلى الفندق</a>
       </div>
         
-      <fieldset>
+      <fieldset class="pb-0 mb-0">
         <legend>مراجعة المدفوعات</legend>
         <h5 class="">التفاصيل</h5>
-          <table id="hotel" class="table table-striped">
-            <thead>
-              <tr class="text-center">
-                <th class="bg-primary text-light">بيان</th>
-                <th class="bg-primary text-light w-50">قيمة/Value</th>
-                <th class="bg-primary text-light">Item</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th class="text-start">مقدم الخدمة</th>
-                <th class="text-center">TRIPVUM Company</th>
-                <th>Service Provider</th>
-              </tr>
-              <tr>
-                <th class="text-start">الإقامة فى: </th>
-                <th class="text-center" id="hotelName"></th>
-                <th>Residence In</th>
+        <table id="hotel" class="table table-striped pb-0">
+          <thead>
+            <tr class="text-center">
+              <th class="bg-primary text-light">بيان</th>
+              <th class="bg-primary text-light w-50">قيمة/Value</th>
+              <th class="bg-primary text-light">Item</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="text-start">مقدم الخدمة</th>
+              <th class="text-center">TRIPVUM Company</th>
+              <th>Service Provider</th>
+            </tr>
+            <tr>
+              <th class="text-start">الإقامة فى: </th>
+              <th class="text-center" id="hotelName"></th>
+              <th>Residence In</th>
 
-              </tr>
-              <tr>
-                <th class="text-start">الوصف</th>
-                <td class="text-center" id="description"></td>
-                <th>Description</th>
-              </tr>
-              <tr>
-                <th class="text-start">مدة الإقامة </th>
-                <td id="stay">
-                  <div class="row px-3 gap-2">
-                    <div class="border col">
-                      <button data-count="-1" data-target="#daysCount" class="px-2 changeDayCount"><i class="fa fa-minus"></i></button>
-                      <span id="daysCount" data-min="1">1</span>
-                      <button data-count="1" data-target="#daysCount" class="px-2 changeDayCount"><i class="fa fa-plus"></i></button>
-                      <span>الأيام</span>
-                    </div>
-                    <div class="border col">
-                      <button data-count="-1" data-target="#nightsCount" class="px-2 changeQty"><i class="fa fa-minus"></i></button>
-                      <span id="nightsCount" data-min="0">0</span>
-                      <button data-count="1" data-target="#nightsCount" class="px-2 changeQty"><i class="fa fa-plus"></i></button>
-                      <span>الليالى</span>
-                    </div>
+            </tr>
+            <tr>
+              <th class="text-start">الوصف</th>
+              <td class="text-center" id="description"></td>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <th class="text-start">مدة الإقامة </th>
+              <td id="stay">
+                <div class="row px-3 gap-2">
+                  <div class="border col">
+                    <button data-count="-1" data-target="#daysCount" class="px-2 changeDayCount"><i class="fa fa-minus"></i></button>
+                    <span id="daysCount" data-min="1">1</span>
+                    <button data-count="1" data-target="#daysCount" class="px-2 changeDayCount"><i class="fa fa-plus"></i></button>
+                    <span>الأيام</span>
                   </div>
-                </td>
-                <th>Stay</th>
-              </tr>
-              <tr>
-                <th class="text-start">النزلاء</th>
-                <td id="paasengers" >
-                  <div class="row px-3 gap-2">
-                    <div class="border col">
-                      <div class="d-block text-center">
-                        <button data-count="-1" data-target="#youngCount" class="px-2 changeYoungsCount"><i class="fa fa-minus"></i></button>
-                        <span id="youngCount" data-min="0">0</span>
-                        <button data-count="1" data-target="#youngCount" class="px-2 changeYoungsCount"><i class="fa fa-plus"></i></button>
-                      </div>
-                      <span class="d-block text-center">أقل من 6 سنوات</span>
-                    </div>
-                    <div class="border col">
-                      <div class="d-block text-center">
-                        <button data-count="-1" data-target="#childrenCount" class="px-2 changeChildrenCount"><i class="fa fa-minus"></i></button>
-                        <span id="childrenCount" data-min="0">0</span>
-                        <button data-count="1" data-target="#childrenCount" class="px-2 changeChildrenCount"><i class="fa fa-plus"></i></button>
-                      </div>
-                      <span class="d-block text-center">من 6 الى 12 سنة</span>
-                    </div>
-                    <div class="border col">
-                      <div class="d-block text-center">
-                        <button data-count="-1" data-target="#adultCount" class="px-2 changeAdultCount"><i class="fa fa-minus"></i></button>
-                        <span id="adultCount" data-min="1">1</span>
-                        <button data-count="1" data-target="#adultCount" class="px-2 changeAdultCount"><i class="fa fa-plus"></i></button>
-                      </div>
-                      <span class="d-block text-center">البالغين</span>
+                  <div class="border col">
+                    <span id="nightsCount" data-min="0">0</span>
+                    <span>الليالى</span>
+                  </div>
+                </div>
+              </td>
+              <th>Stay</th>
+            </tr>
+            
+            <tr>
+              <th class="text-start">الوجبات</th>
+              <td id="addons" >
+                <div class="row">
+                  <div class="col col-auto">
+                    <div class="form-check form-check-reverse">
+                      <input class="form-check-input" data-cost="10.5" type="checkbox" id="breakfast">
+                      <label class="form-check-label" value="" for="breakfast">افطار <span class="text-primary fs-small"><script>document.write((10.5*stars).toFixed(2))</script> EGP </span></label>
                     </div>
                   </div>
-                </td>
-                <th>Passengers</th>
-              </tr>
-              <tr>
-                <th class="text-start">الوجبات</th>
-                <td id="addons" >
-                  <div class="form-check form-check-reverse">
-                    <input class="form-check-input" data-cost="2.1" type="checkbox" id="breakfast">
-                    <label class="form-check-label" value="" for="breakfast">افطار <span class="text-primary fs-small"><script>document.write((2.1*stars).toFixed(2))</script> $ </span></label>
-                  </div>
-                  <div class="form-check form-check-reverse">
-                    <input class="form-check-input" type="checkbox" id="lunch" data-cost="3.2">
-                    <label class="form-check-label" value="" for="lunch">غداء <span class="text-primary fs-small"><script>document.write((3.2*stars).toFixed(2))</script> $ </span></label>
-                  </div>
-                  <div class="form-check form-check-reverse">
-                    <input class="form-check-input" type="checkbox" id="dinner" data-cost="1.7">
-                    <label class="form-check-label" value="" for="dinner">عشاء <span class="text-primary fs-small"><script>document.write((1.7*stars).toFixed(2))</script> $ </span></label>
-                  </div>
-                </td>
-                <th>Meals</th>
-              </tr>
-              <tr>
-                <th class="text-start">الإضافات</th>
-                <td id="meals" >
-                  <div class="form-check form-check-inline form-check-reverse">
-                    <input class="form-check-input" name="addons" type="radio" id="trans" data-cost="10">
-                    <label class="form-check-label" for="trans">انتقالات <span class="text-primary fs-small"><script>document.write((10*stars/1.5).toFixed(2))</script> $ / يوم</span></label>
-                  </div>
-                  <div class="form-check form-check-inline form-check-reverse">
-                    <label class="form-check-label" for="car">سيارة خاصة  <span class="text-primary fs-small"><script>document.write((12*stars/1.5).toFixed(2))</script> $ / يوم</span></label>
-                    <input class="form-check-input" name="addons" type="radio" id="car" data-cost="12">
-                  </div>
-                </td>
-                <th>Addons</th>
-              </tr>
-              <tr>
-                <th class="text-start"> عدد الغرف</th>
-                <td>
-                  <div class="row px-3 gap-2">
-                    <div class="border col">
-                      <button data-count="-1" data-target="#roomsCount" class="px-2 changeRoomsCount"><i class="fa fa-minus"></i></button>
-                      <span id="roomsCount" data-min="1">1</span>
-                      <button data-count="1" data-target="#roomsCount" class="px-2 changeRoomsCount"><i class="fa fa-plus"></i></button>
-                      <span>غرقة / جناح</span>
+                  <div class="col col-auto">
+                    <div class="form-check form-check-reverse">
+                      <input class="form-check-input" type="checkbox" id="lunch" data-cost="16">
+                      <label class="form-check-label" value="" for="lunch">غداء <span class="text-primary fs-small"><script>document.write((16*stars).toFixed(2))</script> EGP </span></label>
                     </div>
-                    
                   </div>
-                </td>
-                <th>Rooms Number</th>
-              </tr>
-              <tr>
-                <th class="bg-primary text-light text-start"> طلبات إضافية</th>
-                <th class="bg-primary text-light row" > 
-                  <div class="col col-3">الإقامة</div>
-                  <div class="col col-4" id="total-stay"></div>
-                  <div class="col col-1">$</div>
-                  <div class="col col-3">Vacation</div>
-                  <div class="col col-3">الوجبات</div>
-                  <div class="col col-4" id="total-meals"></div>
-                  <div class="col col-1">$</div>
-                  <div class="col col-3">Meals</div>
-                  <div class="col col-3">الإضافات</div>
-                  <div class="col col-4" id="total-addons"></div>
-                  <div class="col col-1">$</div>
-                  <div class="col col-3">Addons</div>
-                  <div class="col col-3">الاجمالى</div>
-                  <div class="col col-4" id="total"></div>
-                  <div class="col col-1">$</div>
-                  <div class="col col-3">Total</div>
-                </th>
-                <th class="bg-primary text-light "> Additional Orders</th>
-              </tr>
-              <tr>
-                <th class="text-start"> الخصومات والعروض </th>
-                <td id="discount">
+                  <div class="col col-auto">
+                    <div class="form-check form-check-reverse">
+                      <input class="form-check-input" type="checkbox" id="dinner" data-cost="8.5">
+                      <label class="form-check-label" value="" for="dinner">عشاء <span class="text-primary fs-small"><script>document.write((8.5*stars).toFixed(2))</script> EGP </span></label>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <th>Meals</th>
+            </tr>
+            <tr>
+              <th class="text-start">الإضافات</th>
+              <td id="meals" >
+                <div class="form-check form-check-inline form-check-reverse">
+                  <input class="form-check-input" name="addons" type="radio" id="trans" data-cost="50">
+                  <label class="form-check-label" for="trans">انتقالات <span class="text-primary fs-small"><script>document.write((50*stars/1.5).toFixed(2))</script> EGP / يوم</span></label>
+                </div>
+                <div class="form-check form-check-inline form-check-reverse">
+                  <label class="form-check-label" for="car">سيارة خاصة  <span class="text-primary fs-small"><script>document.write((60*stars/1.5).toFixed(2))</script> EGP / يوم</span></label>
+                  <input class="form-check-input" name="addons" type="radio" id="car" data-cost="60">
+                </div>
+              </td>
+              <th>Addons</th>
+            </tr>
+            <tr>
+              <th class="text-start"> عدد الغرف</th>
+              <td>
+                <div class="row px-3 gap-2">
+                  <div class="border col">
+                    <button data-count="-1" data-target="#roomsCount" class="px-2 changeRoomsCount"><i class="fa fa-minus"></i></button>
+                    <span id="roomsCount" data-min="1">1</span>
+                    <button data-count="1" data-target="#roomsCount" class="px-2 changeRoomsCount"><i class="fa fa-plus"></i></button>
+                    <span>غرقة / جناح</span>
+                  </div>
                   
-                </td>
-                <th>Discount / Offers</th>
-              </tr>
-              <tr>
-                <th class="bg-primary text-light text-start"> الاجمالى بعد الخصم</th>
-                <th class="bg-primary text-light " id="totalAfterDiscount"> </th>
-                <th class="bg-primary text-light "> Total After Discount</th>
-              </tr>
-            </tbody>
-            <tfoot>
-              <caption>
-                <p class="text-success text-center">السعر يشمل ضريبة المبيعات VAT Included.</p>
-              </caption>
-            </tfoot>
+                </div>
+              </td>
+              <th>Rooms Number</th>
+            </tr>
+            <tr>
+              <th class="text-start">النزلاء</th>
+              <td id="paasengers" >
+                <div class="row px-3 gap-2">
+                  <div class="border col">
+                    <div class="d-block text-center">
+                      <button data-count="-1" data-target="#youngCount" class="px-2 changeYoungsCount"><i class="fa fa-minus"></i></button>
+                      <span id="youngCount" data-min="0">0</span>
+                      <button data-count="1" data-target="#youngCount" class="px-2 changeYoungsCount"><i class="fa fa-plus"></i></button>
+                    </div>
+                    <span class="d-block text-center">أقل من 6 سنوات</span>
+                  </div>
+                  <div class="border col">
+                    <div class="d-block text-center">
+                      <button data-count="-1" data-target="#childrenCount" class="px-2 changeChildrenCount"><i class="fa fa-minus"></i></button>
+                      <span id="childrenCount" data-min="0">0</span>
+                      <button data-count="1" data-target="#childrenCount" class="px-2 changeChildrenCount"><i class="fa fa-plus"></i></button>
+                    </div>
+                    <span class="d-block text-center">من 6 الى 12 سنة</span>
+                  </div>
+                  <div class="border col">
+                    <div class="d-block text-center">
+                      <button data-count="-1" data-target="#adultCount" class="px-2 changeAdultCount"><i class="fa fa-minus"></i></button>
+                      <span id="adultCount" data-min="1">1</span>
+                      <button data-count="1" data-target="#adultCount" class="px-2 changeAdultCount"><i class="fa fa-plus"></i></button>
+                    </div>
+                    <span class="d-block text-center">البالغين</span>
+                  </div>
+                </div>
+              </td>
+              <th>Passengers</th>
+            </tr>
+          </tbody>
+        </table>
+      </fieldset>
+      <fieldset>
+        <legend>المسئول عن الحجز </legend>
+        <div class="input-group mb-2" id="representative">
+          <label for="name" class="input-group-text">اسم المسئول </label>
+          <input type="text" class="form-control" id="name">
+          <label for="email" class="input-group-text">البريد الالكترونى</label>
+          <input type="text" class="form-control" id="email">
+        </div>
+        <div class="input-group mb-3">
+          <label for="natId" class="input-group-text">الرقم القومى</label>
+          <input type="text" class="form-control" id="natId">
+          <label for="phone" class="input-group-text">الهاتف</label>
+          <input type="text" class="form-control" id="phone">
+        </div>
+        
+      </fieldset>
+      <fieldset>
+        <legend>تسجيل النزلاء</legend>
+        <label for="addPassengersLater">تسجيل النزلاء عند الوصول</label>
+        <input type="checkbox" id="addPassengersLater">
+        <div id="companyForms">
+          <h6>البالغين:</h6>
+          <div id="adultsForm"></div>
+          <h6>الأطفال أقل من 6 سنوات:</h6>
+          <div id="youngsForm"></div>
+          <h6>الأطفال من 6:12 سنة:</h6>
+          <div id="childrenForm"></div>
+        </div>
+      </fieldset>
+     
+      <fieldset>
+        <legend>ملخص الحجز</legend>
+        <table>
+          <tr>
+            <th class="bg-primary text-light text-start"> طلبات إضافية</th>
+            <th class="bg-primary text-light row" > 
+              <div class="col col-3">الإقامة</div>
+              <div class="col col-4" id="total-stay"></div>
+              <div class="col col-1">EGP</div>
+              <div class="col col-3">Vacation</div>
+              <div class="col col-3">الوجبات</div>
+              <div class="col col-4" id="total-meals"></div>
+              <div class="col col-1">EGP</div>
+              <div class="col col-3">Meals</div>
+              <div class="col col-3">الإضافات</div>
+              <div class="col col-4" id="total-addons"></div>
+              <div class="col col-1">EGP</div>
+              <div class="col col-3">Addons</div>
+              <div class="col col-3">الاجمالى</div>
+              <div class="col col-4" id="total"></div>
+              <div class="col col-1">EGP</div>
+              <div class="col col-3">Total</div>
+            </th>
+            <th class="bg-primary text-light "> Additional Orders</th>
+          </tr>
+          <tr>
+            <th class="text-start"> الخصومات والعروض </th>
+            <td id="discount">
+              
+            </td>
+            <th>Discount / Offers</th>
+          </tr>
+          <tr>
+            <th class="bg-primary text-light text-start"> الاجمالى بعد الخصم</th>
+            <th class="bg-primary text-light " id="totalAfterDiscount"> </th>
+            <th class="bg-primary text-light "> Total After Discount</th>
+          </tr>
+          
+          <tfoot>
+            <caption>
+              <p class="text-success text-center">السعر يشمل ضريبة المبيعات VAT Included.</p>
+            </caption>
+          </tfoot>
         </table>
       </fieldset>
 
@@ -230,17 +273,17 @@
               <div class="p-3 m-2">
                 <div class="input-group my-2">
                   <label class="input-group-text" for="cardNumber">رقم البطاقة:</label>
-                  <input type="text" maxlength="16" minlength="16" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" class="form-control card-number" value="1234567891234567" required>
+                  <input type="text" maxlength="16" minlength="16" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" class="form-control card-number" value="" required>
                 </div>
                 <div class="input-group my-2">
                   <label class="input-group-text" for="cardholderName">اسم صاحب البطاقة:</label>
-                  <input type="text" id="cardholderName" value="احمد عبد الحميد" placeholder="احمد عبد الحميد" class="cardholder-name form-control" required>
+                  <input type="text" id="cardholderName" value="" placeholder="احمد عبد الحميد" class="cardholder-name form-control" required>
                 </div>
                 <div class="input-group my-2">
                   <label class="input-group-text" for="expiryYear">انتهاء الصلاحية:</label>
-                  <input type="text" class="form-control" maxlength="5" id="expiryYear" placeholder="MM/YY" value="12/26">
+                  <input type="text" class="form-control" maxlength="5" id="expiryYear" placeholder="MM/YY">
                   <label class="input-group-text" for="cvv">CVV:</label>
-                  <input type="text" id="cvv" maxlength="3" value="123" placeholder="123" class="form-control cvv" required>
+                  <input type="text" id="cvv" maxlength="3" placeholder="123" class="form-control cvv" required>
                 </div>
                 <div class="input-group my-2">
                   <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
@@ -271,19 +314,19 @@
                           <span id="d2">X</span>
                           <span id="d3">X</span>
                           <span id="d4">X</span>
-                        </div>
+                        </div>_
                         <div class="part">
                           <span id="d5">X</span>
                           <span id="d6">X</span>
                           <span id="d7">X</span>
                           <span id="d8">X</span>
-                        </div>
+                        </div>_
                         <div class="part">
                           <span id="d9">X</span>
                           <span id="d10">X</span>
                           <span id="d11">X</span>
                           <span id="d12">X</span>
-                        </div>
+                        </div>_
                         <div class="part">
                           <span id="d13">X</span>
                           <span id="d14">X</span>
@@ -332,7 +375,9 @@
         </div>
 
       </fieldset>
-
+      <div id="authenticating">
+        <img src="/checkout/Document_files/TwicoGreenSpin.gif" alt="">
+      </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -368,6 +413,7 @@
       } else {
         $('#discount').html('لا يوجد عروض أو خصم على هذه الخدمة')
       }
+
 
         
       window.onload=function(){

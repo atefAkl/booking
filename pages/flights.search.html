@@ -265,7 +265,7 @@
                           <input class="form-check-input" type="radio" role="switch" name="transit" id="direct" checked>
                         </div>
                         <div class="form-check" dir="rtl">
-                          <label class="form-check-label" for="single-transit">عبر شركة الطيران</label>
+                          <label class="form-check-label" for="single-transit">>عبر شركة الطيران</label>
                           <input class="form-check-input" type="radio" role="switch" name="transit" id="single-transit" >
                         </div>
                         
@@ -276,8 +276,6 @@
                 </div>
             </div>
           </div>
-          
-          
         </section>
         
         <!-- Modals -->
@@ -456,8 +454,8 @@
           <div class="card-footer">
             <div class="input-group" dir="rtl">
               <label class="input-group-text"><a href="/checkout/flights.html">اكمال الحجز</a></label>
-              <label class="input-group-text"><a href="#">الذهاب الى موقع مزود الخدمة</a></label>
-              <label class="input-group-text"><a href="">البحث عن رحلة أخرى</a></label>
+              <label class="input-group-text"><a href="" target="_blank" id="flightAirline">الذهاب الى موقع مزود الخدمة</a></label>
+              <label class="input-group-text close" data-bs-dismiss="#info-section">البحث عن رحلة أخرى</label>
             </div>
           </div>
         </div>
@@ -482,6 +480,9 @@
         }
       }
 
+      $('.close').on('click', ()=>{
+        $('#close-result-info').click()
+      })
       const fromAirport = airports.find((ap)=>{return ap.id==urlParams.get('departure')})
 
       $('#go').val(urlParams.get('go'))
@@ -509,7 +510,6 @@
           departure_date: departure_date
         })
       })
-      console.log(departure)
 
       const indexes = []
       for (let i = 0; i<100; i++){
@@ -581,6 +581,8 @@
                     <p class="provider-name">${flight.carrier['name']}</p>
                     <button 
                       data-carrier-id="${flight.carrier['name']}" 
+                      data-carrier-link="${flight.carrier['link']}" 
+                      ${console.log(flight.carrier['link'])}
                       class="flight-more-info btn btn-sm px-3 btn-outline-primary m-0"
                       data-departure-time="${flight['departureTime']}"
                       data-flight-duration="${flight.duration[0]} س، ${flight.duration[1]} د"
@@ -644,6 +646,8 @@
 
       $('.flight-more-info').on('click', function (e) {
         $('body').addClass('freeze');
+        $('#flightAirline').attr('href', e.target.getAttribute('data-carrier-link'));
+        console.log($('#flightAirline').attr('href'))
         const selectedFlight = {
           user: regUser.email,
           index: e.target.getAttribute('data-flight-index'),
