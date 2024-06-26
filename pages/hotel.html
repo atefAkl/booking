@@ -285,7 +285,7 @@
                 ${bookedService == index ? '<div class="alert alert-success py-0 alert-block">Booked</div>' : ''}
                 </td>
               <td>${item.name + offer}</td>
-              <td>${item.max}$</td>
+              <td>${item.max.toFixed(2) * hotel.stars} جنيه مصرى</td>
               <td>${bookedService == index ? item.remain-1 : item.remain}</td>
               <td>
                 ${bookedService == index ? '<i class="fa fa-trash text-danger" data-bs-toggle="tooltip" title="الغاء الحجز"></i>' 

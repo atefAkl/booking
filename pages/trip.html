@@ -11,7 +11,28 @@
     <link rel="stylesheet" href="/css/hotel.css" />
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+      #authenticating {
+        position: fixed;
+        height: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom:0;
+        overflow: hidden
+      }
+      #authenticating.show {
+        bottom: 0;
+        height: auto;
+        background-color: #fffa;
+      }
 
+      #authenticating img {
+        width: 200px;
+        display: block;
+        margin: 100px auto
+      }
+    </style>
   </head>
   <body dir="rtl">
     <header>

@@ -97,7 +97,7 @@
               <span> TRIPVUM، خبراء رحلاتك الموثوقين.</span>
               <span> TRIPVUM: بوابة عبورك إلى مغامرات عالمية لا تُنسى</span>
             </p>
-            <button class="btn btn-outline-light"><a href="#">المزيد ....</a></button>
+            <button class="btn slide-btn btn-outline-light"><a href="#services">المزيد ....</a></button>
         </div>
 
 
@@ -122,6 +122,7 @@
               'دعوة tripvum للتميز',
               'نخدمك tripvum باحترافية '
             ]
+            const links = ['#services', '/pages/hotels.search.html', '/pages/flights.search.html', '/pages/trips.search.html']
             const captions = [
               '<span>استمتع بتجربة سفر سلسة وخالية من المتاعب مع TRIPVUM.</span> <span>TRIPVUM: رحلتك تبدأ معنا، وسهولة السفر تتحقق. سافر براحة وأمان مع</span><span> TRIPVUM، خبراء رحلاتك الموثوقين.</span><span> TRIPVUM: بوابة عبورك إلى مغامرات عالمية لا تُنسى</span>',
               '<span>وفر المال واستمتع بعروض TRIPVUM</span><span> المذهلة على تذاكر الطيران والفنادق. عروض TRIPVUM:</span> رحلات الأحلام بأسعار لا تقاوم، لا تفوت الفرصة! اكتشف العالم بأسعار استثنائية مع عروض TRIPVUM </span><span>المميزة. TRIPVUM: وجهتك لرحلات مميزة بأسعار استثنائية، استمتع بتجربة لا مثيل لها</span>',
@@ -132,8 +133,11 @@
             function showSlide(index) {
                 slides.forEach(function (slide, i) {
                     if (i === index) {
-                        document.getElementById('slide-heading').innerHTML = headings[i]
+                      const slideBtn =   document.querySelector('.slide-btn a')
+                      document.getElementById('slide-heading').innerHTML = headings[i]
                         document.getElementById('slide-caption').innerHTML = captions[i]
+                      console.log(slideBtn)
+                        slideBtn.setAttribute('href', links[i])
                         slide.classList.add('active');
                     } else {
                         slide.classList.remove('active');
@@ -440,9 +444,100 @@
     </section>
     <!---End of Contact------>
 
-    <section>
-        <div id="users-list"></div>
+        <!---Reviews------>
+    <section class="review pb-5" id="services" style="background-color: #6a9ea5;">
+
+        <div class="container pb-5">
+          <div class="section-title text-center">
+            <span class="letter">الـ</span>          
+            <span class="letter">ـخـ</span>
+            <span class="letter">ـد</span>
+            <span class="letter">مـ</span>
+            <span class="letter">ـات</span>
+          </div>
+        </div>
+        <style>
+          i.slideIcon {
+            border:2px solid #777; 
+            border-radius:50%;
+            font-size: 3em;
+            padding: 1.3rem;
+            margin: 1rem auto
+          }
+          .serviceFeatures {
+            padding: 1rem
+          }
+          .serviceFeatures li {
+            text-align: center;
+          }
+          #services .swiper-slide {
+            height: 400px
+          }
+        </style>
+          <div class="swiper review-slider" style="width: 90%">
+              <div class="swiper-wrapper" id="hotels-list">
+                  <div class="swiper-slide">
+                      <div class="box">
+                          <i class="fa fa-hotel slideIcon"></i>
+                          <h3>1. حجز الفنادق:</h3>
+                          <ul class="serviceFeatures">
+                            <li>استمتع بأكثر من 600 فندق في جميع أنحاء مصر.</li>
+                            <li>قارن الأسعار واحجز أفضل عرض يناسب ميزانيتك.</li>
+                            <li>احصل على عروض حصرية وتخفيضات مميزة.</li>
+                            <li>اقرأ تقييمات نزلاء الفنادق قبل الحجز.</li>
+                          </ul>
+                      </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                      <div class="box">
+                          <i class="fa fa-plane slideIcon"></i>
+                          <h3>2. حجز رحلات طيرات</h3>
+                          <ul class="serviceFeatures">
+                            <li>قارن بين عروض شركات الطيران المختلفة.</li>
+                            <li>احجز رحلاتك الداخلية بأسعار تنافسية.</li>
+                            <li> بخيارات مرنة لتغيير موعد رحلتك أو إلغائها.</li>
+                            <li>  دعم سريع وفعال من فريق خدمة العملاء.</li>
+                          </ul>
+                      </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="box">
+                          <i class="fas fa-torii-gate slideIcon"></i>
+                          <h3>3. تنظيم الرحلات الترفيهية</h3>
+                          <ul class="serviceFeatures">
+                            <li>استمتع بخدمات تخطيط الرحلات المخصصة.</li>
+                            <li>أنشئ خط سير مثالي يناسب احتياجاتك وميزانيتك.</li>
+                            <li>اقتراحات لأفضل الأماكن للزيارة والأنشطة.</li>
+                            <li>استمتع بتجربة سفر سلسة وخالية من المتاعب.</li>
+                          </ul>
+                          
+                        </div>
+                      </div>
+                      
+                      <div class="swiper-slide">
+                        <div class="box">
+                          
+                          <i class="fa fa-taxi slideIcon"></i>
+                          <h3>4. خدمات إضافية</h3>
+                          <ul class="serviceFeatures">
+                          <li>تأجير سيارات حديثة بأسعار مناسبة.</li>
+                          <li>حجز طاولات في أفضل المطاعم المصرية.</li>
+                          <li>جولات سياحية غنية بالمغامرة .</li>
+                          <li>دعم سريع وفعال من فريق خدمة العملاء.</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+                <div class="swiper-pagination"></div>
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+          </div>
     </section>
+    <!---End Of Reviews------>
 
     <!---Footer------>
     <section class="footer pt-5">
