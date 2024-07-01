@@ -324,7 +324,7 @@
                 <legend>البيانات الأساسية</legend>
                 <div class="input-group mb-2">
                     <label for="type" class="input-group-text">نوع الحجز</label>
-                    <select name="type" id="type" class="form-control">
+                    <select name="type" id="trip_type" class="form-control">
                         <option value="فردى">فردى</option>
                         <option value="عائلى">عائلى</option>
                         <option value="شركات">شركات</option>
@@ -608,8 +608,9 @@
             hotel: tripHotel,
             tripName: $('#tripOccation').val(),
             cityId,
-            tripDate,
-            
+            tripDate: $('#checkin_date').val(),
+            personsCount: $('#adults').val(),
+            trip_type: $('#trip_type').val(),
             user:regUser.email,
 
             name: $('#trip_admin_name').val(),
@@ -618,16 +619,18 @@
             phone: $('#phone').val(),
             transport: $('#transport').val(),
           }
-          
-          if (confirm('اهلا بك '+$('#trip_admin_name').val()+ ' يرجى تأكيد حجز مكان فى الرحلة')) {
-            alert('سوف يقوم أحد المندوبين بالاتصال بكم واطلاعكم على التفاصيل، واتمام عملية الحجز')
+          var conf_msg = pickedTrip.trip_type == 'فردى' ? 'سوف يتم الأن تحميل تفاصيل الحجز' : 'سوف يقوم أحد المندوبين بالاتصال بكم واطلاعكم على التفاصيل.html'
+          if (confirm('اهلا بك '+pickedTrip.name+ ' يرجى تأكيد حجز مكان فى الرحلة' + pickedTrip.tripName)) {
+            alert(conf_msg)
+            localStorage.setItem('pickedTrip', JSON.stringify(pickedTrip))
             var bookedTrips = JSON.parse(localStorage.getItem('bookedTrips'))||[]
             bookedTrips = [...bookedTrips, pickedTrip]
+            var the_location = pickedTrip.trip_type == 'فردى' ? '/checkout/trip.html' : '/pages/profile.html'
             localStorage.setItem('bookedTrips', JSON.stringify(bookedTrips))
               $('#authenticating').addClass('show')
               setTimeout(() => {
                   $('#authenticating').removeClass('show')
-                  window.location.href = '/pages/profile.html'
+                  goTo(the_location)
               }, 3000);
           } else {return false}
         })

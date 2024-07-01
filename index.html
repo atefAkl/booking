@@ -1,101 +1,114 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TRIPVUM</title>
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/style.css">
-  </head>
-  <body dir="rtl">
+</head>
+
+<body dir="rtl">
     <header>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" data-bs-toggle="tooltip" title="موقع حجز رحلات الطيران الداخلى" >
-            <img class="d-block" src="./images/icon.png" height="40" alt="">
-            <img class="d-block" src="./images/tripvum.png" height="12" alt="">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#home">
-                  <i class="fa fa-home"></i> &nbsp; الرئيسية</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#booking-section">
-                  <i class="fas fa-clipboard-check"></i> &nbsp; الحجز</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#trip">
-                  <i class="fas fa-suitcase-rolling"></i> &nbsp; رحلات</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#hotel-contents">
-                  <i class="fas fa-hotel"></i>  &nbsp;  إقامة</a>
-              </li><li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#review">
-                  <i class="fas fa-star-half-alt"></i> &nbsp; تقييمات</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#contact">
-                  <i class="fas fa-id-card"></i> &nbsp; اتصل بنا</a>
-              </li>
-            </ul>
-            <!-- Button trigger modal -->
-            <div class="user">
-              <div class="user-buttons">
-                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginFormModal">
-                  الدخول
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" data-bs-toggle="tooltip" title="موقع حجز رحلات الطيران الداخلى">
+                    <img class="d-block" src="./images/icon.png" height="40" alt="">
+                    <img class="d-block" src="./images/tripvum.png" height="12" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">
-                  التسجيل
-                </button>
-              </div>
-              <div id="user-menu" class="user-menu hidden">
-                <button class="btn text-light "> &nbsp; <i class="fa fa-user"></i>&nbsp; مرحبا  <span class="username"></span></button>
-                <ul class="hidden">
-                  <li>
-                    <a href="/pages/profile.html">حساب شخصى</a>
-                  </li>
-                  <li>
-                      <a href="/pages/profile.html">المفضلة</a>
-                  </li>
-                  <li>
-                    <a href="/pages/profile.html?trips=1">رحلات</a>
-                  </li>
-                  <li>
-                    <a href="/pages/profile.html?flights=1">طيران</a>
-                  </li>
-                  <li>
-                    <a href="/pages/profile.html?hotels=1">فنادق</a>
-                  </li>
-                  <li>
-                    <a id="logout">خروج</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#home">
+                                <i class="fa fa-home"></i> &nbsp; الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#booking-section">
+                                <i class="fas fa-clipboard-check"></i> &nbsp; الحجز</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#trip">
+                                <i class="fas fa-suitcase-rolling"></i> &nbsp; رحلات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#hotel-contents">
+                                <i class="fas fa-hotel"></i> &nbsp; إقامة</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#review">
+                                <i class="fas fa-star-half-alt"></i> &nbsp; تقييمات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#contact">
+                                <i class="fas fa-id-card"></i> &nbsp; اتصل بنا</a>
+                        </li>
+                    </ul>
+                    <!-- Button trigger modal -->
+
+                    <div class="user">
+
+
+                        
+                        <div id="user-menu" class="user-menu hidden">
+                            <button class="btn text-light "> &nbsp; <i class="fa fa-user"></i>&nbsp; مرحبا <span
+                                    class="username"></span></button>
+                            <ul class="hidden">
+                                <li>
+                                    <a href="/pages/profile.html">حساب شخصى</a>
+                                </li>
+                                <li>
+                                    <a href="/pages/profile.html">المفضلة</a>
+                                </li>
+                                <li>
+                                    <a href="/pages/profile.html?trips=1">رحلات</a>
+                                </li>
+                                <li>
+                                    <a href="/pages/profile.html?flights=1">طيران</a>
+                                </li>
+                                <li>
+                                    <a href="/pages/profile.html?hotels=1">فنادق</a>
+                                </li>
+                                <li>
+                                    <a id="logout">خروج</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="user-buttons"></div>
+                    <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#loginFormModal">
+                        الدخول
+                    </button>
+                    <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#registerModal">
+                        التسجيل
+                    </button>
+                </div>
+                
+        </nav>
         </div>
-      </div>
+        </div>
     </header>
 
-     <section class="home" id="home">
+    <section class="home" id="home">
         <div class="content">
             <h3 id="slide-heading">سفراً سهلا مع TRIPVUM</h3>
             <p id="slide-caption">
-              <span>استمتع بتجربة سفر سلسة وخالية من المتاعب مع TRIPVUM.</span> 
-              <span>TRIPVUM: رحلتك تبدأ معنا، وسهولة السفر تتحقق. سافر براحة وأمان مع</span>
-              <span> TRIPVUM، خبراء رحلاتك الموثوقين.</span>
-              <span> TRIPVUM: بوابة عبورك إلى مغامرات عالمية لا تُنسى</span>
+                <span>استمتع بتجربة سفر سلسة وخالية من المتاعب مع TRIPVUM.</span>
+                <span>TRIPVUM: رحلتك تبدأ معنا، وسهولة السفر تتحقق. سافر براحة وأمان مع</span>
+                <span> TRIPVUM، خبراء رحلاتك الموثوقين.</span>
+                <span> TRIPVUM: بوابة عبورك إلى مغامرات عالمية لا تُنسى</span>
             </p>
             <button class="btn slide-btn btn-outline-light"><a href="#services">المزيد ....</a></button>
         </div>
@@ -113,65 +126,68 @@
         <!------------------------------------------------------------------------------------>
 
         <script type="text/javascript">
-            var slides = document.querySelectorAll('.controls .video-btn');
-            var currentSlide = 0;
-            var timerInterval;
-            const headings = [
-              ' سفراً سهلا مع TRIPVUM',
-              ' عروض tripvum',
-              'دعوة tripvum للتميز',
-              'نخدمك tripvum باحترافية '
-            ]
-            const links = ['#services', '/pages/hotels.search.html', '/pages/flights.search.html', '/pages/trips.search.html']
-            const captions = [
-              '<span>استمتع بتجربة سفر سلسة وخالية من المتاعب مع TRIPVUM.</span> <span>TRIPVUM: رحلتك تبدأ معنا، وسهولة السفر تتحقق. سافر براحة وأمان مع</span><span> TRIPVUM، خبراء رحلاتك الموثوقين.</span><span> TRIPVUM: بوابة عبورك إلى مغامرات عالمية لا تُنسى</span>',
-              '<span>وفر المال واستمتع بعروض TRIPVUM</span><span> المذهلة على تذاكر الطيران والفنادق. عروض TRIPVUM:</span> رحلات الأحلام بأسعار لا تقاوم، لا تفوت الفرصة! اكتشف العالم بأسعار استثنائية مع عروض TRIPVUM </span><span>المميزة. TRIPVUM: وجهتك لرحلات مميزة بأسعار استثنائية، استمتع بتجربة لا مثيل لها</span>',
-              '<span>TRIPVUM: ندعوك لتجربة سفر استثنائية تتسم بالتميز والجودة.</span> <span> مع TRIPVUM، ارتقِ بتوقعاتك للسفر إلى مستوى جديد من التميز</span> <span>. TRIPVUM: التزامنا بالتميز يضمن لك رحلة لا تُنسى.</span> <span> اختر TRIPVUM، واختبر معنى السفر المميز بأعلى معايير الجودة.</span>',
-              '<span>TRIPVUM: فريق من خبراء السفر يقدمون لك خدمة احترافية تضمن لك رحلة مثالية.</span> <span>استمتع بخدمة شخصية مميزة من TRIPVUM، </span> <span>نلبي جميع احتياجاتك بدقة واحترافية.</span> <span> TRIPVUM: راحتك ورضاؤك هما هدفنا، نقدم لك خدمة متميزة تضمن لك تجربة سفر استثنائية.</span>',
+        var slides = document.querySelectorAll('.controls .video-btn');
+        var currentSlide = 0;
+        var timerInterval;
+        const headings = [
+            ' سفراً سهلا مع TRIPVUM',
+            ' عروض tripvum',
+            'دعوة tripvum للتميز',
+            'نخدمك tripvum باحترافية '
+        ]
+        const links = ['#services', '/pages/hotels.search.html', '/pages/flights.search.html',
+            '/pages/trips.search.html'
+        ]
+        const captions = [
+            '<span>استمتع بتجربة سفر سلسة وخالية من المتاعب مع TRIPVUM.</span> <span>TRIPVUM: رحلتك تبدأ معنا، وسهولة السفر تتحقق. سافر براحة وأمان مع</span><span> TRIPVUM، خبراء رحلاتك الموثوقين.</span><span> TRIPVUM: بوابة عبورك إلى مغامرات عالمية لا تُنسى</span>',
+            '<span>وفر المال واستمتع بعروض TRIPVUM</span><span> المذهلة على تذاكر الطيران والفنادق. عروض TRIPVUM:</span> رحلات الأحلام بأسعار لا تقاوم، لا تفوت الفرصة! اكتشف العالم بأسعار استثنائية مع عروض TRIPVUM </span><span>المميزة. TRIPVUM: وجهتك لرحلات مميزة بأسعار استثنائية، استمتع بتجربة لا مثيل لها</span>',
+            '<span>TRIPVUM: ندعوك لتجربة سفر استثنائية تتسم بالتميز والجودة.</span> <span> مع TRIPVUM، ارتقِ بتوقعاتك للسفر إلى مستوى جديد من التميز</span> <span>. TRIPVUM: التزامنا بالتميز يضمن لك رحلة لا تُنسى.</span> <span> اختر TRIPVUM، واختبر معنى السفر المميز بأعلى معايير الجودة.</span>',
+            '<span>TRIPVUM: فريق من خبراء السفر يقدمون لك خدمة احترافية تضمن لك رحلة مثالية.</span> <span>استمتع بخدمة شخصية مميزة من TRIPVUM، </span> <span>نلبي جميع احتياجاتك بدقة واحترافية.</span> <span> TRIPVUM: راحتك ورضاؤك هما هدفنا، نقدم لك خدمة متميزة تضمن لك تجربة سفر استثنائية.</span>',
 
-            ]
-            function showSlide(index) {
-                slides.forEach(function (slide, i) {
-                    if (i === index) {
-                      const slideBtn =   document.querySelector('.slide-btn a')
-                      document.getElementById('slide-heading').innerHTML = headings[i]
-                        document.getElementById('slide-caption').innerHTML = captions[i]
-                      console.log(slideBtn)
-                        slideBtn.setAttribute('href', links[i])
-                        slide.classList.add('active');
-                    } else {
-                        slide.classList.remove('active');
-                    }
-                });
+        ]
 
-                var videoSlider = document.getElementById('video-slider');
-                videoSlider.src = slides[index].getAttribute('data-src');
-            }
-
-            function nextSlide() {
-                currentSlide++;
-                if (currentSlide >= slides.length) {
-                    currentSlide = 0;
+        function showSlide(index) {
+            slides.forEach(function(slide, i) {
+                if (i === index) {
+                    const slideBtn = document.querySelector('.slide-btn a')
+                    document.getElementById('slide-heading').innerHTML = headings[i]
+                    document.getElementById('slide-caption').innerHTML = captions[i]
+                    console.log(slideBtn)
+                    slideBtn.setAttribute('href', links[i])
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
                 }
-                showSlide(currentSlide);
-            }
-
-            function resetTimer() {
-                clearInterval(timerInterval);
-                timerInterval = setInterval(nextSlide, 5000);
-            }
-
-            // Add event listeners to each slide control
-            slides.forEach(function (slide, index) {
-                slide.addEventListener('click', function () {
-                    currentSlide = index;
-                    showSlide(currentSlide);
-                    resetTimer();
-                });
             });
 
-            // Initialize the timer
+            var videoSlider = document.getElementById('video-slider');
+            videoSlider.src = slides[index].getAttribute('data-src');
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
             timerInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Add event listeners to each slide control
+        slides.forEach(function(slide, index) {
+            slide.addEventListener('click', function() {
+                currentSlide = index;
+                showSlide(currentSlide);
+                resetTimer();
+            });
+        });
+
+        // Initialize the timer
+        timerInterval = setInterval(nextSlide, 5000);
         </script>
 
         <!------------------------------------------------------------------------------------>
@@ -179,412 +195,442 @@
 
     <!-- Booking form -->
     <section id="booking-section" class="w-100">
-      <div class="booking  rounded-2 px-5 py-3">
-         <nav>
-            <div class="nav nav-tabs" id="nav-tab"  role="tablist" style="border: 0">
-                <button class="nav-link active" id="nav-booking-tab" data-bs-toggle="tab" data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking" aria-selected="true">حجز طيران</button>
-                
-                <button class="nav-link" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels" type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
-                <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips" type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
-            </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
-            <div class="tab-pane fade show active" id="nav-booking" role="tabpanel" aria-labelledby="nav-booking-tab" tabindex="0">
-             
-              <form class="px-4 py-3" action="/pages/flights.search.html" method="GET">
-                
-                <div class="input-group">
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الرحلة: ">  
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الحجز من: ">  
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="الوجهة: ">  
-                </div>
-                <div class="input-group">
-                  <!-- <label for="go" class="input-group-text">تاريخ الرحلة</label> -->
-                  <input class="form-control" name="go" type="date" id="go" >  
-                  <!-- <label for="from" class="input-group-text">الحجز من:</label> -->
-                  <select class="form-control" name="departure" type="date" id="departure"></select>  
-                  <!-- <label for="destination" class="input-group-text">الوجهة:</label> -->
-                  <button class="input-group-text" type="button" id="swap"><i class="fa-solid fa-right-left"></i></button>  
-                  
-                  <select class="form-control" name="destination" type="date" id="destination"></select>
-                  </div>
-                <div class="input-group mt-2">
-                  <label for="grade" class="input-group-text">الدرجة:</label>
-                  
-                  <select name="grade" id="grade" class="form-control">
-                    <option value="ECO">الدرجة الاقتصادية</option>
-                    <option value="BC">درجة الاعمال</option>
-                    <option value="FC">الدرجة الأولى</option>
-                  </select>
-                  <label for="adult" class="input-group-text">البالغين:</label>
-                  <input type="number" name="adult" id="adult" class="form-control" min="1" step="1" value="1">
-                  <label for="child" class="input-group-text">الأطفال:</label>
-                  <input type="number" name="child" id="child" class="form-control" min="0" step="1" value="0">
-                  <label for="enfants" class="input-group-text">الرضع:</label>
-                  <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1" value="0">
-                  <button type="submit" id="search_flights" class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
-                </div>
-              </form>
+        <div class="booking  rounded-2 px-5 py-3">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist" style="border: 0">
+                    <button class="nav-link active" id="nav-booking-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-booking" type="button" role="tab" aria-controls="nav-booking"
+                        aria-selected="true">حجز طيران</button>
 
-            </div>
-            <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
-              <!-- قسم البحث فى الرحلات -->
-              <form class="px-4 py-3" action="/pages/trips.search.html" method="GET">
-                <div class="input-group mb-2">
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الوصول: ">  
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="المدينة: ">  
+                    <button class="nav-link" id="nav-hotels-tab" data-bs-toggle="tab" data-bs-target="#nav-hotels"
+                        type="button" role="tab" aria-controls="nav-hotels" aria-selected="false">الفنادق</button>
+                    <button class="nav-link" id="nav-trips-tab" data-bs-toggle="tab" data-bs-target="#nav-trips"
+                        type="button" role="tab" aria-controls="nav-trips" aria-selected="false">الرحلات</button>
                 </div>
-                <div class="input-group">
-                  <label for="tripCheckInDate" class="input-group-text">تاريخ الحجز</label>
-                  <input type="date" name="tripCheckInDate" id="tripCheckInDate" class="form-control">
-                  <label for="tripcity" class="input-group-text">المدينة</label>
-                  <select name="tripcity" id="tripcity" class="form-control"></select>
-                  <button class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
-                </div>
-              </form>
+            </nav>
+            <div class="tab-content" id="nav-tabContent" style="background-color: #fff">
+                <div class="tab-pane fade show active" id="nav-booking" role="tabpanel"
+                    aria-labelledby="nav-booking-tab" tabindex="0">
 
+                    <form class="px-4 py-3" action="/pages/flights.search.html" method="GET">
+
+                        <div class="input-group">
+                            <input disabled style="background-color: #fff !important;" type="text"
+                                class="form-control border-0" value="تاريخ الرحلة: ">
+                            <input disabled style="background-color: #fff !important;" type="text"
+                                class="form-control border-0" value="الحجز من: ">
+                            <input disabled style="background-color: #fff !important;" type="text"
+                                class="form-control border-0" value="الوجهة: ">
+                        </div>
+                        <div class="input-group">
+                            <!-- <label for="go" class="input-group-text">تاريخ الرحلة</label> -->
+                            <input class="form-control" name="go" type="date" id="go">
+                            <!-- <label for="from" class="input-group-text">الحجز من:</label> -->
+                            <select class="form-control" name="departure" type="date" id="departure"></select>
+                            <!-- <label for="destination" class="input-group-text">الوجهة:</label> -->
+                            <button class="input-group-text" type="button" id="swap"><i
+                                    class="fa-solid fa-right-left"></i></button>
+
+                            <select class="form-control" name="destination" type="date" id="destination"></select>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="grade" class="input-group-text">الدرجة:</label>
+
+                            <select name="grade" id="grade" class="form-control">
+                                <option value="ECO">الدرجة الاقتصادية</option>
+                                <option value="BC">درجة الاعمال</option>
+                                <option value="FC">الدرجة الأولى</option>
+                            </select>
+                            <label for="adult" class="input-group-text">البالغين:</label>
+                            <input type="number" name="adult" id="adult" class="form-control" min="1" step="1"
+                                value="1">
+                            <label for="child" class="input-group-text">الأطفال:</label>
+                            <input type="number" name="child" id="child" class="form-control" min="0" step="1"
+                                value="0">
+                            <label for="enfants" class="input-group-text">الرضع:</label>
+                            <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1"
+                                value="0">
+                            <button type="submit" id="search_flights" class="input-group-text">البحث &nbsp; <i
+                                    class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="tab-pane fade" id="nav-trips" role="tabpanel" aria-labelledby="nav-trips-tab" tabindex="0">
+                    <!-- قسم البحث فى الرحلات -->
+                    <form class="px-4 py-3" action="/pages/trips.search.html" method="GET">
+                        <div class="input-group mb-2">
+                            <input disabled style="background-color: #fff !important;" type="text"
+                                class="form-control border-0" value="تاريخ الوصول: ">
+                            <input disabled style="background-color: #fff !important;" type="text"
+                                class="form-control border-0" value="المدينة: ">
+                        </div>
+                        <div class="input-group">
+                            <label for="tripCheckInDate" class="input-group-text">تاريخ الحجز</label>
+                            <input type="date" name="tripCheckInDate" id="tripCheckInDate" class="form-control">
+                            <label for="tripcity" class="input-group-text">المدينة</label>
+                            <select name="tripcity" id="tripcity" class="form-control"></select>
+                            <button class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab"
+                    tabindex="0">
+
+                    <form class="px-4 py-3" action="/pages/hotels.search.html" method="GET">
+                        <div class="input-group mb-2">
+                            <input disabled style="background-color: #fff !important;" type="text"
+                                class="form-control border-0" value="تاريخ الوصول: ">
+                            <input disabled style="background-color: #fff !important;" type="text"
+                                class="form-control border-0" value="المدينة: ">
+                        </div>
+                        <div class="input-group mb-2">
+                            <input name="tab" type="hidden" id="tab" value="hotels">
+                            <input class="form-control" name="arrive" type="date" id="arrive">
+                            <select class="form-control" name="city" id="city"></select>
+                        </div>
+                        <div class="input-group mb-2">
+                            <label for="adult" class="input-group-text">البالغين:</label>
+                            <input type="number" name="adult" id="adult" class="form-control" min="1" step="1"
+                                value="1">
+                            <label for="child" class="input-group-text">الأطفال:</label>
+                            <input type="number" name="child" id="child" class="form-control" min="0" step="1"
+                                value="0">
+                            <label for="enfants" class="input-group-text">الرضع:</label>
+                            <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1"
+                                value="0">
+                            <button type="submit" id="search_flights" class="input-group-text">البحث &nbsp; <i
+                                    class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab" tabindex="0">
-              
-              <form class="px-4 py-3" action="/pages/hotels.search.html" method="GET">
-                <div class="input-group mb-2">
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="تاريخ الوصول: ">  
-                  <input disabled style="background-color: #fff !important;" type="text" class="form-control border-0" value="المدينة: ">  
-                </div>
-                <div class="input-group mb-2">
-                  <input name="tab" type="hidden" id="tab" value="hotels">  
-                  <input class="form-control" name="arrive" type="date" id="arrive" >  
-                  <select class="form-control" name="city" id="city"></select>
-                </div>
-                <div class="input-group mb-2">
-                  <label for="adult" class="input-group-text">البالغين:</label>
-                  <input type="number" name="adult" id="adult" class="form-control" min="1" step="1" value="1">
-                  <label for="child" class="input-group-text">الأطفال:</label>
-                  <input type="number" name="child" id="child" class="form-control" min="0" step="1" value="0">
-                  <label for="enfants" class="input-group-text">الرضع:</label>
-                  <input type="number" name="enfants" id="enfants" class="form-control" min="0" step="1" value="0">
-                  <button type="submit" id="search_flights" class="input-group-text">البحث &nbsp; <i class="fa fa-search"></i></button>
-                </div>
-              </form>
-            </div>
-          </div>
     </section>
 
     <!-- Trips -->
     <section class="packages" id="trip" style="height: auto; background-color: #6a9ea5;">
         <div class="container mt-3 text-center">
-          <div class="section-title text-center">
-            <span class="letter">الـ</span>          
-            <span class="letter">ـر</span>
-            <span class="letter">حـ</span>
-            <span class="letter">ـلا</span>
-            <span class="letter">ت</span>
-          </div>
+            <div class="section-title text-center">
+                <span class="letter">الـ</span>
+                <span class="letter">ـر</span>
+                <span class="letter">حـ</span>
+                <span class="letter">ـلا</span>
+                <span class="letter">ت</span>
+            </div>
         </div>
 
-        <div class="container pb-5 mb-4" id="trip-contents"></div>
+        <div class="container pb-5 mb-4" id="trip-contents">
+
+        </div>
     </section>
     <!---End Of Trips------>
 
-<!-- Hotels -->
+    <!-- Hotels -->
     <section class="packages mb-4 pb-5" id="hotel">
-      <div class="container mt-3 text-center">
-          <div class="section-title text-center">
-            <span class="letter">الـ</span>          
-            <span class="letter">ـفـ</span>
-            <span class="letter">ـنا</span>
-            <span class="letter">د</span>
-            <span class="letter">ق</span>
-          </div>
+        <div class="container mt-3 text-center">
+            <div class="section-title text-center">
+                <span class="letter">الـ</span>
+                <span class="letter">ـفـ</span>
+                <span class="letter">ـنا</span>
+                <span class="letter">د</span>
+                <span class="letter">ق</span>
+            </div>
         </div>
 
-      <div class="container" id="hotel-contents">
-          <!-- Hotel cards will be dynamically generated here -->
-        
+        <div class="container" id="hotel-contents">
+            <!-- Hotel cards will be dynamically generated here -->
+
     </section>
-<!-- Hotels -->
+    <!-- Hotels -->
 
     <!---Reviews------>
     <section class="review pb-5" id="review" style="background-color: #6a9ea5;">
-
         <div class="container pb-5">
-          <div class="section-title text-center">
-            <span class="letter">الـ</span>          
-            <span class="letter">ـتـ</span>
-            <span class="letter">ـقـ</span>
-            <span class="letter">ـيـ</span>
-            <span class="letter">ـيم</span>
-          </div>
+            <div class="section-title text-center">
+                <span class="letter">الـ</span>
+                <span class="letter">ـتـ</span>
+                <span class="letter">ـقـ</span>
+                <span class="letter">ـيـ</span>
+                <span class="letter">ـيم</span>
+            </div>
         </div>
-          <div class="swiper review-slider" style="width: 90%">
-              <div class="swiper-wrapper" id="hotels-list">
-                  <div class="swiper-slide">
-                      <div class="box">
-                          <img src="./images/3G5B5974 copy.jpg" alt="">
-                          <h3>مينا فيلييب</h3>
-                          <p> مصر مقصد ساحر يقدم نسيجًا غنيًا من التاريخ والثقافة
-                             والجمال الطبيعي. لدي رأي إيجابي للغاية بشأن السياحة في مصر.</p>
+        <div class="swiper review-slider" style="width: 90%">
+            <div class="swiper-wrapper" id="hotels-list">
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="./images/3G5B5974 copy.jpg" alt="">
+                        <h3>مينا فيلييب</h3>
+                        <p> مصر مقصد ساحر يقدم نسيجًا غنيًا من التاريخ والثقافة والجمال الطبيعي. لدي رأي إيجابي للغاية
+                            بشأن السياحة في مصر.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
 
-                          <div class="stars">
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="far fa-star"></i>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="swiper-slide">
-                      <div class="box">
-                          <img src="./images/mahdy.jpeg" alt="">
-                          <h3>مهدى عاكف</h3>
-                          <p> مصر تحظى برأي إيجابي كبير فيما يتعلق بالسياحة، 
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="./images/mahdy.jpeg" alt="">
+                        <h3>مهدى عاكف</h3>
+                        <p> مصر تحظى برأي إيجابي كبير فيما يتعلق بالسياحة،
                             فمصر وجهة سياحية أكن لها رأياً إيجابياً للغاية
-                          </p>
-                          <div class="stars">
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="far fa-star"></i>
-                          </div>
-                      </div>
-                  </div>
+                        </p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
 
-                  <div class="swiper-slide">
-                      <div class="box">
-                          <img src="./images/yara.jpeg" alt="">
-                          <h3>يارا عصام</h3>
-                          <p> سحر مصر الخلاب وجاذبيتها الفريدة
-                             يجعلانها وجهة سياحية ساحرة، مما يدفعني للدفاع بحماس عن روعتها.</p>
-                          <div class="stars">
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="far fa-star"></i>
-                          </div>
-                      </div>
-                  </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="./images/yara.jpeg" alt="">
+                        <h3>يارا عصام</h3>
+                        <p> سحر مصر الخلاب وجاذبيتها الفريدة
+                            يجعلانها وجهة سياحية ساحرة، مما يدفعني للدفاع بحماس عن روعتها.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
 
-                  <div class="swiper-slide">
-                      <div class="box">
-                          <img src="./images/ahmed.jpeg" alt="">
-                          <h3>أحمد منتصر</h3>
-                          <p> بعد أن سنحت لي الفرصة لاستكشاف هذا
-                             البلد الرائع، فإن لدي رأي إيجابي للغاية بشأن السياحة في مصر.</p>
-                          <div class="stars">
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="fas fa-star"></i>
-                              <i class="far fa-star"></i>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="./images/ahmed.jpeg" alt="">
+                        <h3>أحمد منتصر</h3>
+                        <p> بعد أن سنحت لي الفرصة لاستكشاف هذا
+                            البلد الرائع، فإن لدي رأي إيجابي للغاية بشأن السياحة في مصر.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
 
-              <!-- If we need navigation buttons -->
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-          </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </section>
     <!---End Of Reviews------>
 
     <!---Contact------>
     <section class="contact" id="contact">
-      <div class="container mt-3 text-center">
-        <div class="section-title text-center">
-          <span class="letter">اتـ</span>          
-          <span class="letter">ـصـ</span>
-          <span class="letter">ـل</span>
-          <span class="letter">بـ</span>
-          <span class="letter">ـنا</span>
+        <div class="container mt-3 text-center">
+            <div class="section-title text-center">
+                <span class="letter">اتـ</span>
+                <span class="letter">ـصـ</span>
+                <span class="letter">ـل</span>
+                <span class="letter">بـ</span>
+                <span class="letter">ـنا</span>
+            </div>
         </div>
-      </div>
-      <div class="container">
-        <div class="row gap-0">
-          
-          <div class="col col-6">
-              <img src="./images/contact-img.svg" alt="" width="100%">
-          </div>
+        <div class="container">
+            <div class="row gap-0">
 
-          <div class="col col-6">
-            <form class="" action="" name="contact_form">
-              <div class="input-group">
-                <label class="input-group-text" for="name">الاسم</label>  
-                <input type="text" class="form-control" id="name">
-              </div>
-              <div class="input-group mt-2">
-                <label class="input-group-text" for="email">البريد</label>  
-                <input type="email" class="form-control" id="email">
-              </div>
-              <div class="input-group mt-2">
-                <label class="input-group-text" for="number">رقم الهاتف</label>  
-                <input type="number" class="form-control" id="number">
-              </div>
-              <div class="input-group mt-2">
-                <label class="input-group-text" for="subject">الموضوع</label>  
-                <input type="text" class="form-control" id="subject">
-              </div>
-              <div class="form-floating">
-              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                <label for="floatingTextarea">الرسالة</label>
-              </div>
-              <div class="input-group">
-                <input type="submit" class="form-control bg-primary text-center text-light" value="الإرسال">
-              </div>
-            </form>
-          </div>
+                <div class="col col-6">
+                    <img src="./images/contact-img.svg" alt="" width="100%">
+                </div>
 
+                <div class="col col-6">
+                    <form class="" action="" name="contact_form">
+                        <div class="input-group">
+                            <label class="input-group-text" for="name">الاسم</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="input-group mt-2">
+                            <label class="input-group-text" for="email">البريد</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="input-group mt-2">
+                            <label class="input-group-text" for="number">رقم الهاتف</label>
+                            <input type="number" class="form-control" id="number">
+                        </div>
+                        <div class="input-group mt-2">
+                            <label class="input-group-text" for="subject">الموضوع</label>
+                            <input type="text" class="form-control" id="subject">
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here"
+                                id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">الرسالة</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="submit" class="form-control bg-primary text-center text-light" value="الإرسال">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
         </div>
-      </div>
     </section>
     <!---End of Contact------>
 
-        <!---Reviews------>
+    <!---Reviews------>
     <section class="review pb-5" id="services" style="background-color: #6a9ea5;">
 
         <div class="container pb-5">
-          <div class="section-title text-center">
-            <span class="letter">الـ</span>          
-            <span class="letter">ـخـ</span>
-            <span class="letter">ـد</span>
-            <span class="letter">مـ</span>
-            <span class="letter">ـات</span>
-          </div>
+            <div class="section-title text-center">
+                <span class="letter">الـ</span>
+                <span class="letter">ـخـ</span>
+                <span class="letter">ـد</span>
+                <span class="letter">مـ</span>
+                <span class="letter">ـات</span>
+            </div>
         </div>
         <style>
-          i.slideIcon {
-            border:2px solid #777; 
-            border-radius:50%;
+        i.slideIcon {
+            border: 2px solid #777;
+            border-radius: 50%;
             font-size: 3em;
             padding: 1.3rem;
             margin: 1rem auto
-          }
-          .serviceFeatures {
+        }
+
+        .serviceFeatures {
             padding: 1rem
-          }
-          .serviceFeatures li {
+        }
+
+        .serviceFeatures li {
             text-align: center;
-          }
-          #services .swiper-slide {
+        }
+
+        #services .swiper-slide {
             height: 400px
-          }
+        }
         </style>
-          <div class="swiper review-slider" style="width: 90%">
-              <div class="swiper-wrapper" id="hotels-list">
-                  <div class="swiper-slide">
-                      <div class="box">
-                          <i class="fa fa-hotel slideIcon"></i>
-                          <h3>1. حجز الفنادق:</h3>
-                          <ul class="serviceFeatures">
+        <div class="swiper review-slider" style="width: 90%">
+            <div class="swiper-wrapper" id="hotels-list">
+                <div class="swiper-slide">
+                    <div class="box">
+                        <i class="fa fa-hotel slideIcon"></i>
+                        <h3>1. حجز الفنادق:</h3>
+                        <ul class="serviceFeatures">
                             <li>استمتع بأكثر من 600 فندق في جميع أنحاء مصر.</li>
                             <li>قارن الأسعار واحجز أفضل عرض يناسب ميزانيتك.</li>
                             <li>احصل على عروض حصرية وتخفيضات مميزة.</li>
                             <li>اقرأ تقييمات نزلاء الفنادق قبل الحجز.</li>
-                          </ul>
-                      </div>
-                  </div>
+                        </ul>
+                    </div>
+                </div>
 
-                  <div class="swiper-slide">
-                      <div class="box">
-                          <i class="fa fa-plane slideIcon"></i>
-                          <h3>2. حجز رحلات طيرات</h3>
-                          <ul class="serviceFeatures">
+                <div class="swiper-slide">
+                    <div class="box">
+                        <i class="fa fa-plane slideIcon"></i>
+                        <h3>2. حجز رحلات طيرات</h3>
+                        <ul class="serviceFeatures">
                             <li>قارن بين عروض شركات الطيران المختلفة.</li>
                             <li>احجز رحلاتك الداخلية بأسعار تنافسية.</li>
                             <li> بخيارات مرنة لتغيير موعد رحلتك أو إلغائها.</li>
-                            <li>  دعم سريع وفعال من فريق خدمة العملاء.</li>
-                          </ul>
-                      </div>
+                            <li> دعم سريع وفعال من فريق خدمة العملاء.</li>
+                        </ul>
                     </div>
+                </div>
 
-                    <div class="swiper-slide">
-                      <div class="box">
-                          <i class="fas fa-torii-gate slideIcon"></i>
-                          <h3>3. تنظيم الرحلات الترفيهية</h3>
-                          <ul class="serviceFeatures">
+                <div class="swiper-slide">
+                    <div class="box">
+                        <i class="fas fa-torii-gate slideIcon"></i>
+                        <h3>3. تنظيم الرحلات الترفيهية</h3>
+                        <ul class="serviceFeatures">
                             <li>استمتع بخدمات تخطيط الرحلات المخصصة.</li>
                             <li>أنشئ خط سير مثالي يناسب احتياجاتك وميزانيتك.</li>
                             <li>اقتراحات لأفضل الأماكن للزيارة والأنشطة.</li>
                             <li>استمتع بتجربة سفر سلسة وخالية من المتاعب.</li>
-                          </ul>
-                          
-                        </div>
-                      </div>
-                      
-                      <div class="swiper-slide">
-                        <div class="box">
-                          
-                          <i class="fa fa-taxi slideIcon"></i>
-                          <h3>4. خدمات إضافية</h3>
-                          <ul class="serviceFeatures">
-                          <li>تأجير سيارات حديثة بأسعار مناسبة.</li>
-                          <li>حجز طاولات في أفضل المطاعم المصرية.</li>
-                          <li>جولات سياحية غنية بالمغامرة .</li>
-                          <li>دعم سريع وفعال من فريق خدمة العملاء.</li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-                <div class="swiper-pagination"></div>
+                        </ul>
 
-              <!-- If we need navigation buttons -->
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-          </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="box">
+
+                        <i class="fa fa-taxi slideIcon"></i>
+                        <h3>4. خدمات إضافية</h3>
+                        <ul class="serviceFeatures">
+                            <li>تأجير سيارات حديثة بأسعار مناسبة.</li>
+                            <li>حجز طاولات في أفضل المطاعم المصرية.</li>
+                            <li>جولات سياحية غنية بالمغامرة .</li>
+                            <li>دعم سريع وفعال من فريق خدمة العملاء.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </section>
     <!---End Of Reviews------>
 
     <!---Footer------>
     <section class="footer pt-5">
         <div class="container">
-          <div class="row">
-            <div class="col col-6">
-                <h4 class="text-light">ماذا عنا</h4>
-                <span class="text">السياحة في مصر تجربة ساحرة ومجزية تقدم مزيجًا من عجائب الماضي القديم والانغماس في الثقافة والجمال الطبيعي. كإحدى أقدم الوجهات السياحية في العالم، تتمتع مصر بتاريخ عريق لا يزال يشد انتباه المسافرين من جميع أنحاء العالم.</span>
-                <h4 class="text-light">من نحن</h4>
-                <span class="text">نحن في <b>TRIPVUM</b> نؤمن بأن السفر هو أكثر من مجرد رحلة، بل هو تجربة غنية واكتشاف لثقافات جديدة وفرصة لبناء ذكريات لا تُنسى.لذا، نسعى جاهدين لتقديم خدمات سياحية متكاملة تلبي احتياجاتك وتُحقق لك رحلة استثنائية في مصر.</span>
-              
-                
-              <h4 class="text-light text-center">تابعنا</h4>
-              <div class="social">
-                <a href=""><i class="fa-brands fa-facebook fa-2x"></i></a>
-                <a href=""><i class="fa-brands fa-square-instagram fa-2x"></i></a>
-                <a href=""><i class="fa-brands fa-linkedin fa-2x"></i></a>
-                <a href=""><i class="fa-brands fa-youtube fa-2x"></i></a>
-                <a href=""><i class="fa-brands fa-square-whatsapp fa-2x"></i></a>
-              </div>
-              
-            </div>
-            <div class="col col-3">
-              
-                <h4 class="text-light text-center">الفروع</h4>
-                <a class="text-center" href="#">القاهرة</a>
-                <a class="text-center" href="#">أسوان</a>
-                <a class="text-center" href="#">الاسكندرية</a>
-                <a class="text-center" href="#">سيناء</a>
-                <a class="text-center" href="#">شرم الشيخ</a>
-                <a class="text-center" href="#">الغردقة</a>
-              
-            </div>
-            <div class="col col-3">
-              
-                <h4 class="text-light text-center">روابط سريعة</h4>
+            <div class="row">
+                <div class="col col-6">
+                    <h4 class="text-light">ماذا عنا</h4>
+                    <span class="text">السياحة في مصر تجربة ساحرة ومجزية تقدم مزيجًا من عجائب الماضي القديم والانغماس في
+                        الثقافة والجمال الطبيعي. كإحدى أقدم الوجهات السياحية في العالم، تتمتع مصر بتاريخ عريق لا يزال
+                        يشد انتباه المسافرين من جميع أنحاء العالم.</span>
+                    <h4 class="text-light">من نحن</h4>
+                    <span class="text">نحن في <b>TRIPVUM</b> نؤمن بأن السفر هو أكثر من مجرد رحلة، بل هو تجربة غنية
+                        واكتشاف لثقافات جديدة وفرصة لبناء ذكريات لا تُنسى.لذا، نسعى جاهدين لتقديم خدمات سياحية متكاملة
+                        تلبي احتياجاتك وتُحقق لك رحلة استثنائية في مصر.</span>
 
-                <a class="text-center" href="#">الرئيسية</a>
-                <a class="text-center" href="#">الحجز</a>
-                <a class="text-center" href="#">الرحلات</a>
-                <a class="text-center" href="#">إقامة</a>
-                <a class="text-center" href="#">طيران</a>
-                <a class="text-center" href="#">اتصل بنا</a>
-             
+
+                    <h4 class="text-light text-center">تابعنا</h4>
+                    <div class="social">
+                        <a href=""><i class="fa-brands fa-facebook fa-2x"></i></a>
+                        <a href=""><i class="fa-brands fa-square-instagram fa-2x"></i></a>
+                        <a href=""><i class="fa-brands fa-linkedin fa-2x"></i></a>
+                        <a href=""><i class="fa-brands fa-youtube fa-2x"></i></a>
+                        <a href=""><i class="fa-brands fa-square-whatsapp fa-2x"></i></a>
+                    </div>
+
+                </div>
+                <div class="col col-3">
+
+                    <h4 class="text-light text-center">الفروع</h4>
+                    <a class="text-center" href="#">القاهرة</a>
+                    <a class="text-center" href="#">أسوان</a>
+                    <a class="text-center" href="#">الاسكندرية</a>
+                    <a class="text-center" href="#">سيناء</a>
+                    <a class="text-center" href="#">شرم الشيخ</a>
+                    <a class="text-center" href="#">الغردقة</a>
+
+                </div>
+                <div class="col col-3">
+
+                    <h4 class="text-light text-center">روابط سريعة</h4>
+
+                    <a class="text-center" href="#">الرئيسية</a>
+                    <a class="text-center" href="#">الحجز</a>
+                    <a class="text-center" href="#">الرحلات</a>
+                    <a class="text-center" href="#">إقامة</a>
+                    <a class="text-center" href="#">طيران</a>
+                    <a class="text-center" href="#">اتصل بنا</a>
+
+                </div>
+
             </div>
-            
-          </div>
         </div>
         <h4 class="text-center text-light pb-5">تم بواسطة <span> فريق TRIPVUM </span> كل الحقوق محفوظة</h4>
     </section>
@@ -593,181 +639,198 @@
     <!-- Modals -->
     <!-- Login Form -->
     <div class="modal fade" id="loginFormModal" tabindex="-1" aria-labelledby="loginFormLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-         
-          <div class="modal-header p-1 px-3">
-            <h3 class="modal-title" id="loginFormLabel">تسجيل الدخول</h3>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="input-group mb-2">
-              <label for="login-email" class="input-group-text">اسم المستخدم: </label>
-              <input class="form-control" type="email" id="login-email">
-            </div>
-            <div class="input-group mb-2">
-              <label for="password" class="input-group-text">كلمة المرور: </label>
-              <input class="form-control" type="password" id="password">
-            </div>
-                    
-            <div class="input-group mb-2" dir="rtl">
-              <label class="input-group-text" for="">
-                <input type="checkbox" id="btn-check" autocomplete="off">
-              </label>
-            <label class="input-group-text" for="btn-check">تذكرنى</label>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header p-1 px-3">
+                    <h3 class="modal-title" id="loginFormLabel">تسجيل الدخول</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="connect.php" method="POST">
+                    <div class="modal-body">
+                        <div class="input-group mb-2">
+                            <label for="login-email" class="input-group-text">اسم المستخدم: </label>
+                            <input class="form-control" type="email" id="login-email">
+                        </div>
+                        <div class="input-group mb-2">
+                            <label for="password" class="input-group-text">كلمة المرور: </label>
+                            <input class="form-control" type="password" id="password">
+                        </div>
 
-            </div>
-            
-            <div class="input-group row m-auto">
-              <button type="button" class="btn btn-m btn-outline-secondary col-6" data-bs-dismiss="modal">الغاء</button>
-              <button type="button" id="submitLogin" class="btn btn-m btn-outline-primary col-6">تسجيل الدخول</button>
+                        <div class="input-group mb-2" dir="rtl">
+                            <label class="input-group-text" for="">
+                                <input type="checkbox" id="btn-check" autocomplete="off">
+                            </label>
+                            <label class="input-group-text" for="btn-check">تذكرنى</label>
+
+                        </div>
+
+                        <div class="input-group row m-auto">
+                            <button type="button" class="btn btn-m btn-outline-secondary col-6"
+                                data-bs-dismiss="modal">الغاء</button>
+                            <button type="submit" id="submitLogin" class="btn btn-m btn-outline-primary col-6">تسجيل
+                                الدخول</button>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="modal-footer py-1 px-3">
+                    <p>نسيت كلمة المرور؟ <a href="./reset.password.html">احصل على كلمة مرور جديدة</a></p>
+                    <p>ليس لديك حساب؟ يمكنك
+                        <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#registerModal">
+                            التسجيل
+                        </button> فى الموقع.
+                    </p>
+                    <p></p>
+                </div>
             </div>
 
-          </div>
-          <div class="modal-footer py-1 px-3">
-            <p>نسيت كلمة المرور؟ <a href="./reset.password.html">احصل على كلمة مرور جديدة</a></p>
-            <p>ليس لديك حساب؟ يمكنك  
-              <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">
-                  التسجيل
-                </button> فى الموقع.
-            </p>
-            <p></p>
-          </div>
         </div>
-        
-      </div>
     </div>
 
     <!-- Register Form -->
     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-         
-          <div class="modal-header p-1 px-3">
-            <h3 class="modal-title" id="registerModalLabel">تسجيل حساب جديد</h3>
-            <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times text-light"></i></button>
-          </div>
-          <div class="modal-body">
-            <div id="register-form">
-                <div class="input-group mb-2">
-                    <label for="username" class="input-group-text">اسم المستخدم:</label>
-                    <input type="text" id="reg_username" placeholder="محمد أحمد" class="form-control">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header p-1 px-3">
+                    <h3 class="modal-title" id="registerModalLabel">تسجيل حساب جديد</h3>
+                    <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="fa fa-times text-light"></i></button>
                 </div>
-                <div class="input-group mb-2">
-                    <label for="email" class="input-group-text">البريد الالكتروني:</label>
-                    <input type="email" id="reg_email" placeholder="abcd@website.ext" class="form-control">
-                </div>
-                <div class="input-group mb-2">
-                    <label for="password" class="input-group-text">كلمة المرور:</label>
-                    <input type="password" id="reg_password" placeholder="كلمة المرور" class="form-control">
-                    <input type="password" id="reg_cPassword" placeholder="تأكيد كلمة المرور" class="form-control">
-                </div>
-                <div class="input-group row m-auto">
-                  <button type="button" class="btn btn-m btn-outline-secondary col-6" data-bs-dismiss="modal">الغاء</button>
-                  <button type="submit" id="submit-register" class="btn btn-m btn-outline-primary col-6"><span class="ss">التسجيل</span></button>
+                <form action="sign.php" method="POST">
+                    <div class="modal-body">
+                        <div id="register-form">
+                            <div class="input-group mb-2">
+                                <label for="username" class="input-group-text">اسم المستخدم:</label>
+                                <input type="text" name="reg_username" id="reg_username" placeholder="محمد أحمد"
+                                    class="form-control">
+                            </div>
+                            <div class="input-group mb-2">
+                                <label for="email" class="input-group-text">البريد الالكتروني:</label>
+                                <input type="email" name="reg_email" id="reg_email" placeholder="abcd@website.ext"
+                                    class="form-control">
+                            </div>
+                            <div class="input-group mb-2">
+                                <label for="password" class="input-group-text">كلمة المرور:</label>
+                                <input type="password" name="regPassword" id="reg_password" placeholder="كلمة المرور"
+                                    class="form-control">
+                                <input type="password" name="regCPassword id=" reg_cPassword"
+                                    placeholder="تأكيد كلمة المرور" class="form-control">
+                            </div>
+                            <div class="input-group row m-auto">
+                                <button type="button" class="btn btn-m btn-outline-secondary col-6"
+                                    data-bs-dismiss="modal">الغاء</button>
+                                <button type="submit" id="submit-register"
+                                    class="btn btn-m btn-outline-primary col-6"><span class="ss">التسجيل</span></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="modal-footer py-1 px-3">
+                    <p>لديك حساب مسجل بالفعل؟ &nbsp;
+                        <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#loginFormModal">
+                            تسجيل الدخول
+                        </button>
+                    </p>
+                    <p></p>
                 </div>
             </div>
-
-          </div>
-          <div class="modal-footer py-1 px-3">
-            <p>لديك حساب مسجل بالفعل؟ &nbsp; 
-              <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#loginFormModal">
-                تسجيل الدخول
-              </button></p>
-            <p></p>
-          </div>
         </div>
-      </div>
     </div>
-<button type="button" class="btn btn-primary hidden" id="liveToastBtn">Show live toast</button>
+    <button type="button" class="btn btn-primary hidden" id="liveToastBtn">Show live toast</button>
 
     <!-- alerts -->
     <div class="toast-container position-fixed bottom-0 start-0 p-3">
-      <div id="liveToast"  style="z-index: 99999;" class="toast registerError" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <span class="rounded me-2 bg-primary"></span>
-          <strong class="me-auto">موقع TRIPVUM</strong>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
+        <div id="liveToast" style="z-index: 99999;" class="toast registerError" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-header">
+                <span class="rounded me-2 bg-primary"></span>
+                <strong class="me-auto">موقع TRIPVUM</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
 
-        <div class="toast-body">
-          <div id="errMessage">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, obcaecati quos. Consequatur.
-          </div>
-          <!-- <div class="mt-2 pt-2 border-top">
+            <div class="toast-body">
+                <div id="errMessage">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, obcaecati quos. Consequatur.
+                </div>
+                <!-- <div class="mt-2 pt-2 border-top">
             <button type="button" class="btn btn-primary btn-sm">Take action</button>
             <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
           </div> -->
+            </div>
         </div>
-      </div>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script
-			  src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+
     <script src="./js/hotels.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/register.js"></script>
     <script src="./js/data.js"></script>
 
     <script>
-      
-      airports.forEach ((ap)=>{
+    airports.forEach((ap) => {
         $('#departure').append(`<option value="${ap.id}">${ap.name}</option>`)
         $('#destination').append(`<option value="${ap.id}">${ap.name}</option>`)
-      })
+    })
 
-      $('#departure').on('change', () => {
-        const remainingAirports = airports.filter((ap)=>{
-          return ap.id != $('#departure').val();
+    $('#departure').on('change', () => {
+        const remainingAirports = airports.filter((ap) => {
+            return ap.id != $('#departure').val();
         })
-        
+
         $('#destination').html('')
-        remainingAirports.forEach ((ap)=>{
-          $('#destination').append(`<option value="${ap.id}">${ap.name}</option>`)
+        remainingAirports.forEach((ap) => {
+            $('#destination').append(`<option value="${ap.id}">${ap.name}</option>`)
         })
-      })
+    })
 
-      $('#destination').on('change', () => {
-        const remainingAirports = airports.filter((ap)=>{
-          return ap.id != $('#destination').val();
+    $('#destination').on('change', () => {
+        const remainingAirports = airports.filter((ap) => {
+            return ap.id != $('#destination').val();
         })
-        
+
         $('#departure').html('')
-        remainingAirports.forEach ((ap)=>{
-          $('#departure').append(`<option value="${ap.id}">${ap.name}</option>`)
+        remainingAirports.forEach((ap) => {
+            $('#departure').append(`<option value="${ap.id}">${ap.name}</option>`)
         })
-      })
+    })
 
-      var swiper = new Swiper(".review-slider", {
+    var swiper = new Swiper(".review-slider", {
         spaceBetween: 20,
         loop: true,
         autoplay: {
-          delay: 2500,
+            delay: 2500,
         },
         breakpoints: {
-          640: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
+            640: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
         },
-      });
-    
-      let hotels = [...Hotels]
-      // Hotels to be rendered in homepage
-      const hpHotels = [1,6, 7, 10,13, 15, 17, 19, 22, 21, 26, 28, 30, 36, 38]
-      
-      const generatedHotelsContent = hotels.map((hotel)=> {
-        if (hpHotels.indexOf(hotel.id)>-1){
-          let box = 
-          `<div class="box">
+    });
+
+    let hotels = [...Hotels]
+    // Hotels to be rendered in homepage
+    const hpHotels = [1, 6, 7, 10, 13, 15, 17, 19, 22, 21, 26, 28, 30, 36, 38]
+
+    const generatedHotelsContent = hotels.map((hotel) => {
+        if (hpHotels.indexOf(hotel.id) > -1) {
+            let box =
+                `<div class="box">
             
             <img src=".${hotel.cover}" alt="">
             <div class="content position-relative" style="height: 235px" >
@@ -777,13 +840,13 @@
               <a href="/pages/hotel.html?id=${hotel.id}" class="btn btn-outline-success" style="position: absolute; bottom: 1.2rem; left: 1rem; right: 1rem">المزيد ..... </a>
               </div>
           </div>`
-          return box
+            return box
         }
-      });
+    });
 
-      const greneratedTripsContent = tripCities.map(city=> {
-        const hotels = city.hotels.map((hotel, i)=>{
-          return ` <span class="badge text-bg-primary">${hotel}</span>`
+    const greneratedTripsContent = tripCities.map(city => {
+        const hotels = city.hotels.map((hotel, i) => {
+            return ` <span class="badge text-bg-primary">${hotel}</span>`
         })
         return (`
           <div class="box" style="position:relative">
@@ -806,12 +869,13 @@
                 </div>
             </div>
         `)
-      })
+    })
 
-      console.log(greneratedTripsContent)
-      $('#hotel-contents').html(generatedHotelsContent)
-      $('#trip-contents').html(greneratedTripsContent)
+    console.log(greneratedTripsContent)
+    $('#hotel-contents').html(generatedHotelsContent)
+    $('#trip-contents').html(greneratedTripsContent)
     </script>
 
-  </body>
+</body>
+
 </html>

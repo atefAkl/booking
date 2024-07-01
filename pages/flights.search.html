@@ -19,7 +19,7 @@
     <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" data-bs-toggle="tooltip" title="موقع حجز رحلات الطيران الداخلى" href="/index.html">
+          <a class="navbar-brand" data-bs-toggle="tooltip" title="موقع حجز رحلات الطيران الداخلى" href="/index.php">
             <img class="d-block" src="../images/icon.png" height="40" alt="">
             <img class="d-block" src="../images/tripvum.png" height="12" alt="">
           </a>
@@ -29,7 +29,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/#home">
+                <a class="nav-link active" aria-current="page" href="/index.php#home">
                   <i class="fa fa-home"></i> &nbsp; الرئيسية</a>
               </li>
               <li class="nav-item">
@@ -555,9 +555,7 @@
         return shuffledArray;
       }
       const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
       ////////////////////////////////////////
-
 
       const rendered_results = (flights) => {
         const res = flights.map ((flight, i)=>{
@@ -631,7 +629,6 @@
 
       $('#search-result').html(rendered_results(flights))
 
-
       function htmlEl(name, text, attr) {
         let el = document.createElement(name)
         el.innerHTML = text
@@ -640,9 +637,7 @@
         }
         return el
       }
-
       const regUser = JSON.parse(localStorage.getItem('reg_user'))
-
 
       $('.flight-more-info').on('click', function (e) {
         $('body').addClass('freeze');

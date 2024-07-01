@@ -80,7 +80,7 @@ $('#submitLogin').on('click', function () {
     const registered = users.find((u)=>{
         return u.email == $('#login-email').val() && u.password == $('#password').val()
     })
-    console.log($('#login-email').val(),$('#password').val())
+    //console.log($('#login-email').val(),$('#password').val())
     if (undefined != registered) {
         const loginTime = new Date().toLocaleString('en-EG')
         const reg_user = {
@@ -93,7 +93,7 @@ $('#submitLogin').on('click', function () {
         // localStorage.setItem('username', registered.username)
         // localStorage.setItem('email', registered.email)
         // localStorage.setItem('login_time', now)
-        console.log(reg_user)
+        //console.log(reg_user)
         $('#errMessage').html('مرحبا بك '+registered.username+' مرة أخرى، تم تسجيل دخولك بنجاح.')
         $('#liveToastBtn').click()
     
